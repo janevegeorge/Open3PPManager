@@ -1,18 +1,13 @@
 package me.janeve.oss.ofoss.entities;
 
-import org.springframework.data.annotation.Id;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.data.mongodb.core.mapping.DBRef;
-import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "project_releases")
+import java.util.List;
+
+@Getter @Setter
 public class ProjectReleases {
-
-    @Id
-    private String id;
-
-    @DBRef
-    Project project;
-
-
-
+    private String version;
+    @DBRef private List<Library> libraries;
 }
