@@ -18,6 +18,25 @@
                         <h5 class="card-title"><div th:text="${project.name}"></div></h5>
                         <p class="card-text"><div th:text="${project.description}"></div></p>
                     </div>
+                    <div th:unless="${projects!=null and !projects.empty}">
+                        No projects found! Add a new project to see it here.
+                    </div>
+                    <div th:if="${projects!=null and !projects.empty}">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>Project Name</th>
+                                <th>Owner</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="project: ${projects}">
+                                <td><a href="#" th:href="@{/projects/{id}(id=${project.id})}"><div th:text="${project.name}"></div></a></td>
+                                <td th:text="${project.owner.fname}+' '+${project.owner.lname}+'('+${project.owner.username}+')'">Owner Name</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
