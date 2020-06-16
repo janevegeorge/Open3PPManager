@@ -8,7 +8,7 @@
     </head>
     <body>
         <div class="container">
-            <h2>Open FOSS Manager | New Projects</h2>
+            <h2>Open FOSS Manager | Projects</h2>
             <a class="btn btn-primary" th:href="@{/projects/new}">New Project</a>
             <form action="/new" class="form-horizontal" method="post" th:action="@{/projects/new}">
                 <div class="form-group">
@@ -19,7 +19,7 @@
                     <label for="owner">Owner:</label>
                     <input type="text" class="form-control" id="owner" name="owner">
                 </div>
-                <button type="submit" class="btn btn-default">Submit</button>
+                <button type="submit" class="btn btn-primary btn-sm">Submit</button>
             </form>
         </div>
     </body>

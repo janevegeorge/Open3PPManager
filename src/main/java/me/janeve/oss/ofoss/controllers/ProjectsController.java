@@ -24,11 +24,6 @@ public class ProjectsController {
     @Autowired
     private ProjectRepository repository;
 
-    @GetMapping("/new")
-    public String newProjectForm() {
-        return "projects/edit";
-    }
-
     @PostMapping("/new")
     public String createNewProject(Model model, Project project) {
         logger.info("Adding : " + project.toString());
@@ -41,6 +36,11 @@ public class ProjectsController {
         model.addAttribute("appName", appName);
         model.addAttribute("projects", repository.findAll());
         return "projects/list";
+    }
+
+    @GetMapping("/new")
+    public String newProjectForm() {
+        return "projects/new";
     }
 
 }
