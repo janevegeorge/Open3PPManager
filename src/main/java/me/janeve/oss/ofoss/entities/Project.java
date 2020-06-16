@@ -1,6 +1,7 @@
 package me.janeve.oss.ofoss.entities;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "projects")
@@ -9,12 +10,10 @@ public class Project {
     @Id
     private String id;
     private String name;
-    private String owner;
+    private String description;
 
-    public Project(String name, String owner) {
-        this.name = name;
-        this.owner = owner;
-    }
+    @DBRef
+    private User owner;
 
     public String getId() {
         return id;
@@ -32,16 +31,24 @@ public class Project {
         this.name = name;
     }
 
-    public String getOwner() {
+    public User getOwner() {
         return owner;
     }
 
-    public void setOwner(String owner) {
+    public void setOwner(User owner) {
         this.owner = owner;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     @Override
     public String toString() {
-        return String.format("Project[id=%s, name='%s']",id, name);
+        return String.format("Project[id=%s, name='%s', \nowner='%s']",id, name, owner);
     }
 }
