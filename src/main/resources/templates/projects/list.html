@@ -8,10 +8,7 @@
     </head>
     <body>
         <div class="container">
-            <h2>Open FOSS Manager | Projects</h2>
-            <div>
-                <a class="btn btn-primary" th:href="@{/projects/new}">New Project</a>
-            </div>
+            <div th:replace="/fragments/navbar.html :: nav"></div>
             <div th:unless="${projects!=null and !projects.empty}">
                 No projects found! Add a new project to see it here.
             </div>

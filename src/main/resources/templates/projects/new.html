@@ -8,8 +8,7 @@
     </head>
     <body>
         <div class="container">
-            <h2>Open FOSS Manager | Projects</h2>
-            <a class="btn btn-primary" th:href="@{/projects/new}">New Project</a>
+            <div th:replace="/fragments/navbar.html :: nav"></div>
             <form action="/new" class="form-horizontal" method="post" th:action="@{/projects/new}">
                 <div class="form-group">
                     <label for="name">Project Name:</label>
