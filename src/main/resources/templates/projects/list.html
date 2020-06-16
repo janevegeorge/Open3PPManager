@@ -21,7 +21,7 @@
                     </thead>
                     <tbody>
                         <tr th:each="project: ${projects}">
-                            <td th:text="${project.name}"><a>Project Name</a></td>
+                            <td><a href="#" th:href="@{/projects/{id}(id=${project.id})}"><div th:text="${project.name}"></div></a></td>
                             <td th:text="${project.owner}">Owner Name</td>
                         </tr>
                     </tbody>
