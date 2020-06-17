@@ -7,6 +7,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,7 +22,7 @@ import java.util.Optional;
 public class ProjectsController extends BaseController {
 
     @PostMapping("/new")
-    public String createNewProject(Model model, Project project) {
+    public String createNewProject(Model model, @Validated Project project) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         if(auth.isAuthenticated()) {
             User authenticatedUser = userRepository.findByUsername(auth.getName());
@@ -51,7 +52,7 @@ public class ProjectsController extends BaseController {
     }
 
     @PostMapping("/{projectId}/releases/new")
-    public String createNewProjectRelease(Model model, @PathVariable String projectId, ProjectRelease release) {
+    public String createNewProjectRelease(Model model, @PathVariable String projectId, @Validated ProjectRelease release) {
         Project project = findProject(projectId);
         List<ProjectRelease> releases = project.getReleases();
         if(releases == null) {

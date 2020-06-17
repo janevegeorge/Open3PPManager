@@ -7,11 +7,13 @@ import lombok.ToString;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import javax.validation.constraints.NotBlank;
+
 @Getter @Setter
 @Document(collection = "3pp_libraries")
 public class Library {
     @Id @ToString.Include private String id;
-    @NonNull @ToString.Include private String name;
+    @NotBlank @ToString.Include private String name;
     private SoftwareData softwareData;
     private TradeCompliance tradeCompliance;
 }

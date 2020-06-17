@@ -6,6 +6,7 @@ import me.janeve.oss.o3ppm.entities.LibraryVersion;
 import me.janeve.oss.o3ppm.entities.ProjectRelease;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,7 +31,7 @@ public class ThirdPartyProductsLibrariesController extends BaseController {
     }
 
     @PostMapping("/new/standalone")
-    public String create3PPLibrary(LibraryVersion standaloneDependency) {
+    public String create3PPLibrary(@Validated LibraryVersion standaloneDependency) {
         logger.info("Standalone Dependency: " + standaloneDependency);
         Library library = standaloneDependency.getLibrary();
         library = libraryRepository.save(library);
@@ -40,7 +41,7 @@ public class ThirdPartyProductsLibrariesController extends BaseController {
     }
 
     @PostMapping("/new")
-    public String create3PPLibrary(@RequestParam String projectId, @RequestParam String version, LibraryVersion dependency) {
+    public String create3PPLibrary(@RequestParam String projectId, @RequestParam String version, @Validated LibraryVersion dependency) {
 
         logger.info("Dependency: " + dependency);
 

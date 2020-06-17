@@ -15,7 +15,7 @@
                 <div class="card">
                     <h5 class="card-header">Project Release Details</h5>
                     <div class="card-body">
-                        <h5 class="card-title"><div th:text="${project.name}"></div></h5>
+                        <h5 class="card-title"><a href="#" th:href="@{/projects/{id}(id=${project.id})}" th:text="${project.name}"></a></h5>
                         <h6 class="card-subtitle mb-2 text-muted"><div th:text="${release.version}"></div></h6>
                         <p class="card-text"><div th:text="${project.description}"></div></p>
                     </div>
@@ -85,5 +85,6 @@
                 </div>
             </div>
         </div>
+        <div th:replace="/fragments/footer.html :: footer"></div>
     </body>
 </html>
