@@ -2,6 +2,7 @@ package me.janeve.oss.o3ppm.controllers;
 
 import me.janeve.oss.o3ppm.entities.Library;
 import me.janeve.oss.o3ppm.entities.Project;
+import me.janeve.oss.o3ppm.entities.ProjectLibraryDependency;
 import me.janeve.oss.o3ppm.entities.ProjectRelease;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,19 +23,31 @@ public class ThirdPartyProductsLibrariesController extends BaseController {
     }
 
     @PostMapping("/new")
-    public String create3PPLibrary(@RequestParam String projectId, @RequestParam String version, Library library) {
+    public String create3PPLibrary(@RequestParam String projectId, @RequestParam String version, ProjectLibraryDependency dependency) {
+
+        logger.info("Dependency: " + dependency);
+
+        if(dependency.getLibrary().getName().trim().isEmpty() || dependency.getLibraryVersion().trim().isEmpty()) {
+            throw new RuntimeException("Invalid library name or version.");
+        }
+
         Project project = findProject(projectId);
         ProjectRelease projectRelease = getProjectRelease(project, version);
 
-        logger.info("New Library " + library);
-        List<Library> projectReleaseLibraries = projectRelease.getLibraries();
-        if(projectReleaseLibraries == null) {
-            projectReleaseLibraries = new ArrayList<>();
+        logger.info("New Library Dependency " + dependency);
+        List<ProjectLibraryDependency> projectReleaseDependencies = projectRelease.getDependencies();
+        if(projectReleaseDependencies == null) {
+            projectReleaseDependencies = new ArrayList<>();
         }
 
+        Library library = dependency.getLibrary();
         library = libraryRepository.save(library);
-        projectReleaseLibraries.add(library);
-        projectRelease.setLibraries(projectReleaseLibraries);
+        dependency.setLibrary(library);
+
+        dependency = projectDependencyRepository.insert(dependency);
+
+        projectReleaseDependencies.add(dependency);
+        projectRelease.setDependencies(projectReleaseDependencies);
 
         projectRepository.save(project);
 

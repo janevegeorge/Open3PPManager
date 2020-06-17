@@ -10,6 +10,5 @@ public class SoftwareData {
     private String vendor;
     private String downloadUrl;
     private SoftwareType softwareType;
-    private String softwareVersion;
     private String platform;
 }

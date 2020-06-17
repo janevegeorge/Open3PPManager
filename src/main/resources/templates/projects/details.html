@@ -52,10 +52,10 @@
                                 <td><a href="#" th:href="@{/projects/{pid}/releases/{vid}(pid=${project.id}, vid=${release.baseVersion})}"><div th:text="${release.baseVersion}"></div></a></td>
                                 <td>
                                     <a href="#" th:href="@{/projects/{pid}/releases/{vid}(pid=${project.id}, vid=${release.version})}">
-                                        <div th:if="${release.libraries!=null}">
-                                            <div th:text="${#lists.size(release.libraries) + (#lists.size(release.libraries) == 1? ' library':' libraries')}"></div>
+                                        <div th:if="${release.dependencies!=null}">
+                                            <div th:text="${#lists.size(release.dependencies) + (#lists.size(release.dependencies) == 1? ' library':' libraries')}"></div>
                                         </div>
-                                        <div th:unless="${release.libraries!=null}">
+                                        <div th:unless="${release.dependencies!=null}">
                                             0 libraries
                                         </div>
                                     </a>

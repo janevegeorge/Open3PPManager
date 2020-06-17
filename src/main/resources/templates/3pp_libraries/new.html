@@ -15,29 +15,29 @@
                             <input type="hidden" id="projectId" name="projectId" th:value="${projectId}">
                             <input type="hidden" id="version" name="version" th:value="${releaseVersion}">
                         </div>
-                        <input type="text" class="form-control" id="name" name="name" placeholder="3PP Library Name">
+                        <input type="text" class="form-control" id="library.name" name="library.name" placeholder="3PP Library Name">
                     </div>
                 </div>
-                <div class="card" style="background-color:#f9c49a;">
+                <div class="card" style="background-color:#FEE5BB;">
                     <h5 class="card-header">Software Data</h5>
                     <div class="card-body">
                         <div class="row mb-2">
-                            <div class="col"><input type="text" class="form-control" id="softwareData.vendor" name="softwareData.vendor" placeholder="Vendor Name"></div>
-                            <div class="col"><input type="text" class="form-control" id="softwareData.downloadUrl" name="softwareData.downloadUrl" placeholder="Download URL"></div>
+                            <div class="col"><input type="text" class="form-control" id="library.softwareData.vendor" name="library.softwareData.vendor" placeholder="Vendor Name"></div>
+                            <div class="col"><input type="text" class="form-control" id="library.softwareData.downloadUrl" name="library.softwareData.downloadUrl" placeholder="Download URL"></div>
                         </div>
                         <div class="row">
                             <div class="col">
-                                <select class="form-control" name="softwareData.softwareType" id="softwareData.softwareType">
+                                <select class="form-control" name="library.softwareData.softwareType" id="library.softwareData.softwareType">
                                     <option selected>Choose Software Type...</option>
                                     <option th:each="softwareType : ${T(me.janeve.oss.o3ppm.entities.SoftwareType).values()}"
                                             th:value="${softwareType.name()}" th:text="${softwareType.displayName}"></option>
                                 </select>
                             </div>
                             <div class="col">
-                                <input type="text" class="form-control" id="softwareData.softwareVersion" name="softwareData.softwareVersion" placeholder="Version">
+                                <input type="text" class="form-control" id="libraryVersion" name="libraryVersion" placeholder="Version">
                             </div>
                             <div class="col">
-                                <input type="text" class="form-control" id="softwareData.platform" name="softwareData.platform" placeholder="OS Platform">
+                                <input type="text" class="form-control" id="library.softwareData.platform" name="library.softwareData.platform" placeholder="OS Platform">
                             </div>
                         </div>
                     </div>
@@ -46,13 +46,13 @@
                     <h5 class="card-header">Trade Compliance</h5>
                     <div class="card-body">
                         <div class="row mb-2">
-                            <div class="col"><input type="text" class="form-control" id="tradeCompliance.countryCode" name="tradeCompliance.countryCode" placeholder="ISO 3166 Country Code"></div>
-                            <div class="col"><input type="text" class="form-control" id="tradeCompliance.euECCN" name="tradeCompliance.euECCN" placeholder="EU ECCN No."></div>
-                            <div class="col"><input type="text" class="form-control" id="tradeCompliance.usECCN" name="tradeCompliance.usECCN" placeholder="US ECCN No."></div>
-                            <div class="col"><input type="text" class="form-control" id="tradeCompliance.bisAuthority" name="tradeCompliance.bisAuthority" placeholder="BIS Authorization"></div>
+                            <div class="col"><input type="text" class="form-control" id="library.tradeCompliance.countryCode" name="library.tradeCompliance.countryCode" placeholder="ISO 3166 Country Code"></div>
+                            <div class="col"><input type="text" class="form-control" id="library.tradeCompliance.euECCN" name="library.tradeCompliance.euECCN" placeholder="EU ECCN No."></div>
+                            <div class="col"><input type="text" class="form-control" id="library.tradeCompliance.usECCN" name="library.tradeCompliance.usECCN" placeholder="US ECCN No."></div>
+                            <div class="col"><input type="text" class="form-control" id="library.tradeCompliance.bisAuthorization" name="library.tradeCompliance.bisAuthorization" placeholder="BIS Authorization"></div>
                         </div>
                         <div class="row">
-                            <div class="col"><input type="text" class="form-control" id="tradeCompliance.encryptionProtocol" name="tradeCompliance.encryptionProtocol" placeholder="Encryption Protocol"></div>
+                            <div class="col"><input type="text" class="form-control" id="library.tradeCompliance.encryptionProtocol" name="library.tradeCompliance.encryptionProtocol" placeholder="Encryption Protocol"></div>
                         </div>
                     </div>
                 </div>

@@ -20,7 +20,7 @@
                         <p class="card-text"><div th:text="${project.description}"></div></p>
                     </div>
                     <button type="button" class="btn btn-primary btn-sm mb-2" data-toggle="modal" data-target="#new3ppLibrary">
-                        Add New 3PP Library
+                        Add 3PP Dependency
                     </button>
                     <!-- Modal -->
                     <div class="modal fade" id="new3ppLibrary" tabindex="-1" role="dialog" aria-labelledby="new3ppLibraryLabel" aria-hidden="true">
@@ -35,10 +35,10 @@
                             </div>
                         </div>
                     </div>
-                    <div th:unless="${release.libraries!=null and !release.libraries.empty}">
+                    <div th:unless="${release.dependencies!=null and !release.dependencies.empty}">
                         No 3PP libraries added! Add a 3PP library to see it here.
                     </div>
-                    <div th:if="${release.libraries!=null and !release.libraries.empty}">
+                    <div th:if="${release.dependencies!=null and !release.dependencies.empty}">
 
                         <div style="overflow-x:auto;">
                             <table class="table table-bordered small">
@@ -63,20 +63,20 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                    <tr th:each="library: ${release.libraries}">
-                                        <td th:text="${library.name}">Name</td>
+                                    <tr th:each="dependency: ${release.dependencies}">
+                                        <td th:text="${dependency.library?.name}">Name</td>
 
-                                        <td th:text="${library.softwareData?.vendor}" bgcolor="#f9c49a">vendor</td>
-                                        <td th:text="${library.softwareData?.downloadUrl}" bgcolor="#f9c49a">downloadUrl</td>
-                                        <td th:text="${library.softwareData?.softwareType?.displayName}" bgcolor="#f9c49a">softwareType</td>
-                                        <td th:text="${library.softwareData?.softwareVersion}" bgcolor="#f9c49a">softwareVersion</td>
-                                        <td th:text="${library.softwareData?.platform}" bgcolor="#f9c49a">Platform</td>
+                                        <td th:text="${dependency.library?.softwareData?.vendor}" bgcolor="#FEE5BB">vendor</td>
+                                        <td th:text="${dependency.library?.softwareData?.downloadUrl}" bgcolor="#FEE5BB">downloadUrl</td>
+                                        <td th:text="${dependency.library?.softwareData?.softwareType?.displayName}" bgcolor="#FEE5BB">softwareType</td>
+                                        <td th:text="${dependency.libraryVersion}" bgcolor="#FEE5BB">softwareVersion</td>
+                                        <td th:text="${dependency.library?.softwareData?.platform}" bgcolor="#FEE5BB">Platform</td>
 
-                                        <td th:text="${library.tradeCompliance?.countryCode}" bgcolor="#B9E3A6">countryCode</td>
-                                        <td th:text="${library.tradeCompliance?.euECCN}" bgcolor="#B9E3A6">euECCN</td>
-                                        <td th:text="${library.tradeCompliance?.usECCN}" bgcolor="#B9E3A6">usECCN</td>
-                                        <td th:text="${library.tradeCompliance?.bisAuthorization}" bgcolor="#B9E3A6">bisAuthorization</td>
-                                        <td th:text="${library.tradeCompliance?.encryptionProtocol}" bgcolor="#B9E3A6">encryptionProtocol</td>
+                                        <td th:text="${dependency.library?.tradeCompliance?.countryCode}" bgcolor="#B9E3A6">countryCode</td>
+                                        <td th:text="${dependency.library?.tradeCompliance?.euECCN}" bgcolor="#B9E3A6">euECCN</td>
+                                        <td th:text="${dependency.library?.tradeCompliance?.usECCN}" bgcolor="#B9E3A6">usECCN</td>
+                                        <td th:text="${dependency.library?.tradeCompliance?.bisAuthorization}" bgcolor="#B9E3A6">bisAuthorization</td>
+                                        <td th:text="${dependency.library?.tradeCompliance?.encryptionProtocol}" bgcolor="#B9E3A6">encryptionProtocol</td>
                                     </tr>
                                 </tbody>
                             </table>
