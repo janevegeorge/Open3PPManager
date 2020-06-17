@@ -6,12 +6,13 @@ import lombok.ToString;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 @Getter @Setter
 @ToString
 public class SoftwareData {
     private String vendor;
-    private String downloadUrl;
+    @Pattern(regexp = "^((https?|ftp)://[^\\s/$.?#].[^\\s]*)?$") private String downloadUrl;
     @NotNull private SoftwareType softwareType;
     private String platform;
 }

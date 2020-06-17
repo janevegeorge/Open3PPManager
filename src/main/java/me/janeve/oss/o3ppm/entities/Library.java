@@ -7,6 +7,7 @@ import lombok.ToString;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 
 @Getter @Setter
@@ -14,6 +15,6 @@ import javax.validation.constraints.NotBlank;
 public class Library {
     @Id @ToString.Include private String id;
     @NotBlank @ToString.Include private String name;
-    private SoftwareData softwareData;
-    private TradeCompliance tradeCompliance;
+    @Valid private SoftwareData softwareData;
+    @Valid private TradeCompliance tradeCompliance;
 }
