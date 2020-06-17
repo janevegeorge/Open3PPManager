@@ -15,6 +15,6 @@ public class Project {
     @Id @ToString.Include private String id;
     @ToString.Include private String name;
     @DBRef @ToString.Include private User owner;
-    private List<ProjectReleases> releases;
+    private List<ProjectRelease> releases;
     private String description;
 }
