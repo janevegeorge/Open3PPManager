@@ -11,8 +11,9 @@
             <form action="/new" class="form-horizontal" method="post" th:action="@{/3pp_libraries/new}" id="new3ppLibraryForm" th:fragment="new3ppLibraryForm (projectId, projectName, releaseVersion)">
                 <div class="card">
                     <div class="card-body">
-                        <div th:if="${projectId!=null}">
+                        <div th:if="${projectId!=null and releaseVersion!=null}">
                             <input type="hidden" id="projectId" name="projectId" th:value="${projectId}">
+                            <input type="hidden" id="version" name="version" th:value="${releaseVersion}">
                         </div>
                         <input type="text" class="form-control" id="name" name="name">
                     </div>
@@ -45,7 +46,7 @@
                         </div>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+                <button type="submit" class="btn btn-secondary btn-sm">Submit</button>
             </form>
         </div>
     </body>

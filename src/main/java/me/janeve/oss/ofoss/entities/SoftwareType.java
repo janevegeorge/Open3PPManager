@@ -1,8 +1,10 @@
 package me.janeve.oss.ofoss.entities;
 
 import lombok.Getter;
+import lombok.ToString;
 
 @Getter
+@ToString
 public enum SoftwareType {
     FOSS("FOSS"),
     COMMERCIAL("Commercial"),

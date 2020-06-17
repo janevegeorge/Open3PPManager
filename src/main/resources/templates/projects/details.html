@@ -53,7 +53,7 @@
                                 <td>
                                     <a href="#" th:href="@{/projects/{pid}/releases/{vid}(pid=${project.id}, vid=${release.version})}">
                                         <div th:if="${release.libraries!=null}">
-                                            <div th:text="${#lists.size(release.libraries)}"></div> libraries
+                                            <div th:text="${#lists.size(release.libraries) + (#lists.size(release.libraries) == 1? ' library':' libraries')}"></div>
                                         </div>
                                         <div th:unless="${release.libraries!=null}">
                                             0 libraries
