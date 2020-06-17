@@ -13,4 +13,5 @@ public class Library {
     @Id @ToString.Include private String id;
     private String name;
     private SoftwareData softwareData;
+    private TradeCompliance tradeCompliance;
 }

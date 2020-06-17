@@ -15,38 +15,48 @@
                             <input type="hidden" id="projectId" name="projectId" th:value="${projectId}">
                             <input type="hidden" id="version" name="version" th:value="${releaseVersion}">
                         </div>
-                        <input type="text" class="form-control" id="name" name="name">
+                        <input type="text" class="form-control" id="name" name="name" placeholder="3PP Library Name">
                     </div>
                 </div>
-                <div class="card">
+                <div class="card" style="background-color:#f9c49a;">
                     <h5 class="card-header">Software Data</h5>
                     <div class="card-body">
-                        <div class="form-group">
-                            <label for="softwareData.vendor">Vendor:</label>
-                            <input type="text" class="form-control" id="softwareData.vendor" name="softwareData.vendor">
+                        <div class="row mb-2">
+                            <div class="col"><input type="text" class="form-control" id="softwareData.vendor" name="softwareData.vendor" placeholder="Vendor Name"></div>
+                            <div class="col"><input type="text" class="form-control" id="softwareData.downloadUrl" name="softwareData.downloadUrl" placeholder="Download URL"></div>
                         </div>
-                        <div class="form-group">
-                            <label for="softwareData.downloadUrl">Download Url:</label>
-                            <input type="text" class="form-control" id="softwareData.downloadUrl" name="softwareData.downloadUrl">
-                        </div>
-                        <div class="form-group">
-                            <label for="softwareData.softwareType">Software Type:</label>
-                            <select class="form-control" name="softwareData.softwareType" id="softwareData.softwareType">
-                                <option th:each="softwareType : ${T(me.janeve.oss.ofoss.entities.SoftwareType).values()}"
-                                        th:value="${softwareType.name()}" th:text="${softwareType.displayName}"></option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="softwareData.softwareVersion">Software Version:</label>
-                            <input type="text" class="form-control" id="softwareData.softwareVersion" name="softwareData.softwareVersion">
-                        </div>
-                        <div class="form-group">
-                            <label for="softwareData.platform">OS Platform:</label>
-                            <input type="text" class="form-control" id="softwareData.platform" name="softwareData.platform">
+                        <div class="row">
+                            <div class="col">
+                                <select class="form-control" name="softwareData.softwareType" id="softwareData.softwareType">
+                                    <option selected>Choose Software Type...</option>
+                                    <option th:each="softwareType : ${T(me.janeve.oss.ofoss.entities.SoftwareType).values()}"
+                                            th:value="${softwareType.name()}" th:text="${softwareType.displayName}"></option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" id="softwareData.softwareVersion" name="softwareData.softwareVersion" placeholder="Version">
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" id="softwareData.platform" name="softwareData.platform" placeholder="OS Platform">
+                            </div>
                         </div>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-secondary btn-sm">Submit</button>
+                <div class="card" style="background-color:#B9E3A6;">
+                    <h5 class="card-header">Trade Compliance</h5>
+                    <div class="card-body">
+                        <div class="row mb-2">
+                            <div class="col"><input type="text" class="form-control" id="tradeCompliance.countryCode" name="tradeCompliance.countryCode" placeholder="ISO 3166 Country Code"></div>
+                            <div class="col"><input type="text" class="form-control" id="tradeCompliance.euECCN" name="tradeCompliance.euECCN" placeholder="EU ECCN No."></div>
+                            <div class="col"><input type="text" class="form-control" id="tradeCompliance.usECCN" name="tradeCompliance.usECCN" placeholder="US ECCN No."></div>
+                            <div class="col"><input type="text" class="form-control" id="tradeCompliance.bisAuthority" name="tradeCompliance.bisAuthority" placeholder="BIS Authorization"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col"><input type="text" class="form-control" id="tradeCompliance.encryptionProtocol" name="tradeCompliance.encryptionProtocol" placeholder="Encryption Protocol"></div>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-sm">Submit</button>
             </form>
         </div>
     </body>
