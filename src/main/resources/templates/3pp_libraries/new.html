@@ -22,27 +22,27 @@
                     <h5 class="card-header">Software Data</h5>
                     <div class="card-body">
                         <div class="form-group">
-                            <label for="vendor">Vendor:</label>
-                            <input type="text" class="form-control" id="vendor" name="vendor">
+                            <label for="softwareData.vendor">Vendor:</label>
+                            <input type="text" class="form-control" id="softwareData.vendor" name="softwareData.vendor">
                         </div>
                         <div class="form-group">
-                            <label for="downloadUrl">Download Url:</label>
-                            <input type="text" class="form-control" id="downloadUrl" name="downloadUrl">
+                            <label for="softwareData.downloadUrl">Download Url:</label>
+                            <input type="text" class="form-control" id="softwareData.downloadUrl" name="softwareData.downloadUrl">
                         </div>
                         <div class="form-group">
-                            <label for="softwareType">Software Type:</label>
-                            <select class="form-control" name="softwareType" id="softwareType">
+                            <label for="softwareData.softwareType">Software Type:</label>
+                            <select class="form-control" name="softwareData.softwareType" id="softwareData.softwareType">
                                 <option th:each="softwareType : ${T(me.janeve.oss.ofoss.entities.SoftwareType).values()}"
-                                        th:value="${softwareType}" th:text="${softwareType.displayName}"></option>
+                                        th:value="${softwareType.name()}" th:text="${softwareType.displayName}"></option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="softwareVersion">Software Version:</label>
-                            <input type="text" class="form-control" id="softwareVersion" name="softwareVersion">
+                            <label for="softwareData.softwareVersion">Software Version:</label>
+                            <input type="text" class="form-control" id="softwareData.softwareVersion" name="softwareData.softwareVersion">
                         </div>
                         <div class="form-group">
-                            <label for="platform">OS Platform:</label>
-                            <input type="text" class="form-control" id="platform" name="platform">
+                            <label for="softwareData.platform">OS Platform:</label>
+                            <input type="text" class="form-control" id="softwareData.platform" name="softwareData.platform">
                         </div>
                     </div>
                 </div>

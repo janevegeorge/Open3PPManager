@@ -39,31 +39,16 @@
                         No 3PP libraries added! Add a 3PP library to see it here.
                     </div>
                     <div th:if="${release.libraries!=null and !release.libraries.empty}">
-                        <table class="table">
-                            <thead>
-                            <tr>
-                                <th>Version</th>
-                                <th>Base Version</th>
-                                <th>3PP Libraries</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr th:each="release: ${project.releases}">
-                                <td><a href="#" th:href="@{/projects/{id}(id=${release.version})}"><div th:text="${release.version}"></div></a></td>
-                                <td><a href="#" th:href="@{/projects/{id}(id=${release.baseVersion})}"><div th:text="${release.baseVersion}"></div></a></td>
-                                <td>
-                                    <a href="#" th:href="@{/projects/{id}(id=${release.version})}">
-                                        <div th:if="${release.libraries!=null}">
-                                            <div th:text="${#lists.size(release.libraries) + (#lists.size(release.libraries) == 1? ' library':' libraries')}"></div>
-                                        </div>
-                                        <div th:unless="${release.libraries!=null}">
-                                            0 libraries
-                                        </div>
-                                    </a>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
+                        <div class="card-columns">
+                            <div class="card" th:each="library: ${release.libraries}">
+                                <h5 class="card-title" th:text="${library.name}">Library Name</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">Library Version</h6>
+                                <a href="#" class="card-link">Details</a>
+                                <div class="card-footer">
+                                    <small class="text-muted">Last updated 3 mins ago</small>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
