@@ -18,7 +18,7 @@
                         <h5 class="card-title"><div th:text="${project.name}"></div></h5>
                         <p class="card-text"><div th:text="${project.description}"></div></p>
                     </div>
-                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#newVersion">
+                    <button type="button" class="btn btn-primary btn-sm mb-2" data-toggle="modal" data-target="#newVersion">
                         Add New Version
                     </button>
                     <!-- Modal -->
@@ -38,8 +38,8 @@
                         No project versions add! Add a project version to see it here.
                     </div>
                     <div th:if="${project.releases!=null and !project.releases.empty}">
-                        <table class="table">
-                            <thead>
+                        <table class="table table-bordered">
+                            <thead class="thead-dark">
                             <tr>
                                 <th>Version</th>
                                 <th>Base Version</th>

@@ -8,12 +8,15 @@
     <body>
         <div class="container">
             <div th:replace="/fragments/navbar.html :: nav"></div>
+            <a class="btn btn-primary btn-sm my-2" href="#" th:href="@{/projects/new}">
+                Add New Project
+            </a>
             <div th:unless="${projects!=null and !projects.empty}">
                 No projects found! Add a new project to see it here.
             </div>
             <div th:if="${projects!=null and !projects.empty}">
-                <table class="table">
-                    <thead>
+                <table class="table table-bordered">
+                    <thead class="thead-dark">
                         <tr>
                             <th>Project Name</th>
                             <th>Owner</th>

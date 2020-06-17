@@ -10,8 +10,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Getter @Setter
 @ToString
-@Document(collection = "project_dependencies")
-public class ProjectLibraryDependency {
+@Document(collection = "library_version")
+public class LibraryVersion {
     @Id private String id;
     @DBRef Library library;
     @NonNull String libraryVersion;

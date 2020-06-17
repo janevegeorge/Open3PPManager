@@ -2,9 +2,10 @@ package me.janeve.oss.o3ppm.controllers;
 
 import me.janeve.oss.o3ppm.entities.Library;
 import me.janeve.oss.o3ppm.entities.Project;
-import me.janeve.oss.o3ppm.entities.ProjectLibraryDependency;
+import me.janeve.oss.o3ppm.entities.LibraryVersion;
 import me.janeve.oss.o3ppm.entities.ProjectRelease;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,8 +23,24 @@ public class ThirdPartyProductsLibrariesController extends BaseController {
         return "3pp_libraries/new";
     }
 
+    @GetMapping("/")
+    public String detailsView(Model model) {
+        model.addAttribute("libraries", libraryRepository.findAll());
+        return "3pp_libraries/details";
+    }
+
+    @PostMapping("/new/standalone")
+    public String create3PPLibrary(LibraryVersion standaloneDependency) {
+        logger.info("Standalone Dependency: " + standaloneDependency);
+        Library library = standaloneDependency.getLibrary();
+        library = libraryRepository.save(library);
+        standaloneDependency.setLibrary(library);
+        libraryVersionRepository.save(standaloneDependency);
+        return "redirect:/3pp_libraries/";
+    }
+
     @PostMapping("/new")
-    public String create3PPLibrary(@RequestParam String projectId, @RequestParam String version, ProjectLibraryDependency dependency) {
+    public String create3PPLibrary(@RequestParam String projectId, @RequestParam String version, LibraryVersion dependency) {
 
         logger.info("Dependency: " + dependency);
 
@@ -35,7 +52,7 @@ public class ThirdPartyProductsLibrariesController extends BaseController {
         ProjectRelease projectRelease = getProjectRelease(project, version);
 
         logger.info("New Library Dependency " + dependency);
-        List<ProjectLibraryDependency> projectReleaseDependencies = projectRelease.getDependencies();
+        List<LibraryVersion> projectReleaseDependencies = projectRelease.getDependencies();
         if(projectReleaseDependencies == null) {
             projectReleaseDependencies = new ArrayList<>();
         }
@@ -44,7 +61,7 @@ public class ThirdPartyProductsLibrariesController extends BaseController {
         library = libraryRepository.save(library);
         dependency.setLibrary(library);
 
-        dependency = projectDependencyRepository.insert(dependency);
+        dependency = libraryVersionRepository.insert(dependency);
 
         projectReleaseDependencies.add(dependency);
         projectRelease.setDependencies(projectReleaseDependencies);

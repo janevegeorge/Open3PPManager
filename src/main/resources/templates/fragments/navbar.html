@@ -17,23 +17,11 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="projects" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Projects
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="projects">
-                        <a class="dropdown-item" href="/projects/" th:href="@{/projects/}">List</a>
-                        <a class="dropdown-item" href="/projects/new" th:href="@{/projects/new}">New</a>
-                    </div>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" th:href="@{/projects/}">Projects</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="3pp_libraries" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        3pp Libraries
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="3pp_libraries">
-                        <a class="dropdown-item" href="/3pp_libraries/" th:href="@{/3pp_libraries/}">List</a>
-                        <a class="dropdown-item" href="/3pp_libraries/new" th:href="@{/3pp_libraries/new}">New</a>
-                    </div>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" th:href="@{/3pp_libraries/}">3PP Libraries</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Users</a>

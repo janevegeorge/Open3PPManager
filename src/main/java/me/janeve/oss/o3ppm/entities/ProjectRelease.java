@@ -11,5 +11,5 @@ import java.util.List;
 public class ProjectRelease {
     @NonNull private String version;
     private String baseVersion;
-    @DBRef private List<ProjectLibraryDependency> dependencies;
+    @DBRef private List<LibraryVersion> dependencies;
 }

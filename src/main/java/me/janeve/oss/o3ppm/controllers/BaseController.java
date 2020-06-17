@@ -1,7 +1,7 @@
 package me.janeve.oss.o3ppm.controllers;
 
 import me.janeve.oss.o3ppm.dao.LibraryRepository;
-import me.janeve.oss.o3ppm.dao.ProjectDependencyRepository;
+import me.janeve.oss.o3ppm.dao.LibraryVersionRepository;
 import me.janeve.oss.o3ppm.dao.ProjectRepository;
 import me.janeve.oss.o3ppm.dao.UserRepository;
 import me.janeve.oss.o3ppm.entities.Project;
@@ -21,7 +21,7 @@ public abstract class BaseController {
     @Autowired protected ProjectRepository projectRepository;
     @Autowired protected UserRepository userRepository;
     @Autowired protected LibraryRepository libraryRepository;
-    @Autowired protected ProjectDependencyRepository projectDependencyRepository;
+    @Autowired protected LibraryVersionRepository libraryVersionRepository;
 
     protected Project findProject(final String projectId) {
         Optional<Project> queryResult = projectRepository.findById(projectId);
