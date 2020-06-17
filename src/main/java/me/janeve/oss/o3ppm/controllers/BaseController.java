@@ -1,10 +1,10 @@
-package me.janeve.oss.ofoss.controllers;
+package me.janeve.oss.o3ppm.controllers;
 
-import me.janeve.oss.ofoss.dao.LibraryRepository;
-import me.janeve.oss.ofoss.dao.ProjectRepository;
-import me.janeve.oss.ofoss.dao.UserRepository;
-import me.janeve.oss.ofoss.entities.Project;
-import me.janeve.oss.ofoss.entities.ProjectRelease;
+import me.janeve.oss.o3ppm.dao.LibraryRepository;
+import me.janeve.oss.o3ppm.dao.ProjectRepository;
+import me.janeve.oss.o3ppm.dao.UserRepository;
+import me.janeve.oss.o3ppm.entities.Project;
+import me.janeve.oss.o3ppm.entities.ProjectRelease;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 

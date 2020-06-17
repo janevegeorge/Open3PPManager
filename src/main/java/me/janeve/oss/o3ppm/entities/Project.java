@@ -1,4 +1,4 @@
-package me.janeve.oss.ofoss.entities;
+package me.janeve.oss.o3ppm.entities;
 
 import lombok.Getter;
 import lombok.Setter;

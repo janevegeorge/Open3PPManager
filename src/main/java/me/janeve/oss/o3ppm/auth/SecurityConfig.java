@@ -1,4 +1,4 @@
-package me.janeve.oss.ofoss.auth;
+package me.janeve.oss.o3ppm.auth;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

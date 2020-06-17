@@ -1,8 +1,8 @@
-package me.janeve.oss.ofoss.controllers;
+package me.janeve.oss.o3ppm.controllers;
 
-import me.janeve.oss.ofoss.entities.Project;
-import me.janeve.oss.ofoss.entities.ProjectRelease;
-import me.janeve.oss.ofoss.entities.User;
+import me.janeve.oss.o3ppm.entities.Project;
+import me.janeve.oss.o3ppm.entities.ProjectRelease;
+import me.janeve.oss.o3ppm.entities.User;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;

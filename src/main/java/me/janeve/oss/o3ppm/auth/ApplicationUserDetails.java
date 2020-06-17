@@ -1,6 +1,6 @@
-package me.janeve.oss.ofoss.auth;
+package me.janeve.oss.o3ppm.auth;
 
-import me.janeve.oss.ofoss.entities.User;
+import me.janeve.oss.o3ppm.entities.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;

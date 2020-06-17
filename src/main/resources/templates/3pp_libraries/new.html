@@ -29,7 +29,7 @@
                             <div class="col">
                                 <select class="form-control" name="softwareData.softwareType" id="softwareData.softwareType">
                                     <option selected>Choose Software Type...</option>
-                                    <option th:each="softwareType : ${T(me.janeve.oss.ofoss.entities.SoftwareType).values()}"
+                                    <option th:each="softwareType : ${T(me.janeve.oss.o3ppm.entities.SoftwareType).values()}"
                                             th:value="${softwareType.name()}" th:text="${softwareType.displayName}"></option>
                                 </select>
                             </div>

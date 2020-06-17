@@ -1,7 +1,7 @@
-package me.janeve.oss.ofoss.auth;
+package me.janeve.oss.o3ppm.auth;
 
-import me.janeve.oss.ofoss.dao.UserRepository;
-import me.janeve.oss.ofoss.entities.User;
+import me.janeve.oss.o3ppm.dao.UserRepository;
+import me.janeve.oss.o3ppm.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

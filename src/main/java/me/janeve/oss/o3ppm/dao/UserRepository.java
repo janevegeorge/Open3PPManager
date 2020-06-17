@@ -1,6 +1,6 @@
-package me.janeve.oss.ofoss.dao;
+package me.janeve.oss.o3ppm.dao;
 
-import me.janeve.oss.ofoss.entities.User;
+import me.janeve.oss.o3ppm.entities.User;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 public interface UserRepository extends MongoRepository<User, String> {
