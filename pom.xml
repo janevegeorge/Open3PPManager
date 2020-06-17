@@ -5,9 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>me.janeve.oss</groupId>
-    <artifactId>OpenFOSSManager</artifactId>
+    <artifactId>Open3PPManager</artifactId>
     <version>0.1-SNAPSHOT</version>
-    <description>Open-Source FOSS Management Software.</description>
+    <description>Open-Source Third-Party Products (3PP) Management Software.</description>
 
     <developers>
         <developer>
