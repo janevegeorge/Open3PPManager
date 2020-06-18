@@ -6,7 +6,7 @@
         <script src="../../static/bootstrap-4.5.0/js/bootstrap.bundle.min.js" th:src="@{/bootstrap-4.5.0/js/bootstrap.bundle.min.js}"></script>
     </head>
     <body>
-        <div class="container">
+        <div class="container pb-5 mb-auto">
             <div th:replace="/fragments/navbar.html :: nav"></div>
             <form action="/new" class="form-horizontal" method="post" th:action="@{/projects/new}">
                 <div class="form-group">
