@@ -32,7 +32,7 @@ public abstract class BaseController {
         if(queryResult.isPresent()){
             project = queryResult.get();
         } else {
-            throw new RuntimeException("Project - 404 Not Found");
+            return null;
         }
         return project;
     }

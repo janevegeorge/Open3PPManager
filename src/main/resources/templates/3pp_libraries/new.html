@@ -13,9 +13,9 @@
             <div class="card-body">
                 <div th:if="${projectId!=null and releaseVersion!=null}">
                     <input type="hidden" id="projectId" name="projectId" th:value="${projectId}">
-                    <input type="hidden" id="version" name="version" th:value="${releaseVersion}">
+                    <input type="hidden" id="releaseVersion" name="releaseVersion" th:value="${releaseVersion}">
                 </div>
-                <input type="hidden" id="library.id" name="library.id" disabled="disabled" value="null" >
+                <input type="hidden" id="library.id" name="library.id">
                 <script src="../../static/jQuery-Autocomplete-1.4.11/bootstrap.bundle.min.js" th:src="@{/jQuery-Autocomplete-1.4.11/jquery.autocomplete.min.js}"></script>
                 <script src="../../static/o3ppm/3pplibraries_autocomplete.js" th:src="@{/o3ppm/3pplibraries_autocomplete-min.js}"></script>
                 <link href="../../static/o3ppm/3pplibraries_autocomplete.css" rel="stylesheet" th:href="@{/o3ppm/3pplibraries_autocomplete-min.css}"/>
@@ -26,7 +26,7 @@
             <h5 class="card-header">Software Data</h5>
             <div class="card-body">
                 <div class="row mb-2">
-                    <div class="col-sm-2"><input type="text" class="form-control" id="libraryVersion" name="libraryVersion" placeholder="Version"></div>
+                    <div class="col-sm-2"><input type="text" class="form-control" id="version" name="version" placeholder="Version"></div>
                     <div class="col"><input type="text" class="form-control" id="downloadUrl" name="downloadUrl" placeholder="Download URL"></div>
                 </div>
                 <div class="row mb-2">

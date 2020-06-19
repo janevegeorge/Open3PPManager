@@ -18,6 +18,6 @@ import javax.validation.constraints.Pattern;
 public class LibraryVersion {
     @Id private String id;
     @JsonInclude(JsonInclude.Include.NON_NULL) @Valid @DBRef Library library;
-    @NotEmpty String libraryVersion;
+    @NotEmpty String version;
     @NotEmpty @Pattern(regexp = "^((https?|ftp)://[^\\s/$.?#].[^\\s]*)?$") private String downloadUrl;
 }

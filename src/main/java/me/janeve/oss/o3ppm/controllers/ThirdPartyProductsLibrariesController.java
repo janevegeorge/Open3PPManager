@@ -27,46 +27,37 @@ public class ThirdPartyProductsLibrariesController extends BaseController {
         return "3pp_libraries/details";
     }
 
-    @PostMapping("/new/standalone")
-    public String create3PPLibrary(@Validated LibraryVersion standaloneDependency) {
-        logger.info("Standalone Dependency: " + standaloneDependency);
-        Library library = standaloneDependency.getLibrary();
-        library = libraryRepository.save(library);
-        standaloneDependency.setLibrary(library);
-        libraryVersionRepository.save(standaloneDependency);
-        return "redirect:/3pp_libraries/";
-    }
-
     @PostMapping("/new")
-    public String create3PPLibrary(@RequestParam String projectId, @RequestParam String version, @Validated() LibraryVersion dependency) {
+    public String create3PPLibrary(@RequestParam String projectId, @RequestParam String releaseVersion, @Validated LibraryVersion libraryVersion) {
 
-        logger.info("Dependency: " + dependency);
+        logger.info("LibraryVersion: " + libraryVersion);
 
-        if(dependency.getLibrary().getName().trim().isEmpty() || dependency.getLibraryVersion().trim().isEmpty()) {
+        if(libraryVersion.getLibrary().getName().trim().isEmpty() || libraryVersion.getVersion().trim().isEmpty()) {
             throw new RuntimeException("Invalid library name or version.");
         }
 
-        Project project = findProject(projectId);
-        ProjectRelease projectRelease = getProjectRelease(project, version);
+        Library library = libraryVersion.getLibrary();
+        library = libraryRepository.save(library);
+        libraryVersion.setLibrary(library);
 
-        logger.info("New Library Dependency " + dependency);
-        List<LibraryVersion> projectReleaseDependencies = projectRelease.getDependencies();
-        if(projectReleaseDependencies == null) {
-            projectReleaseDependencies = new ArrayList<>();
+        libraryVersion = libraryVersionRepository.save(libraryVersion);
+
+
+        if(projectId != null && releaseVersion != null) {
+            Project project = findProject(projectId);
+            ProjectRelease projectRelease = getProjectRelease(project, releaseVersion);
+            List<LibraryVersion> projectReleaseDependencies = projectRelease.getDependencies();
+            if(projectReleaseDependencies == null) {
+                projectReleaseDependencies = new ArrayList<>();
+            }
+            projectReleaseDependencies.add(libraryVersion);
+            projectRelease.setDependencies(projectReleaseDependencies);
+            projectRepository.save(project);
+            return "redirect:/projects/" + projectId + "/releases/" + releaseVersion;
+        } else {
+            return "redirect:/3pp_libraries/";
         }
 
-        Library library = dependency.getLibrary();
-        library = libraryRepository.save(library);
-        dependency.setLibrary(library);
-
-        dependency = libraryVersionRepository.insert(dependency);
-
-        projectReleaseDependencies.add(dependency);
-        projectRelease.setDependencies(projectReleaseDependencies);
-
-        projectRepository.save(project);
-
-        return "redirect:/projects/" + projectId + "/releases/" + version;
     }
 
 }
