@@ -14,6 +14,7 @@
                 <div th:if="${projectId!=null and releaseVersion!=null}">
                     <input type="hidden" id="projectId" name="projectId" th:value="${projectId}">
                     <input type="hidden" id="releaseVersion" name="releaseVersion" th:value="${releaseVersion}">
+                    <input type="hidden" id="id" name="id">
                 </div>
                 <input type="hidden" id="library.id" name="library.id">
                 <script src="../../static/jQuery-Autocomplete-1.4.11/bootstrap.bundle.min.js" th:src="@{/jQuery-Autocomplete-1.4.11/jquery.autocomplete.min.js}"></script>

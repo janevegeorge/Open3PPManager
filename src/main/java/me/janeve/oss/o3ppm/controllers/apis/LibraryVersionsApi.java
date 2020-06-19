@@ -4,6 +4,7 @@ import me.janeve.oss.o3ppm.controllers.BaseController;
 import me.janeve.oss.o3ppm.entities.LibraryVersion;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -11,8 +12,11 @@ import java.util.List;
 public class LibraryVersionsApi extends BaseController {
 
     @GetMapping("/{libraryId}/versions")
-    public List<LibraryVersion> findLibraryVersions(@PathVariable String libraryId){
-        return libraryVersionRepository.findByLibraryId(libraryId);
+    public List<LibraryVersion> findLibraryVersions(@PathVariable String libraryId, @RequestParam String versionPattern){
+        if(libraryId != null && versionPattern != null) {
+            return libraryVersionRepository.findByLibraryIdAndVersionLikeIgnoreCase(libraryId, versionPattern);
+        }
+        return new ArrayList<>();
     }
 
 }

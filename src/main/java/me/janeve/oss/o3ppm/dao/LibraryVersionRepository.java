@@ -9,5 +9,5 @@ import java.util.List;
 
 public interface LibraryVersionRepository extends MongoRepository<LibraryVersion, String> {
     @Query(fields="{ library : 0 }")
-    List<LibraryVersion> findByLibraryId(String libraryId);
+    List<LibraryVersion> findByLibraryIdAndVersionLikeIgnoreCase(String libraryId, String version);
 }

@@ -1,4 +1,5 @@
-$( function() {
+function autocompleteLibraryName() {
+
     $( "input[id='library.name']" ).autocomplete({
         serviceUrl: '/api/libraries',
         paramName: 'namePattern',
@@ -58,4 +59,45 @@ $( function() {
             $( "input[id='library.tradeCompliance.encryptionProtocol']" ).val('');
         }
     });
+
+}
+
+
+
+function autocompleteLibraryVersion() {
+
+    $( "input[id='version']" ).autocomplete({
+        serviceUrl: function() { return '/api/libraries/' + $( "input[id='library.id']" ).val() + '/versions'; },
+        paramName: 'versionPattern',
+        deferRequestBy: 100,
+        transformResult: function(releases) {
+            return {
+                suggestions: $.map(JSON.parse(releases), function(release) {
+                    return { value: release.version, data: release };
+                })
+            };
+        },
+        onSelect: function (suggestion) {
+            if(suggestion != null && suggestion.data != null) {
+                $( "input[id='id']" ).val(suggestion.data.id);
+                $( "input[id='downloadUrl']" ).val(suggestion.data.downloadUrl);
+            }
+        }
+    });
+
+}
+
+
+
+
+
+
+
+
+
+
+
+$( function() {
+    autocompleteLibraryName();
+    autocompleteLibraryVersion();
 });
