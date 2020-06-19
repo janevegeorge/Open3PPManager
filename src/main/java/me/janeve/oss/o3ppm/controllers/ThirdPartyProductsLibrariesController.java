@@ -37,6 +37,11 @@ public class ThirdPartyProductsLibrariesController extends BaseController {
         }
 
         Library library = libraryVersion.getLibrary();
+        List<LibraryVersion> libraryVersions = library.getVersions();
+        if(libraryVersions == null) {
+            libraryVersions = new ArrayList<>();
+        }
+        libraryVersions.add(libraryVersion);
         library = libraryRepository.save(library);
         libraryVersion.setLibrary(library);
 

@@ -85,14 +85,17 @@ function autocompleteLibraryVersion() {
         }
     });
 
+    $( "input[id='version']" ).keyup(function(e){
+        if(isValidEvent(e)) {
+            $( "input[id='id']" ).val('');
+        }
+    });
+
 }
 
-
-
-
-
-
-
+function isValidEvent(e) {
+    return ( e.key.length == 1 || e.key == 'Backspace' || (e.key.length > 1 && /[^a-zA-Z0-9]/.test(e.key)) );
+}
 
 
 
