@@ -9,6 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import javax.validation.constraints.NotBlank;
 
 @Getter @Setter
+@ToString
 @Document(collection = "users")
 public class User {
     @Id private String id;

@@ -1,4 +1,4 @@
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
     <head>
         <title>3PP Libraries | Open 3PP Manager</title>
         <link href="../../static/bootstrap-4.5.0/css/bootstrap.css" rel="stylesheet" th:href="@{/bootstrap-4.5.0/css/bootstrap.css}"/>
@@ -38,7 +38,7 @@
                         </tr>
                         <tr>
                             <th>Vendor</th>
-                            <th>Download Link</th>
+                            <th>Website</th>
                             <th>Software Type</th>
                             <th>Platform</th>
 
@@ -54,7 +54,7 @@
                             <td th:text="${library.name}">Name</td>
 
                             <td th:text="${library.softwareData?.vendor}" bgcolor="#FEE5BB">vendor</td>
-                            <td th:text="${library.softwareData?.downloadUrl}" bgcolor="#FEE5BB">downloadUrl</td>
+                            <td th:text="${library.softwareData?.website}" bgcolor="#FEE5BB">website</td>
                             <td th:text="${library.softwareData?.softwareType?.displayName}" bgcolor="#FEE5BB">softwareType</td>
                             <td th:text="${library.softwareData?.platform}" bgcolor="#FEE5BB">Platform</td>
 

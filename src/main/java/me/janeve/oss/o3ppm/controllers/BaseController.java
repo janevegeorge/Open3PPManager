@@ -7,6 +7,9 @@ import me.janeve.oss.o3ppm.dao.UserRepository;
 import me.janeve.oss.o3ppm.entities.Project;
 import me.janeve.oss.o3ppm.entities.ProjectRelease;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.StringTrimmerEditor;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.ArrayList;
@@ -48,5 +51,13 @@ public abstract class BaseController {
             }
         }
         return projectRelease;
+    }
+
+    @InitBinder
+    public void allowEmptyDateBinding( WebDataBinder binder )
+    {
+        // tell spring to set empty values as null instead of empty string.
+        binder.registerCustomEditor( String.class, new StringTrimmerEditor( true ));
+
     }
 }

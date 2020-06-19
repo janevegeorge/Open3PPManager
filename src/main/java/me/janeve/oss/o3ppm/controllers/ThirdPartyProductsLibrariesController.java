@@ -7,10 +7,7 @@ import me.janeve.oss.o3ppm.entities.ProjectRelease;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,7 +38,7 @@ public class ThirdPartyProductsLibrariesController extends BaseController {
     }
 
     @PostMapping("/new")
-    public String create3PPLibrary(@RequestParam String projectId, @RequestParam String version, @Validated LibraryVersion dependency) {
+    public String create3PPLibrary(@RequestParam String projectId, @RequestParam String version, @Validated() LibraryVersion dependency) {
 
         logger.info("Dependency: " + dependency);
 

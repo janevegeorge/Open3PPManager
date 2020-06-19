@@ -1,4 +1,4 @@
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
     <head>
         <title>New 3PP Library | Open 3PP Manager</title>
         <link href="../../static/bootstrap-4.5.0/css/bootstrap.css" rel="stylesheet" th:href="@{/bootstrap-4.5.0/css/bootstrap.css}"/>
@@ -12,6 +12,14 @@
                 <form action="/new" class="form-horizontal" method="post" th:action="@{/3pp_libraries/new/standalone}" id="new3ppLibraryForm">
                     <div class="card">
                         <div class="card-body">
+                        <div th:if="${projectId!=null and releaseVersion!=null}">
+                            <input type="hidden" id="projectId" name="projectId" th:value="${projectId}">
+                            <input type="hidden" id="version" name="version" th:value="${releaseVersion}">
+                        </div>
+                        <input type="hidden" id="library.id" name="library.id">
+                        <script src="../../static/jQuery-Autocomplete-1.4.11/bootstrap.bundle.min.js" th:src="@{/jQuery-Autocomplete-1.4.11/jquery.autocomplete.min.js}"></script>
+                        <script src="../../static/o3ppm/3pplibraries_autocomplete.js" th:src="@{/o3ppm/3pplibraries_autocomplete-min.js}"></script>
+                        <link href="../../static/o3ppm/3pplibraries_autocomplete.css" rel="stylesheet" th:href="@{/o3ppm/3pplibraries_autocomplete-min.css}"/>
                             <input type="text" class="form-control" id="library.name" name="library.name" placeholder="3PP Library Name">
                         </div>
                     </div>
@@ -19,8 +27,12 @@
                         <h5 class="card-header">Software Data</h5>
                         <div class="card-body">
                             <div class="row mb-2">
+                                <div class="col-sm-2"><input type="text" class="form-control" id="libraryVersion" name="libraryVersion" placeholder="Version"></div>
+                                <div class="col"><input type="text" class="form-control" id="downloadUrl" name="downloadUrl" placeholder="Download URL"></div>
+                            </div>
+                            <div class="row mb-2">
                                 <div class="col"><input type="text" class="form-control" id="library.softwareData.vendor" name="library.softwareData.vendor" placeholder="Vendor Name"></div>
-                                <div class="col"><input type="text" class="form-control" id="library.softwareData.downloadUrl" name="library.softwareData.downloadUrl" placeholder="Download URL"></div>
+                                <div class="col"><input type="text" class="form-control" id="library.softwareData.website" name="library.softwareData.website" placeholder="Website"></div>
                             </div>
                             <div class="row">
                                 <div class="col">
@@ -29,9 +41,6 @@
                                         <option th:each="softwareType : ${T(me.janeve.oss.o3ppm.entities.SoftwareType).values()}"
                                                 th:value="${softwareType.name()}" th:text="${softwareType.displayName}"></option>
                                     </select>
-                                </div>
-                                <div class="col">
-                                    <input type="text" class="form-control" id="libraryVersion" name="libraryVersion" placeholder="Version">
                                 </div>
                                 <div class="col">
                                     <input type="text" class="form-control" id="library.softwareData.platform" name="library.softwareData.platform" placeholder="OS Platform">

@@ -1,4 +1,4 @@
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
     <head>
         <title>Project Release Details | Open 3PP Manager</title>
         <link href="../../static/bootstrap-4.5.0/css/bootstrap.css" rel="stylesheet" th:href="@{/bootstrap-4.5.0/css/bootstrap.css}"/>
@@ -28,6 +28,7 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="new3ppLibraryLabel">Add New 3PP Library</h5>
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
                                 </div>
                                 <div class="modal-body">
                                     <div th:replace="/3pp_libraries/new.html :: new3ppLibraryForm(projectId=${project.id}, releaseVersion=${release.version})"></div>
@@ -50,7 +51,7 @@
                                 </tr>
                                 <tr>
                                     <th>Vendor</th>
-                                    <th>Download Link</th>
+                                    <th>Website</th>
                                     <th>Software Type</th>
                                     <th>Version</th>
                                     <th>Platform</th>
@@ -67,7 +68,7 @@
                                         <td th:text="${dependency.library?.name}">Name</td>
 
                                         <td th:text="${dependency.library?.softwareData?.vendor}" bgcolor="#FEE5BB">vendor</td>
-                                        <td th:text="${dependency.library?.softwareData?.downloadUrl}" bgcolor="#FEE5BB">downloadUrl</td>
+                                        <td th:text="${dependency.library?.softwareData?.website}" bgcolor="#FEE5BB">website</td>
                                         <td th:text="${dependency.library?.softwareData?.softwareType?.displayName}" bgcolor="#FEE5BB">softwareType</td>
                                         <td th:text="${dependency.libraryVersion}" bgcolor="#FEE5BB">softwareVersion</td>
                                         <td th:text="${dependency.library?.softwareData?.platform}" bgcolor="#FEE5BB">Platform</td>

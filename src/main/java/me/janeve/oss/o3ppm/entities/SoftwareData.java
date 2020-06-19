@@ -12,7 +12,7 @@ import javax.validation.constraints.Pattern;
 @ToString
 public class SoftwareData {
     private String vendor;
-    @Pattern(regexp = "^((https?|ftp)://[^\\s/$.?#].[^\\s]*)?$") private String downloadUrl;
+    @Pattern(regexp = "^((https?|ftp)://[^\\s/$.?#].[^\\s]*)?$") private String website;
     @NotNull private SoftwareType softwareType;
     private String platform;
 }
