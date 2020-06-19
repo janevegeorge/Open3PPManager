@@ -15,7 +15,65 @@
                             <input type="hidden" id="projectId" name="projectId" th:value="${projectId}">
                             <input type="hidden" id="version" name="version" th:value="${releaseVersion}">
                         </div>
+                        <input type="hidden" id="library.id" name="library.id">
+                        <script src="../../static/bootstrap-4.5.0/js/bootstrap.bundle.min.js" th:src="@{/jQuery-Autocomplete-1.4.11/jquery.autocomplete.min.js}"></script>
+                        <style>
+                            .autocomplete-suggestions { border: 1px solid #999; background: #FFF; overflow: auto; }
+                            .autocomplete-suggestion { padding: 2px 5px; white-space: nowrap; overflow: hidden; }
+                            .autocomplete-selected { background: #F0F0F0; }
+                            .autocomplete-suggestions strong { font-weight: normal; color: #3399FF; }
+                            .autocomplete-group { padding: 2px 5px; }
+                            .autocomplete-group strong { display: block; border-bottom: 1px solid #000; }
+                        </style>
                         <input type="text" class="form-control" id="library.name" name="library.name" placeholder="3PP Library Name">
+                        <script>
+                        $( function() {
+                            $( "input[id='library.name']" ).autocomplete({
+                                serviceUrl: '/api/libraries',
+                                paramName: 'namePattern',
+                                transformResult: function(libraries) {
+                                    return {
+                                        suggestions: $.map(JSON.parse(libraries), function(library) {
+                                            return { value: ((library.softwareData && library.softwareData.vendor) ? library.softwareData.vendor + " ": "")
+                                                     + library.name,
+                                                     data: library };
+                                        })
+                                    };
+                                },
+                                onSelect: function (suggestion) {
+                                    console.log(suggestion);
+                                    if(suggestion != null && suggestion.data != null) {
+                                        $( "input[id='library.id']" ).val(suggestion.data.id);
+                                        $( "input[id='library.name']" ).val(suggestion.data.name);
+
+                                        if(suggestion.data.softwareData != null) {
+                                            if(suggestion.data.softwareData.vendor!= null) $( "input[id='library.softwareData.vendor']" ).val(suggestion.data.softwareData.vendor);
+                                            if(suggestion.data.softwareData.downloadUrl!= null) $( "input[id='library.softwareData.downloadUrl']" ).val(suggestion.data.softwareData.downloadUrl);
+
+                                            if(suggestion.data.softwareData.softwareType!= null) {
+                                                var softwareType = $('select[id="library.softwareData.softwareType"] option[value="' + suggestion.data.softwareData.softwareType + '"]');
+                                                if(softwareType != null) {
+                                                    softwareType.prop('selected', true);
+                                                } else {
+                                                    $( 'select[id="library.softwareData.softwareType"] option[value="UNKNOWN"]').prop('selected', true)
+                                                }
+                                            }
+
+                                            if(suggestion.data.softwareData.platform!= null) $( "input[id='library.softwareData.platform']" ).val(suggestion.data.softwareData.platform);
+                                        }
+
+                                        if(suggestion.data.tradeCompliance != null) {
+                                            if(suggestion.data.tradeCompliance.countryCode!= null) $( "input[id='library.tradeCompliance.countryCode']" ).val(suggestion.data.tradeCompliance.countryCode);
+                                            if(suggestion.data.tradeCompliance.euECCN!= null) $( "input[id='library.tradeCompliance.euECCN']" ).val(suggestion.data.tradeCompliance.euECCN);
+                                            if(suggestion.data.tradeCompliance.usECCN!= null) $( "input[id='library.tradeCompliance.usECCN']" ).val(suggestion.data.tradeCompliance.usECCN);
+                                            if(suggestion.data.tradeCompliance.bisAuthorization!= null) $( "input[id='library.tradeCompliance.bisAuthorization']" ).val(suggestion.data.tradeCompliance.bisAuthorization);
+                                            if(suggestion.data.tradeCompliance.encryptionProtocol!= null) $( "input[id='library.tradeCompliance.encryptionProtocol']" ).val(suggestion.data.tradeCompliance.encryptionProtocol);
+                                        }
+                                    }
+                                }
+                            });
+                        });
+                        </script>
                     </div>
                 </div>
                 <div class="card" style="background-color:#FEE5BB;">
