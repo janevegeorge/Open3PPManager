@@ -25,7 +25,7 @@
 
     <groupId>me.janeve.oss</groupId>
     <artifactId>Open3PPManager</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.1-SNAPSHOT</version>
     <description>Open-Source Third-Party Products (3PP) Management Software.</description>
 
     <developers>
