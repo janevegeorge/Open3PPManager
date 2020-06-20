@@ -1,5 +1,5 @@
 /*!
- * Open3PPManager v0.1-SNAPSHOT (https://github.com/janevegeorge/Open3PPManager)
+ * Open3PPManager (https://github.com/janevegeorge/Open3PPManager)
  * Copyright 2020 Janeve.Me (http://www.janeve.me)
  *
  * This file is part of "Open3PPManager".
@@ -50,7 +50,7 @@ public class ProjectsController extends BaseController {
             }
             project.setOwner(authenticatedUser);
             logger.info("Adding : " + project.toString());
-            projectRepository.insert(project);
+            projectRepository.save(project);
         } else {
             logger.severe("User not authenticated.");
         }

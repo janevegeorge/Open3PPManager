@@ -17,20 +17,17 @@
  * You should have received a copy of the GNU General Public License
  * along with Open3PPManager. If not, see <http://www.gnu.org/licenses/>.
  */
-package me.janeve.oss.o3ppm.entities;
+package me.janeve.oss.o3ppm.advices;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Pointcut;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
+import org.springframework.stereotype.Component;
 
-import javax.validation.constraints.Pattern;
-
-@Getter @Setter
-@ToString
-public class TradeCompliance {
-    @Pattern(regexp = "^[a-zA-Z]{2}$") private String countryCode;
-    private String euECCN;
-    private String usECCN;
-    private String bisAuthorization;
-    private String encryptionProtocol;
+@Aspect
+@EnableAspectJAutoProxy(proxyTargetClass = true)
+@Component
+public class PostCallTracerAdvice extends HttpCallTracer {
+    @Pointcut("execution(@org.springframework.web.bind.annotation.PostMapping * *..*.*(..))")
+    public void executingAnnotatedMethod(){}
 }

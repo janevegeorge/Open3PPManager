@@ -17,11 +17,27 @@
  * You should have received a copy of the GNU General Public License
  * along with Open3PPManager. If not, see <http://www.gnu.org/licenses/>.
  */
-package me.janeve.oss.o3ppm.dao;
+package me.janeve.oss.o3ppm.advices;
 
+import me.janeve.oss.o3ppm.dao.UserRepository;
 import me.janeve.oss.o3ppm.entities.User;
-import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 
-public interface UserRepository extends MongoRepository<User, String> {
-    User findByUsername(String username);
+import java.util.logging.Logger;
+
+public abstract class BasicAdvice {
+
+    protected final Logger logger = Logger.getLogger(this.getClass().getName());
+    @Autowired UserRepository userRepository;
+
+    protected User getUser() {
+        User authenticatedUser = null;
+        Authentication principal = SecurityContextHolder.getContext().getAuthentication();
+        if(principal.isAuthenticated()) {
+            authenticatedUser = userRepository.findByUsername(principal.getName());
+        }
+        return authenticatedUser;
+    }
 }

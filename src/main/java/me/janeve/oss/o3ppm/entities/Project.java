@@ -1,5 +1,5 @@
 /*!
- * Open3PPManager v0.1-SNAPSHOT (https://github.com/janevegeorge/Open3PPManager)
+ * Open3PPManager (https://github.com/janevegeorge/Open3PPManager)
  * Copyright 2020 Janeve.Me (http://www.janeve.me)
  *
  * This file is part of "Open3PPManager".
@@ -31,11 +31,11 @@ import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Getter @Setter
+@ToString
 @Document(collection = "projects")
-public class Project {
-    @Id @ToString.Include private String id;
-    @NotBlank @ToString.Include private String name;
-    @DBRef @ToString.Include private User owner;
+public class Project extends TrackedEntity {
+    @NotBlank private String name;
+    @DBRef private User owner;
     private List<ProjectRelease> releases;
     private String description;
 }

@@ -3349,6 +3349,116 @@
       ],
       "value": "Project Details"
     }]
+  }, {
+    "id": "65175f2a-864a-4929-89c6-63bef55d6fec",
+    "name": "WipeData",
+    "commands": [{
+      "id": "77bbb2d1-3a5f-4c94-9160-6c618fd3f2ef",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8081/logout",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4a833736-02e2-46dc-9a68-fcbe91501529",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Log Out')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "dc3241f8-998e-4356-a518-bb22f737cff2",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8081/login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "05f18587-3d9a-427a-8b17-f128aea22c04",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1294x704",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e5588bac-a1e3-4bf4-908b-c76b6d253847",
+      "comment": "",
+      "command": "click",
+      "target": "id=username",
+      "targets": [
+        ["id=username", "id"],
+        ["name=username", "name"],
+        ["css=#username", "css:finder"],
+        ["xpath=//input[@id='username']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "19e18c09-8938-47cb-8513-5adc13cae49d",
+      "comment": "",
+      "command": "type",
+      "target": "id=username",
+      "targets": [
+        ["id=username", "id"],
+        ["name=username", "name"],
+        ["css=#username", "css:finder"],
+        ["xpath=//input[@id='username']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "admin"
+    }, {
+      "id": "6459c425-9db3-4484-a7b1-31bc6d681f92",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//p[2]/input", "xpath:position"]
+      ],
+      "value": "admin"
+    }, {
+      "id": "6d9edc9d-14e6-4933-8cb5-f855a343fe36",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Sign in')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "4063ac65-1343-43ba-aeaa-e23ee5f6346a",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Wipe Data",
+      "targets": [
+        ["linkText=Wipe Data", "linkText"],
+        ["css=div > .nav-item > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Wipe Data')]", "xpath:link"],
+        ["xpath=//div[@id='navbarSupportedContent']/ul/div/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/admin/wipe-data')]", "xpath:href"],
+        ["xpath=//div/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Wipe Data')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f751f767-12f5-4037-b035-eba623b3d531",
+      "comment": "",
+      "command": "",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
   }],
   "suites": [{
     "id": "44f0a88b-dda5-442a-93e8-acb51471a655",
@@ -3356,14 +3466,14 @@
     "persistSession": false,
     "parallel": false,
     "timeout": 600,
-    "tests": ["d37f00df-e442-4311-bd14-de6d68cd35f0", "fa37fc38-6225-4124-b212-5b2edf2490f3", "53d84634-64e8-4ea0-8b69-0eeb71a8239a", "a934ad10-ec92-453f-8983-2dc38d5f567a"]
+    "tests": ["65175f2a-864a-4929-89c6-63bef55d6fec", "d37f00df-e442-4311-bd14-de6d68cd35f0", "fa37fc38-6225-4124-b212-5b2edf2490f3", "53d84634-64e8-4ea0-8b69-0eeb71a8239a", "a934ad10-ec92-453f-8983-2dc38d5f567a"]
   }, {
     "id": "6706fa59-9af2-4c6f-8201-7a02781fb1f3",
     "name": "JustOne",
     "persistSession": false,
     "parallel": false,
     "timeout": 300,
-    "tests": ["fa37fc38-6225-4124-b212-5b2edf2490f3", "53d84634-64e8-4ea0-8b69-0eeb71a8239a"]
+    "tests": ["65175f2a-864a-4929-89c6-63bef55d6fec", "fa37fc38-6225-4124-b212-5b2edf2490f3", "53d84634-64e8-4ea0-8b69-0eeb71a8239a"]
   }],
   "urls": ["http://localhost:8081/"],
   "plugins": []

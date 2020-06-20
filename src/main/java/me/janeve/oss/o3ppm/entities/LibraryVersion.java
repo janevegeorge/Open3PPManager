@@ -1,5 +1,5 @@
 /*!
- * Open3PPManager v0.1-SNAPSHOT (https://github.com/janevegeorge/Open3PPManager)
+ * Open3PPManager (https://github.com/janevegeorge/Open3PPManager)
  * Copyright 2020 Janeve.Me (http://www.janeve.me)
  *
  * This file is part of "Open3PPManager".
@@ -34,8 +34,7 @@ import javax.validation.constraints.Pattern;
 @Getter @Setter
 @ToString
 @Document(collection = "library_versions")
-public class LibraryVersion {
-    @Id private String id;
+public class LibraryVersion extends TrackedEntity {
     @JsonInclude(JsonInclude.Include.NON_NULL) @Valid @DBRef Library library;
     @NotEmpty String version;
     @NotEmpty @Pattern(regexp = "^((https?|ftp)://[^\\s/$.?#].[^\\s]*)?$") private String downloadUrl;

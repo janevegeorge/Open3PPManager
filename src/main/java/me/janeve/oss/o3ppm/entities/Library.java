@@ -1,5 +1,5 @@
 /*!
- * Open3PPManager v0.1-SNAPSHOT (https://github.com/janevegeorge/Open3PPManager)
+ * Open3PPManager (https://github.com/janevegeorge/Open3PPManager)
  * Copyright 2020 Janeve.Me (http://www.janeve.me)
  *
  * This file is part of "Open3PPManager".
@@ -22,7 +22,6 @@ package me.janeve.oss.o3ppm.entities;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -33,8 +32,7 @@ import java.util.List;
 @Getter @Setter
 @ToString
 @Document(collection = "3pp_libraries")
-public class Library {
-    @Id private String id;
+public class Library extends TrackedEntity {
     @NotBlank private String name;
     @DBRef List<LibraryVersion> versions;
     @Valid private SoftwareData softwareData;

@@ -1,5 +1,5 @@
 /*!
- * Open3PPManager v0.1-SNAPSHOT (https://github.com/janevegeorge/Open3PPManager)
+ * Open3PPManager (https://github.com/janevegeorge/Open3PPManager)
  * Copyright 2020 Janeve.Me (http://www.janeve.me)
  *
  * This file is part of "Open3PPManager".
@@ -17,7 +17,7 @@
  * You should have received a copy of the GNU General Public License
  * along with Open3PPManager. If not, see <http://www.gnu.org/licenses/>.
  */
-package me.janeve.oss.o3ppm.auth;
+package me.janeve.oss.o3ppm.config.security;
 
 import me.janeve.oss.o3ppm.dao.UserRepository;
 import me.janeve.oss.o3ppm.entities.User;

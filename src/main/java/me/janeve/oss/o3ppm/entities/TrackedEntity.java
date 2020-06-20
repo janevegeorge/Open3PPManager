@@ -1,5 +1,5 @@
 /*!
- * Open3PPManager v0.1-SNAPSHOT (https://github.com/janevegeorge/Open3PPManager)
+ * Open3PPManager (https://github.com/janevegeorge/Open3PPManager)
  * Copyright 2020 Janeve.Me (http://www.janeve.me)
  *
  * This file is part of "Open3PPManager".
@@ -17,25 +17,22 @@
  * You should have received a copy of the GNU General Public License
  * along with Open3PPManager. If not, see <http://www.gnu.org/licenses/>.
  */
-package me.janeve.oss.o3ppm.auth;
+package me.janeve.oss.o3ppm.entities;
 
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 
-@Configuration
-public class SecurityConfig {
+import java.time.ZonedDateTime;
 
-    @Bean
-    public UserDetailsService createUserDetailsService() {
-        return new AuthUserDetailsService();
-    }
-
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder(10);
-    }
-
+@Getter @Setter
+@ToString
+public abstract class TrackedEntity {
+    @Id private String id;
+    private ZonedDateTime createdAt;
+    private ZonedDateTime lastUpdatedAt;
+    @DBRef private User createdBy;
+    @DBRef private User lastUpdatedBy;
 }

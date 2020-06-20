@@ -17,20 +17,20 @@
  * You should have received a copy of the GNU General Public License
  * along with Open3PPManager. If not, see <http://www.gnu.org/licenses/>.
  */
-package me.janeve.oss.o3ppm.entities;
+package me.janeve.oss.o3ppm.dao.converters;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import org.springframework.core.convert.converter.Converter;
+import org.springframework.data.convert.WritingConverter;
+import org.springframework.stereotype.Component;
 
-import javax.validation.constraints.Pattern;
+import java.time.ZonedDateTime;
+import java.util.Date;
 
-@Getter @Setter
-@ToString
-public class TradeCompliance {
-    @Pattern(regexp = "^[a-zA-Z]{2}$") private String countryCode;
-    private String euECCN;
-    private String usECCN;
-    private String bisAuthorization;
-    private String encryptionProtocol;
+@Component
+@WritingConverter
+public class ZonedDateTimeToDateConverter implements Converter<ZonedDateTime, Date> {
+    @Override
+    public Date convert(ZonedDateTime zonedDateTime) {
+        return Date.from(zonedDateTime.toInstant());
+    }
 }

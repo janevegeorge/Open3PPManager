@@ -17,20 +17,25 @@
  * You should have received a copy of the GNU General Public License
  * along with Open3PPManager. If not, see <http://www.gnu.org/licenses/>.
  */
-package me.janeve.oss.o3ppm.entities;
+package me.janeve.oss.o3ppm.config.security;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
-import javax.validation.constraints.Pattern;
+@Configuration
+public class SecurityConfig {
 
-@Getter @Setter
-@ToString
-public class TradeCompliance {
-    @Pattern(regexp = "^[a-zA-Z]{2}$") private String countryCode;
-    private String euECCN;
-    private String usECCN;
-    private String bisAuthorization;
-    private String encryptionProtocol;
+    @Bean
+    public UserDetailsService createUserDetailsService() {
+        return new AuthUserDetailsService();
+    }
+
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder(10);
+    }
+
 }
