@@ -67,7 +67,13 @@ function autocompleteLibraryName() {
 function autocompleteLibraryVersion() {
 
     $( "input[id='version']" ).autocomplete({
-        serviceUrl: function() { return '/api/libraries/' + $( "input[id='library.id']" ).val() + '/versions'; },
+        serviceUrl: function() {
+            if( $( "input[id='library.id']" ).val() == null || $( "input[id='library.id']" ).val() == '') {
+                return '/api/libraries/NO_ID/versions';
+            } else {
+                return '/api/libraries/' + $( "input[id='library.id']" ).val() + '/versions';
+            }
+        },
         paramName: 'versionPattern',
         deferRequestBy: 100,
         transformResult: function(releases) {
