@@ -42,19 +42,15 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#" th:href="@{/3pp_libraries/}">3PP Libraries</a>
                 </li>
-                <div sec:authorize="hasAuthority('ADMIN')">
-                <li class="nav-item">
-                    <a class="nav-link" href="#" th:href="@{/admin/wipe-data}">Wipe Data</a>
-                </li>
-                </div>
-                <li class="nav-item">
-                    <a class="nav-link" href="#" th:href="@{/logout}">Log Out</a>
-                </li>
             </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
+            <div sec:authorize="hasAuthority('ADMIN')">
+                <a class="btn btn-danger btn-sm mr-2" href="#" th:href="@{/admin/wipe-data}">Wipe Data</a>
+            </div>
+            <a class="btn btn-primary btn-sm btn-secondary" href="#" th:href="@{/logout}">Log Out</a>
+<!--            <form class="form-inline my-2 my-lg-0">-->
+<!--                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">-->
+<!--                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
+<!--            </form>-->
         </div>
     </nav>
     </div>

@@ -27,7 +27,7 @@
     <body>
         <div class="container pb-5 mb-auto">
             <div th:replace="/fragments/navbar.html :: nav"></div>
-            <form action="/new" class="form-horizontal" method="post" th:action="@{/projects/new}">
+            <form action="/new" class="form-horizontal" method="post" th:action="@{/projects/new}" th:fragment="newProjectForm">
                 <div class="form-group">
                     <label for="name">Project Name:</label>
                     <input type="text" class="form-control" id="name" name="name">
@@ -36,7 +36,7 @@
                     <label for="description">Description:</label>
                     <textarea class="form-control" id="description" name="description" rows="4"></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary btn-sm">Create Project</button>
+                <button type="submit" class="btn btn-primary btn-sm">Save</button>
             </form>
         </div>
         <div th:replace="/fragments/footer.html :: footer"></div>

@@ -101,9 +101,4 @@ public class ProjectsController extends BaseController {
         return "/project_releases/details";
     }
 
-    @GetMapping("/new")
-    public String newProjectForm() {
-        return "projects/new";
-    }
-
 }

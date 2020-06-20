@@ -26,6 +26,9 @@ import org.springframework.data.mongodb.repository.Query;
 import java.util.List;
 
 public interface LibraryVersionRepository extends MongoRepository<LibraryVersion, String> {
-    @Query(fields="{ library : 0 }")
+    @Query(value = "{}", sort = "{lastUpdatedAt : -1}")
+    List<LibraryVersion> findAll();
+
+    @Query(fields="{ library : 0 }", sort = "{ 'lastUpdatedAt' : -1}")
     List<LibraryVersion> findByLibraryIdAndVersionLikeIgnoreCase(String libraryId, String version);
 }

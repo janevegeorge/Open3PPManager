@@ -27,9 +27,23 @@
     <body>
         <div class="container pb-5 mb-auto">
             <div th:replace="/fragments/navbar.html :: nav"></div>
-            <a class="btn btn-primary btn-sm my-2" href="#" th:href="@{/projects/new}">
+            <button class="btn btn-primary btn-sm my-2" data-toggle="modal" data-target="#newProject">
                 Add New Project
-            </a>
+            </button>
+            <!-- Modal -->
+            <div class="modal fade" id="newProject" tabindex="-1" role="dialog" aria-labelledby="newProjectLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="newProjectLabel">Add / Edit Project</h5>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <div th:replace="/projects/new.html :: newProjectForm"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div th:unless="${projects!=null and !projects.empty}">
                 No projects found! Add a new project to see it here.
             </div>
