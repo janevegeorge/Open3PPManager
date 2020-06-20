@@ -11,7 +11,7 @@ http://www.janeve.me
 # License
 All code found in this repository is licensed under GNU GPL v3 <https://www.gnu.org/licenses/>.
 
-    Open3PPManager v0.1-SNAPSHOT (https://github.com/janevegeorge/Open3PPManager)
+    Open3PPManager (https://github.com/janevegeorge/Open3PPManager)
     Copyright 2020 Janeve.Me (http://www.janeve.me)
     
     This file is part of Open3PPManager
