@@ -20,7 +20,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <title>New 3PP Library | Open 3PP Manager</title>
-    <link href="../../static/bootstrap-4.5.0/css/bootstrap.css" rel="stylesheet" th:href="@{/bootstrap-4.5.0/css/bootstrap.css}"/>
+    <link href="../../static/bootstrap-4.5.0/css/bootstrap.css" rel="stylesheet" th:href="@{/bootstrap-4.5.0/css/bootstrap.min.css}"/>
     <script src="../../static/jquery-3.5.1/jquery-3.5.1.min.js" th:src="@{/jquery-3.5.1/jquery-3.5.1.min.js}"></script>
     <script src="../../static/bootstrap-4.5.0/js/bootstrap.bundle.min.js" th:src="@{/bootstrap-4.5.0/js/bootstrap.bundle.min.js}"></script>
 </head>
@@ -46,22 +46,22 @@
         <div class="card" style="background-color:#FEE5BB;">
             <h5 class="card-header">Software Data</h5>
             <div class="card-body">
-                <div class="row mb-2">
-                    <div class="col-sm-2">
+                <div class="row mb-1">
+                    <div class="col-sm-2 mx-1 px-1">
                         <input type="text" class="form-control" id="version" name="version" placeholder="Version" required>
                         <div class="invalid-feedback">Version required.</div>
                     </div>
-                    <div class="col">
+                    <div class="col mx-1 px-1">
                         <input type="url" class="form-control" id="downloadUrl" name="downloadUrl" placeholder="Download URL" required>
                         <div class="invalid-feedback">Valid download URL required.</div>
                     </div>
                 </div>
-                <div class="row mb-2">
-                    <div class="col"><input type="text" class="form-control" id="library.softwareData.vendor" name="library.softwareData.vendor" placeholder="Vendor Name"></div>
-                    <div class="col"><input type="url" class="form-control" id="library.softwareData.website" name="library.softwareData.website" placeholder="Website"></div>
+                <div class="row mb-1">
+                    <div class="col mx-1 px-1"><input type="text" class="form-control" id="library.softwareData.vendor" name="library.softwareData.vendor" placeholder="Vendor Name"></div>
+                    <div class="col mx-1 px-1"><input type="url" class="form-control" id="library.softwareData.website" name="library.softwareData.website" placeholder="Website"></div>
                 </div>
                 <div class="row">
-                    <div class="col">
+                    <div class="col mx-1 px-1">
                         <select class="form-control" name="library.softwareData.softwareType" id="library.softwareData.softwareType" required>
                             <option disabled>Choose Software Type...</option>
                             <option th:each="softwareType : ${T(me.janeve.oss.o3ppm.entities.SoftwareType).values()}"
@@ -69,7 +69,7 @@
                                     th:selected="${softwareType.selected}"></option>
                         </select>
                     </div>
-                    <div class="col">
+                    <div class="col mx-1 px-1">
                         <input type="text" class="form-control" id="library.softwareData.platform" name="library.softwareData.platform" placeholder="OS Platform">
                     </div>
                 </div>
@@ -78,23 +78,23 @@
         <div class="card" style="background-color:#B9E3A6;">
             <h5 class="card-header">Trade Compliance</h5>
             <div class="card-body">
-                <div class="row mb-2">
-                    <div class="col">
+                <div class="row mb-1">
+                    <div class="col mx-1 px-1">
                         <input type="text" class="form-control" id="library.tradeCompliance.countryCode" name="library.tradeCompliance.countryCode" placeholder="ISO 3166 Country Code" val>
                         <div class="invalid-feedback">Valid ISO 3166 Alpha-2 Country Code required.</div>
                     </div>
-                    <div class="col"><input type="text" class="form-control" id="library.tradeCompliance.euECCN" name="library.tradeCompliance.euECCN" placeholder="EU ECCN No."></div>
-                    <div class="col"><input type="text" class="form-control" id="library.tradeCompliance.usECCN" name="library.tradeCompliance.usECCN" placeholder="US ECCN No."></div>
-                    <div class="col"><input type="text" class="form-control" id="library.tradeCompliance.bisAuthorization" name="library.tradeCompliance.bisAuthorization" placeholder="BIS Authorization"></div>
+                    <div class="col mx-1 px-1"><input type="text" class="form-control" id="library.tradeCompliance.euECCN" name="library.tradeCompliance.euECCN" placeholder="EU ECCN No."></div>
+                    <div class="col mx-1 px-1"><input type="text" class="form-control" id="library.tradeCompliance.usECCN" name="library.tradeCompliance.usECCN" placeholder="US ECCN No."></div>
+                    <div class="col mx-1 px-1"><input type="text" class="form-control" id="library.tradeCompliance.bisAuthorization" name="library.tradeCompliance.bisAuthorization" placeholder="BIS Authorization"></div>
                 </div>
                 <div class="row">
-                    <div class="col">
+                    <div class="col mx-1 px-1">
                         <textarea class="form-control" id="library.tradeCompliance.earRegulationRestrictions" name="library.tradeCompliance.earRegulationRestrictions" placeholder="EAR Restrictions & Regulations" rows="3"></textarea>
                     </div>
-                    <div class="col">
+                    <div class="col mx-1 px-1">
                         <textarea class="form-control" id="library.tradeCompliance.encryptionProtocol" name="library.tradeCompliance.encryptionProtocol" placeholder="Encryption Protocol Information" rows="3"></textarea>
                     </div>
-                    <div class="col">
+                    <div class="col mx-1 px-1">
                         <textarea class="form-control" id="library.tradeCompliance.encryptionAlgorithms" name="library.tradeCompliance.encryptionAlgorithms" placeholder="Encryption Algorithm(Key Lengths)" rows="3"></textarea>
                     </div>
                 </div>

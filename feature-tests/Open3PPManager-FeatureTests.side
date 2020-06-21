@@ -253,9 +253,9 @@
       "id": "2d3fa60c-0e6d-43cf-998b-8bc592adb801",
       "comment": "",
       "command": "click",
-      "target": "css=.my-2",
+      "target": "css=.my-1",
       "targets": [
-        ["css=.my-2", "css:finder"],
+        ["css=.my-1", "css:finder"],
         ["xpath=(//button[@type='button'])[2]", "xpath:attributes"],
         ["xpath=//div[3]/button", "xpath:position"],
         ["xpath=//button[contains(.,'Add / Edit 3PP Library')]", "xpath:innerText"]
@@ -722,7 +722,7 @@
     }]
   }, {
     "id": "8756c0e5-aea1-453c-bb86-4891d34ad767",
-    "name": "sanity_Invalid 3PP Library Tests",
+    "name": "all_Invalid 3PP Library Tests",
     "commands": [{
       "id": "9de90b8b-a6ad-4db9-919c-9497c6c8c565",
       "comment": "",
@@ -827,7 +827,7 @@
       "id": "74b93c18-ddb9-4d16-abb1-54ce5cb66e5d",
       "comment": "",
       "command": "click",
-      "target": "css=.my-2",
+      "target": "css=.my-1",
       "targets": [
         ["css=.my-2", "css:finder"],
         ["xpath=(//button[@type='button'])[2]", "xpath:attributes"],
@@ -1521,7 +1521,7 @@
       "id": "2f60d018-a7cd-4bdc-a984-dc7958f4c4f4",
       "comment": "",
       "command": "click",
-      "target": "css=.my-2",
+      "target": "css=.my-1",
       "targets": [
         ["css=.my-2", "css:finder"],
         ["xpath=(//button[@type='button'])[2]", "xpath:attributes"],
@@ -1991,7 +1991,7 @@
       "id": "32a1644e-4aee-497b-ad8a-d8c77b8e6f91",
       "comment": "",
       "command": "click",
-      "target": "css=.my-2",
+      "target": "css=.my-1",
       "targets": [
         ["css=.my-2", "css:finder"],
         ["xpath=//div[3]/button", "xpath:position"],
@@ -2107,7 +2107,7 @@
       "id": "62dbde8d-396f-444a-80d9-5c340364c250",
       "comment": "",
       "command": "click",
-      "target": "css=.mb-2",
+      "target": "css=.mb-1",
       "targets": [
         ["css=.mb-2", "css:finder"],
         ["xpath=(//button[@type='button'])[2]", "xpath:attributes"],
@@ -2167,7 +2167,7 @@
       "id": "f809a388-a594-4e46-85bf-8ea8451b65bb",
       "comment": "",
       "command": "click",
-      "target": "css=.mb-2",
+      "target": "css=.mb-1",
       "targets": [
         ["css=.mb-2", "css:finder"],
         ["xpath=(//button[@type='button'])[2]", "xpath:attributes"],
@@ -2409,7 +2409,7 @@
       "id": "bcc225d8-6689-413c-8226-6f1c89b6c97d",
       "comment": "",
       "command": "click",
-      "target": "css=.mb-2:nth-child(3)",
+      "target": "css=.btn-primary:nth-child(1)",
       "targets": [
         ["css=.mb-2:nth-child(3)", "css:finder"],
         ["xpath=(//button[@type='button'])[2]", "xpath:attributes"],
@@ -2774,6 +2774,17 @@
       "targets": [],
       "value": ""
     }, {
+      "id": "e432161d-9273-4b6c-9090-c45b01bc4df4",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-outline-dark > .md",
+      "targets": [
+        ["css=.btn-outline-dark > .md", "css:finder"],
+        ["xpath=//ion-icon[@name='information-circle-outline']", "xpath:attributes"],
+        ["xpath=//ion-icon", "xpath:position"]
+      ],
+      "value": ""
+    }, {
       "id": "ee273c0e-355b-44d5-bda4-a9a456695093",
       "comment": "",
       "command": "click",
@@ -3007,7 +3018,7 @@
       "id": "65b84a50-c362-4146-a20c-856b042640ea",
       "comment": "",
       "command": "click",
-      "target": "css=.my-2",
+      "target": "css=.my-1",
       "targets": [
         ["css=.my-2", "css:finder"],
         ["xpath=//div[3]/button", "xpath:position"],
@@ -3123,7 +3134,7 @@
       "id": "8c6568f2-342e-4527-b2c7-e505222504cc",
       "comment": "",
       "command": "click",
-      "target": "css=.mb-2",
+      "target": "css=.mb-1",
       "targets": [
         ["css=.mb-2", "css:finder"],
         ["xpath=(//button[@type='button'])[2]", "xpath:attributes"],
@@ -3183,7 +3194,7 @@
       "id": "4edbabeb-6230-418a-a028-c9b501f23725",
       "comment": "",
       "command": "click",
-      "target": "css=.mb-2",
+      "target": "css=.mb-1",
       "targets": [
         ["css=.mb-2", "css:finder"],
         ["xpath=(//button[@type='button'])[2]", "xpath:attributes"],
@@ -3425,11 +3436,11 @@
       "id": "46ea48e6-b828-4411-927a-b3c4a2af8a83",
       "comment": "",
       "command": "click",
-      "target": "css=.mb-2:nth-child(3)",
+      "target": "css=.btn-primary:nth-child(1)",
       "targets": [
-        ["css=.mb-2:nth-child(3)", "css:finder"],
+        ["css=.btn-primary:nth-child(1)", "css:finder"],
         ["xpath=(//button[@type='button'])[2]", "xpath:attributes"],
-        ["xpath=//div/button", "xpath:position"],
+        ["xpath=//div[2]/button", "xpath:position"],
         ["xpath=//button[contains(.,'Add / Edit 3PP Dependency')]", "xpath:innerText"]
       ],
       "value": ""
@@ -3790,6 +3801,17 @@
       "targets": [],
       "value": ""
     }, {
+      "id": "703b304e-05f2-45fd-9909-920a1b5619f0",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-outline-dark > .md",
+      "targets": [
+        ["css=.btn-outline-dark > .md", "css:finder"],
+        ["xpath=//ion-icon[@name='information-circle-outline']", "xpath:attributes"],
+        ["xpath=//ion-icon", "xpath:position"]
+      ],
+      "value": ""
+    }, {
       "id": "24926cc9-8909-45ba-b4a2-cd62fdfe5f48",
       "comment": "",
       "command": "click",
@@ -4023,9 +4045,9 @@
       "id": "4efd499e-4bd3-44db-bdea-f26d5896579b",
       "comment": "",
       "command": "click",
-      "target": "css=.my-2",
+      "target": "css=.my-1",
       "targets": [
-        ["css=.my-2", "css:finder"],
+        ["css=.my-1", "css:finder"],
         ["xpath=//div[3]/button", "xpath:position"],
         ["xpath=//button[contains(.,'Add / Edit Project')]", "xpath:innerText"]
       ],
@@ -4139,9 +4161,9 @@
       "id": "b096795a-75d5-47be-a2e1-69b404996849",
       "comment": "",
       "command": "click",
-      "target": "css=.mb-2",
+      "target": "css=.mb-1",
       "targets": [
-        ["css=.mb-2", "css:finder"],
+        ["css=.mb-1", "css:finder"],
         ["xpath=(//button[@type='button'])[2]", "xpath:attributes"],
         ["xpath=//div/button", "xpath:position"],
         ["xpath=//button[contains(.,'Add New Version')]", "xpath:innerText"]
@@ -4199,9 +4221,9 @@
       "id": "a663dda4-e84b-4f1a-a85a-280b0a3240bd",
       "comment": "",
       "command": "click",
-      "target": "css=.mb-2",
+      "target": "css=.mb-1",
       "targets": [
-        ["css=.mb-2", "css:finder"],
+        ["css=.mb-1", "css:finder"],
         ["xpath=(//button[@type='button'])[2]", "xpath:attributes"],
         ["xpath=//div/button", "xpath:position"],
         ["xpath=//button[contains(.,'Add New Version')]", "xpath:innerText"]
@@ -4441,11 +4463,11 @@
       "id": "a1e4d29a-fd09-43e4-a62d-b96e93fb9e79",
       "comment": "",
       "command": "click",
-      "target": "css=.mb-2:nth-child(3)",
+      "target": "css=.btn-primary:nth-child(1)",
       "targets": [
-        ["css=.mb-2:nth-child(3)", "css:finder"],
+        ["css=.btn-primary:nth-child(1)", "css:finder"],
         ["xpath=(//button[@type='button'])[2]", "xpath:attributes"],
-        ["xpath=//div/button", "xpath:position"],
+        ["xpath=//div[2]/button", "xpath:position"],
         ["xpath=//button[contains(.,'Add / Edit 3PP Dependency')]", "xpath:innerText"]
       ],
       "value": ""
@@ -4806,6 +4828,17 @@
       "targets": [],
       "value": ""
     }, {
+      "id": "84798073-f200-47df-90e1-f75a4f4e383b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-outline-dark > .md",
+      "targets": [
+        ["css=.btn-outline-dark > .md", "css:finder"],
+        ["xpath=//ion-icon[@name='information-circle-outline']", "xpath:attributes"],
+        ["xpath=//ion-icon", "xpath:position"]
+      ],
+      "value": ""
+    }, {
       "id": "ac8b170a-64c4-4ca7-99ff-ccd4d0475086",
       "comment": "",
       "command": "click",
@@ -5032,9 +5065,9 @@
       "id": "49f01100-ed5e-445b-a782-119ed541c532",
       "comment": "",
       "command": "click",
-      "target": "css=.my-2",
+      "target": "css=.my-1",
       "targets": [
-        ["css=.my-2", "css:finder"],
+        ["css=.my-1", "css:finder"],
         ["xpath=//div[3]/button", "xpath:position"],
         ["xpath=//button[contains(.,'Add / Edit Project')]", "xpath:innerText"]
       ],
@@ -5117,9 +5150,9 @@
       "id": "8c5b6950-51eb-47ce-b158-602e7bacca55",
       "comment": "",
       "command": "click",
-      "target": "css=.mb-2",
+      "target": "css=.mb-1",
       "targets": [
-        ["css=.mb-2", "css:finder"],
+        ["css=.mb-1", "css:finder"],
         ["xpath=(//button[@type='button'])[2]", "xpath:attributes"],
         ["xpath=//div/button", "xpath:position"],
         ["xpath=//button[contains(.,'Add New Version')]", "xpath:innerText"]
@@ -5177,9 +5210,9 @@
       "id": "b52778dc-6075-4e46-b3d5-c203784d4df0",
       "comment": "",
       "command": "click",
-      "target": "css=.mb-2",
+      "target": "css=.mb-1",
       "targets": [
-        ["css=.mb-2", "css:finder"],
+        ["css=.mb-1", "css:finder"],
         ["xpath=(//button[@type='button'])[2]", "xpath:attributes"],
         ["xpath=//div/button", "xpath:position"],
         ["xpath=//button[contains(.,'Add New Version')]", "xpath:innerText"]
@@ -5276,6 +5309,17 @@
       ],
       "value": ""
     }, {
+      "id": "dbb18fe0-991a-4ff8-b562-2d46268bd761",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-outline-dark > .md",
+      "targets": [
+        ["css=.btn-outline-dark > .md", "css:finder"],
+        ["xpath=//ion-icon[@name='information-circle-outline']", "xpath:attributes"],
+        ["xpath=//ion-icon", "xpath:position"]
+      ],
+      "value": ""
+    }, {
       "id": "cb16f6d3-fe23-4a0d-9a01-fb780d14ff7f",
       "comment": "",
       "command": "verifyText",
@@ -5301,7 +5345,7 @@
     "persistSession": false,
     "parallel": false,
     "timeout": 300,
-    "tests": ["65175f2a-864a-4929-89c6-63bef55d6fec", "10766094-4933-4460-854f-26ca6f1ea92e", "fa37fc38-6225-4124-b212-5b2edf2490f3", "e060d65d-5c7f-4f0f-93b6-44b285cddaf9"]
+    "tests": ["65175f2a-864a-4929-89c6-63bef55d6fec", "10766094-4933-4460-854f-26ca6f1ea92e", "fa37fc38-6225-4124-b212-5b2edf2490f3", "e060d65d-5c7f-4f0f-93b6-44b285cddaf9", "8756c0e5-aea1-453c-bb86-4891d34ad767"]
   }, {
     "id": "7cd47432-3546-4bca-a67e-22b231a82e3f",
     "name": "gunners",

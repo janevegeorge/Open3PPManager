@@ -17,42 +17,11 @@
  * You should have received a copy of the GNU General Public License
  * along with Open3PPManager. If not, see <http://www.gnu.org/licenses/>.
  */
-#team-details li{margin:0 1px 0 1px;}
-#team-details li:not(:last-child):after{content:' |';}
-
-.truncated {
-  min-width: 220px;
-  max-width: 300px;
-  flex-wrap: wrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-
-@media (min-width: 1291px) {
-    .library_details_view {
-        display: block;
-        max-height: 860px;
-        overflow: auto;
-    }
-
-    .project_library_view {
-        display: block;
-        max-height: 820px;
-        overflow: auto;
-    }
-}
-
-@media (min-width: 720px ) and (max-width: 1290px) {
-    .library_details_view {
-        display: block;
-        max-height: 500px;
-        overflow: auto;
-    }
-
-    .project_library_view {
-        display: block;
-        max-height: 465px;
-        overflow: auto;
-    }
+.back-to-top {
+    cursor: pointer;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display:none;
+    z-index: 1080;
 }
