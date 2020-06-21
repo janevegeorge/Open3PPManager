@@ -28,7 +28,7 @@ import javax.validation.constraints.Pattern;
 @Getter @Setter
 @ToString
 public class TradeCompliance {
-    @Pattern(regexp = "^[a-zA-Z]{2}$") private String countryCode;
+    @Pattern(regexp = "^([a-zA-Z]{2})?$") private String countryCode;
     private String euECCN;
     private String usECCN;
     private String bisAuthorization;

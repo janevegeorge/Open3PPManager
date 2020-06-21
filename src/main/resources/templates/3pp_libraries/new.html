@@ -27,7 +27,7 @@
 <body>
 <div class="container pb-5 mb-auto">
     <div th:replace="/fragments/navbar.html :: nav"></div>
-    <form action="/new" class="form-horizontal" method="post" th:action="@{/3pp_libraries/new}" id="new3ppLibraryForm" th:fragment="new3ppLibraryForm (projectId, releaseVersion)">
+    <form action="/new" class="form-horizontal needs-validation" method="post" th:action="@{/3pp_libraries/new}" id="new3ppLibraryForm" th:fragment="new3ppLibraryForm (projectId, releaseVersion)" novalidate>
         <div class="card">
             <div class="card-body">
                 <div th:if="${projectId!=null and releaseVersion!=null}">
@@ -39,26 +39,34 @@
                 <script src="../../static/jQuery-Autocomplete-1.4.11/bootstrap.bundle.min.js" th:src="@{/jQuery-Autocomplete-1.4.11/jquery.autocomplete.min.js}"></script>
                 <script src="../../static/o3ppm/3pplibraries_autocomplete.js" th:src="@{/o3ppm/3pplibraries_autocomplete-min.js}"></script>
                 <link href="../../static/o3ppm/autocomplete.css" rel="stylesheet" th:href="@{/o3ppm/autocomplete-min.css}"/>
-                <input type="text" class="form-control" id="library.name" name="library.name" placeholder="3PP Library Name">
+                <input type="text" class="form-control" id="library.name" name="library.name" placeholder="3PP Library Name" required>
+                <div class="invalid-feedback">Name of the library required.</div>
             </div>
         </div>
         <div class="card" style="background-color:#FEE5BB;">
             <h5 class="card-header">Software Data</h5>
             <div class="card-body">
                 <div class="row mb-2">
-                    <div class="col-sm-2"><input type="text" class="form-control" id="version" name="version" placeholder="Version"></div>
-                    <div class="col"><input type="text" class="form-control" id="downloadUrl" name="downloadUrl" placeholder="Download URL"></div>
+                    <div class="col-sm-2">
+                        <input type="text" class="form-control" id="version" name="version" placeholder="Version" required>
+                        <div class="invalid-feedback">Version required.</div>
+                    </div>
+                    <div class="col">
+                        <input type="url" class="form-control" id="downloadUrl" name="downloadUrl" placeholder="Download URL" required>
+                        <div class="invalid-feedback">Valid download URL required.</div>
+                    </div>
                 </div>
                 <div class="row mb-2">
                     <div class="col"><input type="text" class="form-control" id="library.softwareData.vendor" name="library.softwareData.vendor" placeholder="Vendor Name"></div>
-                    <div class="col"><input type="text" class="form-control" id="library.softwareData.website" name="library.softwareData.website" placeholder="Website"></div>
+                    <div class="col"><input type="url" class="form-control" id="library.softwareData.website" name="library.softwareData.website" placeholder="Website"></div>
                 </div>
                 <div class="row">
                     <div class="col">
-                        <select class="form-control" name="library.softwareData.softwareType" id="library.softwareData.softwareType">
-                            <option selected>Choose Software Type...</option>
+                        <select class="form-control" name="library.softwareData.softwareType" id="library.softwareData.softwareType" required>
+                            <option disabled>Choose Software Type...</option>
                             <option th:each="softwareType : ${T(me.janeve.oss.o3ppm.entities.SoftwareType).values()}"
-                                    th:value="${softwareType.name()}" th:text="${softwareType.displayName}"></option>
+                                    th:value="${softwareType.name()}" th:text="${softwareType.displayName}"
+                                    th:selected="${softwareType.selected}"></option>
                         </select>
                     </div>
                     <div class="col">
@@ -71,17 +79,46 @@
             <h5 class="card-header">Trade Compliance</h5>
             <div class="card-body">
                 <div class="row mb-2">
-                    <div class="col"><input type="text" class="form-control" id="library.tradeCompliance.countryCode" name="library.tradeCompliance.countryCode" placeholder="ISO 3166 Country Code"></div>
+                    <div class="col">
+                        <input type="text" class="form-control" id="library.tradeCompliance.countryCode" name="library.tradeCompliance.countryCode" placeholder="ISO 3166 Country Code">
+                        <div class="invalid-feedback">Valid ISO 3166 Alpha-2 Country Code required.</div>
+                    </div>
                     <div class="col"><input type="text" class="form-control" id="library.tradeCompliance.euECCN" name="library.tradeCompliance.euECCN" placeholder="EU ECCN No."></div>
                     <div class="col"><input type="text" class="form-control" id="library.tradeCompliance.usECCN" name="library.tradeCompliance.usECCN" placeholder="US ECCN No."></div>
                     <div class="col"><input type="text" class="form-control" id="library.tradeCompliance.bisAuthorization" name="library.tradeCompliance.bisAuthorization" placeholder="BIS Authorization"></div>
                 </div>
                 <div class="row">
-                    <div class="col"><input type="text" class="form-control" id="library.tradeCompliance.encryptionProtocol" name="library.tradeCompliance.encryptionProtocol" placeholder="Encryption Protocol"></div>
+                    <div class="col">
+                        <textarea class="form-control" id="library.tradeCompliance.encryptionProtocol" name="library.tradeCompliance.encryptionProtocol" placeholder="Encryption Protocol Information" rows="4"></textarea>
+                    </div>
                 </div>
             </div>
         </div>
         <button type="submit" class="btn btn-primary btn-sm mt-2">Save</button>
+        <div id="submit-btn-message" class="invalid-feedback small d-none">Correct the invalid entries and retry.</div>
+        <script>
+        (function() {
+          'use strict';
+          window.addEventListener('load', function() {
+            var forms = document.getElementsByClassName('needs-validation');
+            var validation = Array.prototype.filter.call(forms, function(form) {
+              form.addEventListener('submit', function(event) {
+                if (form.checkValidity() === false) {
+                  event.preventDefault();
+                  event.stopPropagation();
+                  var btn = document.getElementById('submit-btn-message');
+                  btn.classList.add('d-inline');
+                  btn.classList.remove('d-none');
+
+                  if(document.getElementById('library.softwareData.softwareType').selectedIndex == "0") {
+                  }
+                }
+                form.classList.add('was-validated');
+              }, false);
+            });
+          }, false);
+        })();
+        </script>
     </form>
 </div>
 <div th:replace="/fragments/footer.html :: footer"></div>

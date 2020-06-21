@@ -22,13 +22,11 @@ package me.janeve.oss.o3ppm.entities;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import java.util.List;
+import java.util.TreeSet;
 
 @Getter @Setter
 @ToString
@@ -36,6 +34,6 @@ import java.util.List;
 public class Project extends TrackedEntity {
     @NotBlank private String name;
     @DBRef private User owner;
-    private List<ProjectRelease> releases;
+    private TreeSet<ProjectRelease> releases;
     private String description;
 }

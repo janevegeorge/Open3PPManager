@@ -28,6 +28,10 @@
         <div class="container pb-5 mb-auto">
             <div th:replace="/fragments/navbar.html :: nav"></div>
             <form action="/new" class="form-horizontal" method="post" th:action="@{/projects/new}" th:fragment="newProjectForm">
+                <input type="hidden" id="id" name="id">
+                <script src="../../static/jQuery-Autocomplete-1.4.11/bootstrap.bundle.min.js" th:src="@{/jQuery-Autocomplete-1.4.11/jquery.autocomplete.min.js}"></script>
+                <script src="../../static/o3ppm/projects_autocomplete.js" th:src="@{/o3ppm/projects_autocomplete-min.js}"></script>
+                <link href="../../static/o3ppm/autocomplete.css" rel="stylesheet" th:href="@{/o3ppm/autocomplete-min.css}"/>
                 <div class="form-group">
                     <label for="name">Project Name:</label>
                     <input type="text" class="form-control" id="name" name="name">

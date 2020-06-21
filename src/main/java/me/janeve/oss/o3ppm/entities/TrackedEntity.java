@@ -23,6 +23,8 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.IndexDirection;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 
 import java.time.ZonedDateTime;
@@ -31,8 +33,8 @@ import java.time.ZonedDateTime;
 @ToString
 public abstract class TrackedEntity {
     @Id private String id;
-    private ZonedDateTime createdAt;
-    private ZonedDateTime lastUpdatedAt;
+    @Indexed(direction = IndexDirection.DESCENDING) private ZonedDateTime createdAt;
+    @Indexed(direction = IndexDirection.DESCENDING) private ZonedDateTime lastUpdatedAt;
     @DBRef private User createdBy;
     @DBRef private User lastUpdatedBy;
 }

@@ -17,19 +17,25 @@
  * You should have received a copy of the GNU General Public License
  * along with Open3PPManager. If not, see <http://www.gnu.org/licenses/>.
  */
-package me.janeve.oss.o3ppm.dao;
+package me.janeve.oss.o3ppm.controllers.apis;
 
+import me.janeve.oss.o3ppm.controllers.BaseController;
 import me.janeve.oss.o3ppm.entities.Library;
 import me.janeve.oss.o3ppm.entities.Project;
-import org.springframework.data.mongodb.repository.MongoRepository;
-import org.springframework.data.mongodb.repository.Query;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-public interface ProjectRepository extends MongoRepository<Project, String> {
-    @Query(value = "{}", sort = "{lastUpdatedAt : -1}")
-    List<Project> findAll();
+@RestController
+@RequestMapping("/api/projects")
+public class ProjectsApi extends BaseController {
 
-    @Query(sort = "{lastUpdatedAt : -1}")
-    List<Project> findByNameLikeIgnoreCase(String namePattern);
+    @GetMapping("")
+    public List<Project> findLibraryByNamePattern(@RequestParam String namePattern){
+        return projectRepository.findByNameLikeIgnoreCase(namePattern);
+    }
+
 }

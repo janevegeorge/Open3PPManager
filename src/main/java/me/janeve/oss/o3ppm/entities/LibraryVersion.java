@@ -23,7 +23,6 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -34,8 +33,21 @@ import javax.validation.constraints.Pattern;
 @Getter @Setter
 @ToString
 @Document(collection = "library_versions")
-public class LibraryVersion extends TrackedEntity {
+public class LibraryVersion extends TrackedEntity implements Comparable<LibraryVersion> {
     @JsonInclude(JsonInclude.Include.NON_NULL) @Valid @DBRef Library library;
     @NotEmpty String version;
     @NotEmpty @Pattern(regexp = "^((https?|ftp)://[^\\s/$.?#].[^\\s]*)?$") private String downloadUrl;
+
+    @Override
+    public int compareTo(LibraryVersion o) {
+        if(o == null) {
+            return -1;
+        }
+
+        if( version == null) {
+            return o.getVersion() == null ? 0 : 1;
+        }
+
+        return o.getVersion().compareTo(getVersion());
+    }
 }

@@ -25,14 +25,20 @@ import lombok.ToString;
 @Getter
 @ToString
 public enum SoftwareType {
-    FOSS("FOSS"),
+    FOSS("FOSS", true),
     COMMERCIAL("Commercial"),
     INTERNAL("Internal"),
     UNKNOWN("Others");
 
     private final String displayName;
+    private final boolean selected;
+
+    SoftwareType(String displayName, boolean selected) {
+        this.displayName = displayName;
+        this.selected = selected;
+    }
 
     SoftwareType(String displayName) {
-        this.displayName = displayName;
+        this(displayName, false);
     }
 }

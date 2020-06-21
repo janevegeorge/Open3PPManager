@@ -31,9 +31,7 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.logging.Logger;
 
 public abstract class BaseController {
@@ -57,9 +55,9 @@ public abstract class BaseController {
     }
 
     protected ProjectRelease getProjectRelease(Project project, @PathVariable String version) {
-        List<ProjectRelease> releases = project.getReleases();
+        Set<ProjectRelease> releases = project.getReleases();
         if(releases == null) {
-            releases = new ArrayList<>();
+            releases = new TreeSet<>();
         }
 
         ProjectRelease projectRelease = null;

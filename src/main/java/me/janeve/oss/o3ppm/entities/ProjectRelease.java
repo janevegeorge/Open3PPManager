@@ -23,13 +23,28 @@ import lombok.*;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Getter @Setter
 @ToString
 @RequiredArgsConstructor
-public class ProjectRelease {
+public class ProjectRelease implements Comparable<ProjectRelease>{
     @NotEmpty private String version;
     private String baseVersion;
     @DBRef private List<LibraryVersion> dependencies;
+
+    @Override
+    public int compareTo( ProjectRelease o) {
+        if(o == null) {
+            return -1;
+        }
+
+        if( version == null) {
+            return o.getVersion() == null ? 0 : 1;
+        }
+
+        return o.getVersion().compareTo(getVersion());
+    }
+
 }
