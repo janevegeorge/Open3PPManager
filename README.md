@@ -1,5 +1,14 @@
 # Open3PPManager
-Open-Source Third-Party Products (3PP) Management Software.
+Open3PPManager is an Open-Source Third-Party Products (3PP) Management Software.
+
+Open3PPManager, helps in skipping manual, confusing and erratic ways of working with 
+FOSS/Commercial 3PP libraries used by your teams. 
+
+The Open3PPManager may help in the following areas:
+* 3PP Software Vendor List Management
+* Data for Trade Compliance
+
+The Open3PPManager is ideal for small teams to manage the 3PP libraries used in their products and services.
 
 ## About Me
 My name is Janeve George. I am a software engineer by profession and a hardcore agile development enthusiast. 
