@@ -59,6 +59,9 @@ function autocompleteLibraryName() {
                     if(suggestion.data.tradeCompliance.usECCN!= null) $( "input[id='library.tradeCompliance.usECCN']" ).val(suggestion.data.tradeCompliance.usECCN);
                     if(suggestion.data.tradeCompliance.bisAuthorization!= null) $( "input[id='library.tradeCompliance.bisAuthorization']" ).val(suggestion.data.tradeCompliance.bisAuthorization);
                     if(suggestion.data.tradeCompliance.encryptionProtocol!= null) $( "textarea[id='library.tradeCompliance.encryptionProtocol']" ).val(suggestion.data.tradeCompliance.encryptionProtocol);
+
+                    if(suggestion.data.tradeCompliance.earRegulationRestrictions!= null) $( "textarea[id='library.tradeCompliance.earRegulationRestrictions']" ).val(suggestion.data.tradeCompliance.earRegulationRestrictions);
+                    if(suggestion.data.tradeCompliance.encryptionAlgorithms!= null) $( "textarea[id='library.tradeCompliance.encryptionAlgorithms']" ).val(suggestion.data.tradeCompliance.encryptionAlgorithms);
                 }
             }
         }
@@ -76,6 +79,9 @@ function autocompleteLibraryName() {
             $( "input[id='library.tradeCompliance.usECCN']" ).val('');
             $( "input[id='library.tradeCompliance.bisAuthorization']" ).val('');
             $( "textarea[id='library.tradeCompliance.encryptionProtocol']" ).val('');
+
+            $( "textarea[id='library.tradeCompliance.earRegulationRestrictions']" ).val('');
+            $( "textarea[id='library.tradeCompliance.encryptionAlgorithms']" ).val('');
 
             $( "input[id='version']" ).val('');
             $( "input[id='id']" ).val('');

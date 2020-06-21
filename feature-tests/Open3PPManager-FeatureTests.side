@@ -138,6 +138,20 @@
       "targets": [],
       "value": "libVersion"
     }, {
+      "id": "6c743345-beb7-4fca-a6ea-48127b076c2c",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return \"https://\" + ${libName} + \".com/downloads/\" + ${libName} + \"-\" + ${libVersion}+ \".jar\";",
+      "targets": [],
+      "value": "downloadUrl"
+    }, {
+      "id": "d3f6ee29-e541-426a-aaf4-c64846d5472e",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return \"https://\" + ${libName}+ \".-provider.com/\";",
+      "targets": [],
+      "value": "websiteUrl"
+    }, {
       "id": "a126ba3f-b02e-4d96-9057-1cb7fece3284",
       "comment": "",
       "command": "executeScript",
@@ -173,6 +187,27 @@
       "targets": [],
       "value": "euECCN"
     }, {
+      "id": "df09e29d-e6c3-4c07-a46f-f9eb4aad84ed",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return \"Library\" + Math.random().toString(36).substring(7);",
+      "targets": [],
+      "value": "earRegulationRestrictions"
+    }, {
+      "id": "cd598de0-b038-4a2c-8ff0-2934a474f49d",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return \"Library\" + Math.random().toString(36).substring(7);",
+      "targets": [],
+      "value": "encryptionProtocol"
+    }, {
+      "id": "03a2363f-ae77-4c7b-96db-6515ff9d39af",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return \"Library\" + Math.random().toString(36).substring(7);",
+      "targets": [],
+      "value": "encryptionAlgorithms"
+    }, {
       "id": "dc0eb7f4-4d14-4fcf-ba53-3432b233373c",
       "comment": "",
       "command": "echo",
@@ -184,6 +219,27 @@
       "comment": "",
       "command": "echo",
       "target": "v${libVersion},          swt:${swType}          osT: ${osType},          c:${country},          us:${usECCN},          eu:${euECCN}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b0036115-236b-404b-ab47-b002cc11c42c",
+      "comment": "",
+      "command": "echo",
+      "target": "${earRegulationRestrictions}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b4c31feb-ca2f-4647-a5f5-b17af6138ccb",
+      "comment": "",
+      "command": "echo",
+      "target": "${encryptionProtocol}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2b2b54e0-551f-47a2-8c2e-0b60e5e73316",
+      "comment": "",
+      "command": "echo",
+      "target": "${encryptionAlgorithms}",
       "targets": [],
       "value": ""
     }, {
@@ -246,7 +302,7 @@
         ["xpath=//form[@id='new3ppLibraryForm']/div[2]/div/div/div[2]/input", "xpath:idRelative"],
         ["xpath=//div[2]/input", "xpath:position"]
       ],
-      "value": "https://${libName}.com/downloads/${libName}-${libVersion}.jar"
+      "value": "${downloadUrl}"
     }, {
       "id": "347150a2-39f9-4980-8d11-bc131ebc3a83",
       "comment": "",
@@ -274,7 +330,7 @@
         ["xpath=//form[@id='new3ppLibraryForm']/div[2]/div/div[2]/div[2]/input", "xpath:idRelative"],
         ["xpath=//div[2]/div[2]/input", "xpath:position"]
       ],
-      "value": "https://${libName}-provider.com"
+      "value": "${websiteUrl}"
     }, {
       "id": "35d459fc-3b6e-4f6a-8569-78b2309e44a9",
       "comment": "",
@@ -353,7 +409,21 @@
       ],
       "value": "BIS"
     }, {
-      "id": "93f35b5a-d6b0-44d6-8c29-88325129cbea",
+      "id": "f7e609e3-f913-4390-a2aa-4d9725325faa",
+      "comment": "",
+      "command": "type",
+      "target": "id=library.tradeCompliance.earRegulationRestrictions",
+      "targets": [
+        ["id=library.tradeCompliance.earRegulationRestrictions", "id"],
+        ["name=library.tradeCompliance.earRegulationRestrictions", "name"],
+        ["css=#library\\.tradeCompliance\\.earRegulationRestrictions", "css:finder"],
+        ["xpath=//textarea[@id='library.tradeCompliance.earRegulationRestrictions']", "xpath:attributes"],
+        ["xpath=//form[@id='new3ppLibraryForm']/div[3]/div/div[2]/div/textarea", "xpath:idRelative"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": "${earRegulationRestrictions}"
+    }, {
+      "id": "87072beb-43cc-4ecb-aeb3-f579274b8a51",
       "comment": "",
       "command": "type",
       "target": "id=library.tradeCompliance.encryptionProtocol",
@@ -361,11 +431,25 @@
         ["id=library.tradeCompliance.encryptionProtocol", "id"],
         ["name=library.tradeCompliance.encryptionProtocol", "name"],
         ["css=#library\\.tradeCompliance\\.encryptionProtocol", "css:finder"],
-        ["xpath=//input[@id='library.tradeCompliance.encryptionProtocol']", "xpath:attributes"],
-        ["xpath=//form[@id='new3ppLibraryForm']/div[3]/div/div[2]/div/input", "xpath:idRelative"],
-        ["xpath=//div[3]/div/div[2]/div/input", "xpath:position"]
+        ["xpath=//textarea[@id='library.tradeCompliance.encryptionProtocol']", "xpath:attributes"],
+        ["xpath=//form[@id='new3ppLibraryForm']/div[3]/div/div[2]/div[2]/textarea", "xpath:idRelative"],
+        ["xpath=//div[2]/textarea", "xpath:position"]
       ],
-      "value": "SSL"
+      "value": "${encryptionProtocol}"
+    }, {
+      "id": "c9266820-4986-4eaf-93f7-bea5c71076fb",
+      "comment": "",
+      "command": "type",
+      "target": "id=library.tradeCompliance.encryptionAlgorithms",
+      "targets": [
+        ["id=library.tradeCompliance.encryptionAlgorithms", "id"],
+        ["name=library.tradeCompliance.encryptionAlgorithms", "name"],
+        ["css=#library\\.tradeCompliance\\.encryptionAlgorithms", "css:finder"],
+        ["xpath=//textarea[@id='library.tradeCompliance.encryptionAlgorithms']", "xpath:attributes"],
+        ["xpath=//form[@id='new3ppLibraryForm']/div[3]/div/div[2]/div[3]/textarea", "xpath:idRelative"],
+        ["xpath=//div[3]/textarea", "xpath:position"]
+      ],
+      "value": "${encryptionAlgorithms}"
     }, {
       "id": "11d5a1ad-2084-44cd-a692-86f0ff362aae",
       "comment": "",
@@ -411,7 +495,7 @@
         ["xpath=//td", "xpath:position"],
         ["xpath=//td[contains(.,'Libraryjbc5on')]", "xpath:innerText"]
       ],
-      "value": "https://${libName}-provider.com"
+      "value": "${websiteUrl}"
     }, {
       "id": "df55170f-af6d-4659-bce2-63030a586a8e",
       "comment": "",
@@ -488,7 +572,29 @@
         ["xpath=//td", "xpath:position"],
         ["xpath=//td[contains(.,'Libraryjbc5on')]", "xpath:innerText"]
       ],
-      "value": "SSL"
+      "value": "${earRegulationRestrictions}"
+    }, {
+      "id": "6ca907bc-e02f-448f-8c6e-2c591f516362",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=tr:nth-child(1) > td:nth-child(11)",
+      "targets": [
+        ["css=td:nth-child(1)", "css:finder"],
+        ["xpath=//td", "xpath:position"],
+        ["xpath=//td[contains(.,'Libraryjbc5on')]", "xpath:innerText"]
+      ],
+      "value": "${encryptionProtocol}"
+    }, {
+      "id": "f4613e05-ba48-418c-bc2f-285c54fb52e7",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=tr:nth-child(1) > td:nth-child(12)",
+      "targets": [
+        ["css=td:nth-child(1)", "css:finder"],
+        ["xpath=//td", "xpath:position"],
+        ["xpath=//td[contains(.,'Libraryjbc5on')]", "xpath:innerText"]
+      ],
+      "value": "${encryptionAlgorithms}"
     }, {
       "id": "7d3fe4cf-24e6-4011-8b20-e494854546ef",
       "comment": "",
@@ -1039,1021 +1145,161 @@
       "id": "1b101050-0d27-46f2-ac42-2a5d866274cd",
       "comment": "",
       "command": "verifyText",
-      "target": "css=body > div.container.pb-5.mb-auto > div:nth-child(4) > div > table > tbody > tr:first-child > td:nth-child(1)",
+      "target": "css=tr:nth-child(1) > td:nth-child(1)",
       "targets": [
-        ["css=td:nth-child(1)", "css:finder"],
+        ["css=tr:nth-child(1) > td:nth-child(1)", "css:finder"],
         ["xpath=//td", "xpath:position"],
-        ["xpath=//td[contains(.,'Libraryjbc5on')]", "xpath:innerText"]
+        ["xpath=//td[contains(.,'Library3stc5')]", "xpath:innerText"]
       ],
       "value": "${libName}"
     }, {
       "id": "3d970e13-3f62-44ce-9a61-7cf3bdbf9ddb",
       "comment": "",
       "command": "verifyText",
-      "target": "css=body > div.container.pb-5.mb-auto > div:nth-child(4) > div > table > tbody > tr:first-child > td:nth-child(2)",
+      "target": "css=tr:nth-child(1) > td:nth-child(2)",
       "targets": [
-        ["css=td:nth-child(1)", "css:finder"],
-        ["xpath=//td", "xpath:position"],
-        ["xpath=//td[contains(.,'Libraryjbc5on')]", "xpath:innerText"]
+        ["css=tr:nth-child(1) > td:nth-child(2)", "css:finder"],
+        ["xpath=//td[2]", "xpath:position"]
       ],
       "value": ""
     }, {
       "id": "6d1a8bbd-a6e9-4be0-a761-094fef2fe254",
       "comment": "",
       "command": "verifyText",
-      "target": "css=body > div.container.pb-5.mb-auto > div:nth-child(4) > div > table > tbody > tr:first-child > td:nth-child(3)",
+      "target": "css=tr:nth-child(1) > td:nth-child(3)",
       "targets": [
-        ["css=td:nth-child(1)", "css:finder"],
-        ["xpath=//td", "xpath:position"],
-        ["xpath=//td[contains(.,'Libraryjbc5on')]", "xpath:innerText"]
+        ["css=tr:nth-child(1) > td:nth-child(3)", "css:finder"],
+        ["xpath=//td[3]", "xpath:position"]
       ],
       "value": ""
     }, {
       "id": "c345d9bb-055f-4752-89b4-598cb9ad9cf0",
       "comment": "",
       "command": "verifyText",
-      "target": "css=body > div.container.pb-5.mb-auto > div:nth-child(4) > div > table > tbody > tr:first-child > td:nth-child(4)",
+      "target": "css=tr:nth-child(1) > td:nth-child(3)",
       "targets": [
-        ["css=td:nth-child(1)", "css:finder"],
-        ["xpath=//td", "xpath:position"],
-        ["xpath=//td[contains(.,'Libraryjbc5on')]", "xpath:innerText"]
+        ["css=tr:nth-child(1) > td:nth-child(3)", "css:finder"],
+        ["xpath=//td[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "de64cda8-490e-44ee-9d14-1bd95ed72276",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=tr:nth-child(1) > td:nth-child(4)",
+      "targets": [
+        ["css=tr:nth-child(1) > td:nth-child(4)", "css:finder"],
+        ["xpath=//td[4]", "xpath:position"],
+        ["xpath=//td[contains(.,'FOSS')]", "xpath:innerText"]
       ],
       "value": "FOSS"
     }, {
       "id": "01e205d9-e989-4b8b-8c76-6667356f5e81",
       "comment": "",
       "command": "verifyText",
-      "target": "css=body > div.container.pb-5.mb-auto > div:nth-child(4) > div > table > tbody > tr:first-child > td:nth-child(5)",
+      "target": "css=tr:nth-child(1) > td:nth-child(5)",
       "targets": [
-        ["css=td:nth-child(1)", "css:finder"],
-        ["xpath=//td", "xpath:position"],
-        ["xpath=//td[contains(.,'Libraryjbc5on')]", "xpath:innerText"]
+        ["css=tr:nth-child(1) > td:nth-child(5)", "css:finder"],
+        ["xpath=//td[5]", "xpath:position"]
       ],
       "value": ""
     }, {
       "id": "9d989046-1444-4d60-afac-b68a514b99c3",
       "comment": "",
       "command": "verifyText",
-      "target": "css=body > div.container.pb-5.mb-auto > div:nth-child(4) > div > table > tbody > tr:first-child > td:nth-child(6)",
+      "target": "css=tr:nth-child(1) > td:nth-child(6)",
       "targets": [
-        ["css=td:nth-child(1)", "css:finder"],
-        ["xpath=//td", "xpath:position"],
-        ["xpath=//td[contains(.,'Libraryjbc5on')]", "xpath:innerText"]
+        ["css=tr:nth-child(1) > td:nth-child(6)", "css:finder"],
+        ["xpath=//td[6]", "xpath:position"]
       ],
       "value": ""
     }, {
       "id": "1647b843-907c-497a-80e9-c5432df337bd",
       "comment": "",
       "command": "verifyText",
-      "target": "css=body > div.container.pb-5.mb-auto > div:nth-child(4) > div > table > tbody > tr:first-child > td:nth-child(7)",
+      "target": "css=tr:nth-child(1) > td:nth-child(7)",
       "targets": [
-        ["css=td:nth-child(1)", "css:finder"],
-        ["xpath=//td", "xpath:position"],
-        ["xpath=//td[contains(.,'Libraryjbc5on')]", "xpath:innerText"]
+        ["css=tr:nth-child(1) > td:nth-child(7)", "css:finder"],
+        ["xpath=//td[7]", "xpath:position"]
       ],
       "value": ""
     }, {
       "id": "8ba8e1b8-0194-4aa9-b5ee-2d2975b94dd4",
       "comment": "",
       "command": "verifyText",
-      "target": "css=body > div.container.pb-5.mb-auto > div:nth-child(4) > div > table > tbody > tr:first-child > td:nth-child(8)",
+      "target": "css=tr:nth-child(1) > td:nth-child(8)",
       "targets": [
-        ["css=td:nth-child(1)", "css:finder"],
-        ["xpath=//td", "xpath:position"],
-        ["xpath=//td[contains(.,'Libraryjbc5on')]", "xpath:innerText"]
+        ["css=tr:nth-child(1) > td:nth-child(8)", "css:finder"],
+        ["xpath=//td[8]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ff7772d2-64f9-4f89-91e1-4491f7963a77",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=tr:nth-child(1) > td:nth-child(9)",
+      "targets": [
+        ["css=tr:nth-child(1) > td:nth-child(10)", "css:finder"],
+        ["xpath=//td[10]", "xpath:position"]
       ],
       "value": ""
     }, {
       "id": "51f64ad8-2e8f-47d8-89c7-f5d512ed7679",
       "comment": "",
       "command": "verifyText",
-      "target": "css=body > div.container.pb-5.mb-auto > div:nth-child(4) > div > table > tbody > tr:first-child > td:nth-child(9)",
+      "target": "css=tr:nth-child(1) > td:nth-child(10)",
       "targets": [
-        ["css=td:nth-child(1)", "css:finder"],
-        ["xpath=//td", "xpath:position"],
-        ["xpath=//td[contains(.,'Libraryjbc5on')]", "xpath:innerText"]
+        ["css=tr:nth-child(1) > td:nth-child(10)", "css:finder"],
+        ["xpath=//td[10]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c2970675-132b-4029-b609-4ff631cee15f",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=tr:nth-child(1) > td:nth-child(11)",
+      "targets": [
+        ["css=tr:nth-child(1) > td:nth-child(12)", "css:finder"],
+        ["xpath=//td[12]", "xpath:position"]
       ],
       "value": ""
     }, {
       "id": "2c7cc35a-e75b-412d-a891-fee3d4418621",
       "comment": "",
       "command": "verifyText",
-      "target": "css=body > div.container.pb-5.mb-auto > div:nth-child(4) > div > table > tbody > tr:first-child > td:nth-child(10)",
+      "target": "css=tr:nth-child(1) > td:nth-child(12)",
       "targets": [
-        ["css=td:nth-child(1)", "css:finder"],
-        ["xpath=//td", "xpath:position"],
-        ["xpath=//td[contains(.,'Libraryjbc5on')]", "xpath:innerText"]
+        ["css=tr:nth-child(1) > td:nth-child(12)", "css:finder"],
+        ["xpath=//td[12]", "xpath:position"]
       ],
       "value": ""
     }]
   }, {
-    "id": "f3afd57a-4daf-4ab1-965b-a9e05419a020",
-    "name": "onlyOne_1 Project 1 Release 1 Library",
-    "commands": [{
-      "id": "d5a96e8c-aaef-4970-8882-ddec53c34e3f",
-      "comment": "",
-      "command": "executeScript",
-      "target": "return 1;",
-      "targets": [],
-      "value": "noOfProjects"
-    }, {
-      "id": "5d014aba-fa67-4e3f-aedc-49a21a8dcbd8",
-      "comment": "",
-      "command": "open",
-      "target": "http://localhost:8081/logout",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "e60d1a95-b4af-40e7-8106-6cfd39a96792",
-      "comment": "",
-      "command": "setWindowSize",
-      "target": "1280x720",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "303f22b2-efb1-427a-8ae4-78245726e780",
-      "comment": "",
-      "command": "click",
-      "target": "css=.btn",
-      "targets": [
-        ["css=.btn", "css:finder"],
-        ["xpath=//button[@type='submit']", "xpath:attributes"],
-        ["xpath=//button", "xpath:position"],
-        ["xpath=//button[contains(.,'Log Out')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "4af6951d-220c-4222-9aba-4c36cbb83e83",
-      "comment": "",
-      "command": "type",
-      "target": "id=username",
-      "targets": [
-        ["id=username", "id"],
-        ["name=username", "name"],
-        ["css=#username", "css:finder"],
-        ["xpath=//input[@id='username']", "xpath:attributes"],
-        ["xpath=//input", "xpath:position"]
-      ],
-      "value": "admin"
-    }, {
-      "id": "571495b7-7848-4f0f-8054-e611f587bc99",
-      "comment": "",
-      "command": "type",
-      "target": "id=password",
-      "targets": [
-        ["id=password", "id"],
-        ["name=password", "name"],
-        ["css=#password", "css:finder"],
-        ["xpath=//input[@id='password']", "xpath:attributes"],
-        ["xpath=//p[2]/input", "xpath:position"]
-      ],
-      "value": "admin"
-    }, {
-      "id": "d2d9428f-0289-48eb-88b4-afb5dc963913",
-      "comment": "",
-      "command": "click",
-      "target": "css=.btn",
-      "targets": [
-        ["css=.btn", "css:finder"],
-        ["xpath=//button[@type='submit']", "xpath:attributes"],
-        ["xpath=//button", "xpath:position"],
-        ["xpath=//button[contains(.,'Sign in')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "fd6e5362-131a-4030-8a02-683efe8ec032",
-      "comment": "",
-      "command": "executeScript",
-      "target": "return 1;",
-      "targets": [],
-      "value": "p"
-    }, {
-      "id": "995d9f70-771a-4b21-a9a5-210601abe3c5",
-      "comment": "",
-      "command": "do",
-      "target": "",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "7d3ef28e-b187-4e8b-b7d5-9961691818a3",
-      "comment": "",
-      "command": "executeScript",
-      "target": "return 1",
-      "targets": [],
-      "value": "noOfReleases"
-    }, {
-      "id": "fd486750-2857-43f1-a2fe-09c107a4bc9d",
-      "comment": "",
-      "command": "executeScript",
-      "target": "return \"Project-\" + Math.random().toString(36).substring(7);",
-      "targets": [],
-      "value": "projectName"
-    }, {
-      "id": "e30720ee-7148-4740-a163-d79b2b3eb8b2",
-      "comment": "",
-      "command": "echo",
-      "target": "###################### Project No ${p} - ${projectName} ######################",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "7167cb72-a81d-4378-8039-66f21eb011fe",
-      "comment": "",
-      "command": "click",
-      "target": "css=.my-2",
-      "targets": [
-        ["css=.my-2", "css:finder"],
-        ["xpath=//div[3]/button", "xpath:position"],
-        ["xpath=//button[contains(.,'Add / Edit Project')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "f56d5008-4e3a-4d5d-9c8d-f96e66fb8e9c",
-      "comment": "",
-      "command": "type",
-      "target": "id=name",
-      "targets": [
-        ["id=name", "id"],
-        ["name=name", "name"],
-        ["css=#name", "css:finder"],
-        ["xpath=//input[@id='name']", "xpath:attributes"],
-        ["xpath=//div/input", "xpath:position"]
-      ],
-      "value": "${projectName}"
-    }, {
-      "id": "c86fa3af-66af-427c-9760-eaab7c2cd50a",
-      "comment": "",
-      "command": "type",
-      "target": "id=description",
-      "targets": [
-        ["id=description", "id"],
-        ["name=description", "name"],
-        ["css=#description", "css:finder"],
-        ["xpath=//textarea[@id='description']", "xpath:attributes"],
-        ["xpath=//textarea", "xpath:position"]
-      ],
-      "value": "This is a demo project to work with. This is created by running selenium test cases."
-    }, {
-      "id": "aa77c211-9217-4d76-9499-1b786867230c",
-      "comment": "",
-      "command": "click",
-      "target": "css=#newProject > div > div > div.modal-body > form > button",
-      "targets": [
-        ["css=.btn-primary", "css:finder"],
-        ["xpath=(//button[@type='submit'])[2]", "xpath:attributes"],
-        ["xpath=//body/div/form/button", "xpath:position"],
-        ["xpath=//button[contains(.,'Create Project')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "8c6e38aa-7442-4916-8ca1-4f1f1fa2d8ee",
-      "comment": "",
-      "command": "assertElementPresent",
-      "target": "linkText=${projectName}",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "4f2ced69-9fa9-4380-bb7e-e73e1a1f378e",
-      "comment": "",
-      "command": "verifyText",
-      "target": "css=tr:nth-child(1) div",
-      "targets": [],
-      "value": "${projectName}"
-    }, {
-      "id": "cd81a39c-6932-4d99-b451-cbb07ec03ceb",
-      "comment": "",
-      "command": "click",
-      "target": "linkText=${projectName}",
-      "targets": [
-        ["css=#list-item-Project- > div", "css:finder"],
-        ["xpath=//a[@id='list-item-Project-']/div", "xpath:idRelative"],
-        ["xpath=//a/div", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "da25b26d-abe3-4ad6-a4fe-f7fdcb899419",
-      "comment": "",
-      "command": "executeScript",
-      "target": "return 1;",
-      "targets": [],
-      "value": "r"
-    }, {
-      "id": "3689c2a8-c402-4477-9def-63384b0a7e9a",
-      "comment": "",
-      "command": "do",
-      "target": "",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "e336aad8-20b1-4322-b18b-0c3c52239562",
-      "comment": "",
-      "command": "executeScript",
-      "target": "return 1;",
-      "targets": [],
-      "value": "noOfLibs"
-    }, {
-      "id": "19e151a7-5d7a-4454-9fa5-9d4be9cea3f2",
-      "comment": "",
-      "command": "executeScript",
-      "target": "return Math.floor(Math.random() * 50) + \".\" + Math.floor(Math.random() * 50);",
-      "targets": [],
-      "value": "oldVersion"
-    }, {
-      "id": "76c964bd-8595-4c2f-80c3-67ac0f06cb8b",
-      "comment": "",
-      "command": "executeScript",
-      "target": "return Math.floor(Math.random() * 50) + \".\" + Math.floor(Math.random() * 50);",
-      "targets": [],
-      "value": "newVersion"
-    }, {
-      "id": "b1c027f2-10c8-4fcc-90d2-80cd74a60d5c",
-      "comment": "",
-      "command": "echo",
-      "target": "###################### Release No ${r} (${oldVersion}, ${newVersion}) ######################",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "99b3b991-5713-414f-ba74-2a39d7339648",
-      "comment": "",
-      "command": "click",
-      "target": "css=body > div.container.pb-5.mb-auto > div:nth-child(2) > div > button",
-      "targets": [
-        ["css=.mb-2", "css:finder"],
-        ["xpath=(//button[@type='button'])[2]", "xpath:attributes"],
-        ["xpath=//div/button", "xpath:position"],
-        ["xpath=//button[contains(.,'Add New Version')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "252810e5-5694-4c90-ba8e-856f4b6a7485",
-      "comment": "",
-      "command": "type",
-      "target": "id=version",
-      "targets": [
-        ["id=version", "id"],
-        ["name=version", "name"],
-        ["css=#version", "css:finder"],
-        ["xpath=//input[@id='version']", "xpath:attributes"],
-        ["xpath=//form[@id='newVersionForm']/div/div/div[3]/input", "xpath:idRelative"],
-        ["xpath=//div[3]/input", "xpath:position"]
-      ],
-      "value": "${oldVersion}"
-    }, {
-      "id": "6e1b3e9d-7daf-4b55-9257-657f25229f77",
-      "comment": "",
-      "command": "click",
-      "target": "css=.mt-2",
-      "targets": [
-        ["css=.mt-2", "css:finder"],
-        ["xpath=(//button[@type='submit'])[2]", "xpath:attributes"],
-        ["xpath=//form[@id='newVersionForm']/button", "xpath:idRelative"],
-        ["xpath=//div[2]/form/button", "xpath:position"],
-        ["xpath=//button[contains(.,'Save')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "5be0bdf4-10e6-4f93-aec7-ff4a445a2eb2",
-      "comment": "",
-      "command": "verifyText",
-      "target": "css=td:nth-child(1) span",
-      "targets": [
-        ["css=td:nth-child(1) span", "css:finder"],
-        ["xpath=//a/span", "xpath:position"],
-        ["xpath=//span[contains(.,'21.10')]", "xpath:innerText"]
-      ],
-      "value": "${oldVersion}"
-    }, {
-      "id": "05d7b4b8-41dc-4781-9945-8449fb9b7584",
-      "comment": "",
-      "command": "verifyText",
-      "target": "css=tr:nth-child(1) div",
-      "targets": [
-        ["css=a > div", "css:finder"],
-        ["xpath=//a/div", "xpath:position"]
-      ],
-      "value": "0 libraries"
-    }, {
-      "id": "862b9a0b-fb48-4fe9-93ff-ea2c6a4ff6f6",
-      "comment": "",
-      "command": "click",
-      "target": "css=.mb-2",
-      "targets": [
-        ["css=.mb-2", "css:finder"],
-        ["xpath=(//button[@type='button'])[2]", "xpath:attributes"],
-        ["xpath=//div/button", "xpath:position"],
-        ["xpath=//button[contains(.,'Add New Version')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "54b021ac-99d9-4f4a-b1e4-1a2a2c3d22f2",
-      "comment": "",
-      "command": "type",
-      "target": "id=version",
-      "targets": [
-        ["id=version", "id"],
-        ["name=version", "name"],
-        ["css=#version", "css:finder"],
-        ["xpath=//input[@id='version']", "xpath:attributes"],
-        ["xpath=//form[@id='newVersionForm']/div/div/div[3]/input", "xpath:idRelative"],
-        ["xpath=//div[3]/input", "xpath:position"]
-      ],
-      "value": "${newVersion}"
-    }, {
-      "id": "1c6a0739-4ea5-4738-83d0-606f727182b2",
-      "comment": "",
-      "command": "type",
-      "target": "id=baseVersion",
-      "targets": [
-        ["id=baseVersion", "id"],
-        ["name=baseVersion", "name"],
-        ["css=#baseVersion", "css:finder"],
-        ["xpath=//input[@id='baseVersion']", "xpath:attributes"],
-        ["xpath=//form[@id='newVersionForm']/div/div/div[4]/input", "xpath:idRelative"],
-        ["xpath=//div[4]/input", "xpath:position"]
-      ],
-      "value": "${oldVersion}"
-    }, {
-      "id": "dc5a503e-77ff-4fcd-8aa6-a38259a13436",
-      "comment": "",
-      "command": "click",
-      "target": "css=.mt-2",
-      "targets": [
-        ["css=.mt-2", "css:finder"],
-        ["xpath=(//button[@type='submit'])[2]", "xpath:attributes"],
-        ["xpath=//form[@id='newVersionForm']/button", "xpath:idRelative"],
-        ["xpath=//div[2]/form/button", "xpath:position"],
-        ["xpath=//button[contains(.,'Save')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "8c6f8d86-9756-45cd-8a80-a85570812041",
-      "comment": "",
-      "command": "verifyText",
-      "target": "css=td:nth-child(1) span",
-      "targets": [
-        ["css=td:nth-child(1) span", "css:finder"],
-        ["xpath=//a/span", "xpath:position"],
-        ["xpath=//span[contains(.,'21.10')]", "xpath:innerText"]
-      ],
-      "value": "${newVersion}"
-    }, {
-      "id": "337c7a98-39b7-40a7-89ab-0426e6798672",
-      "comment": "",
-      "command": "verifyText",
-      "target": "css=tr:nth-child(1) > td:nth-child(2) span",
-      "targets": [
-        ["css=tr:nth-child(1) > td:nth-child(2) span", "css:finder"],
-        ["xpath=//td[2]/a/span", "xpath:position"],
-        ["xpath=//span[contains(.,'222')]", "xpath:innerText"]
-      ],
-      "value": "${oldVersion}"
-    }, {
-      "id": "2f50af87-a6d3-4355-9527-e3380e4caed4",
-      "comment": "",
-      "command": "verifyText",
-      "target": "css=tr:nth-child(1) div",
-      "targets": [
-        ["css=tr:nth-child(1) div", "css:finder"],
-        ["xpath=//a/div", "xpath:position"]
-      ],
-      "value": "0 libraries"
-    }, {
-      "id": "09ce42d4-4c0d-448c-92eb-e0d49bff7d92",
-      "comment": "",
-      "command": "verifyElementPresent",
-      "target": "linkText=${newVersion}",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "38eb195a-6b34-484e-8143-90a610a6b6e1",
-      "comment": "",
-      "command": "click",
-      "target": "linkText=${newVersion}",
-      "targets": [
-        ["css=tr:nth-child(2) > td:nth-child(1) div", "css:finder"],
-        ["xpath=//tr[2]/td/a/div", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "48b68856-e2ad-43a2-8ccd-0cf9604132d3",
-      "comment": "",
-      "command": "executeScript",
-      "target": "return 1;",
-      "targets": [],
-      "value": "l"
-    }, {
-      "id": "2f922740-4c67-4066-8fff-0ec65b93d91d",
-      "comment": "",
-      "command": "do",
-      "target": "",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "a26ceb60-da79-46fa-be49-6518f5dfa92f",
-      "comment": "",
-      "command": "executeScript",
-      "target": "return \"Library\" + Math.random().toString(36).substring(7);",
-      "targets": [],
-      "value": "libName"
-    }, {
-      "id": "11c344f9-dbd0-4e1b-a322-f5fa0abf8c0c",
-      "comment": "",
-      "command": "executeScript",
-      "target": "return \"Rel-\" + Math.floor(Math.random() * 50) + \".\" + Math.floor(Math.random() * 50);",
-      "targets": [],
-      "value": "libVersion"
-    }, {
-      "id": "4be28f47-63f6-4d64-95eb-8d126263f4d4",
-      "comment": "",
-      "command": "executeScript",
-      "target": "swType= Array(\"FOSS\", \"Commercial\", \"Internal\", \"Others\"); return swType[Math.floor(Math.random() * swType.length)];",
-      "targets": [],
-      "value": "swType"
-    }, {
-      "id": "e54ba029-b371-43ab-9b95-e80f628e3398",
-      "comment": "",
-      "command": "executeScript",
-      "target": "osType= Array(\"Linux\", \"Windows\", \"MacOS\"); return osType[Math.floor(Math.random() * osType.length)];",
-      "targets": [],
-      "value": "osType"
-    }, {
-      "id": "f9ee4067-b6de-4d83-bf60-a9342c8686d3",
-      "comment": "",
-      "command": "executeScript",
-      "target": "list= Array(\"US\", \"CA\", \"IN\", \"\", \"\", \"\", \"\"); return list[Math.floor(Math.random() * list.length)];",
-      "targets": [],
-      "value": "country"
-    }, {
-      "id": "631d89a9-bd45-45cb-9dbe-e3dad2f71f3c",
-      "comment": "",
-      "command": "executeScript",
-      "target": "list= Array(\"5D992C\", \"5D002C1\", \"EAR99\", \"\", \"\", \"\", \"\"); return list[Math.floor(Math.random() * list.length)];",
-      "targets": [],
-      "value": "usECCN"
-    }, {
-      "id": "48caf04f-200c-42d3-92c4-3147656b28bf",
-      "comment": "",
-      "command": "executeScript",
-      "target": "list= Array(\"5D992C\", \"5D002C1\", \"EAR99\", \"\", \"\", \"\", \"\"); return list[Math.floor(Math.random() * list.length)];",
-      "targets": [],
-      "value": "euECCN"
-    }, {
-      "id": "0c6a6caf-bb8e-41b3-be74-68d34be044a8",
-      "comment": "",
-      "command": "echo",
-      "target": "###################### Library no ${l} - ${libName} ######################",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "65bfb56e-4d41-4b33-8a6d-e0a5ec9118b6",
-      "comment": "",
-      "command": "echo",
-      "target": "v${libVersion},          swt:${swType}          osT: ${osType},          c:${country},          us:${usECCN},          eu:${euECCN}",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "aa76a514-bf59-4e0e-9f80-63796d5b74c4",
-      "comment": "",
-      "command": "echo",
-      "target": "###################################################################",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "595b6bea-6baa-41ec-9d4c-e61eb424358a",
-      "comment": "",
-      "command": "click",
-      "target": "css=body > div.container.pb-5.mb-auto > div:nth-child(2) > div > button",
-      "targets": [
-        ["css=.btn:nth-child(3)", "css:finder"],
-        ["xpath=(//button[@type='button'])[2]", "xpath:attributes"],
-        ["xpath=//div/button", "xpath:position"],
-        ["xpath=//button[contains(.,'Add 3PP Dependency')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "514e730a-ae43-4416-9860-707139484772",
-      "comment": "",
-      "command": "type",
-      "target": "id=library.name",
-      "targets": [
-        ["id=library.name", "id"],
-        ["name=library.name", "name"],
-        ["css=#library\\.name", "css:finder"],
-        ["xpath=//input[@id='library.name']", "xpath:attributes"],
-        ["xpath=//form[@id='new3ppLibraryForm']/div/div/input[2]", "xpath:idRelative"],
-        ["xpath=//form/div/div/input[2]", "xpath:position"]
-      ],
-      "value": "${libName}"
-    }, {
-      "id": "2db9aa0c-d473-49bc-b261-f70a0f3949a0",
-      "comment": "",
-      "command": "type",
-      "target": "id=version",
-      "targets": [
-        ["id=version", "id"],
-        ["name=version", "name"],
-        ["css=#version", "css:finder"],
-        ["xpath=//input[@id='version']", "xpath:attributes"],
-        ["xpath=//form[@id='new3ppLibraryForm']/div[2]/div/div/div/input", "xpath:idRelative"],
-        ["xpath=//div[2]/div/div/div/input", "xpath:position"]
-      ],
-      "value": "${libVersion}"
-    }, {
-      "id": "e26ee3a5-f61f-41af-a2e1-309532f93303",
-      "comment": "",
-      "command": "type",
-      "target": "id=downloadUrl",
-      "targets": [
-        ["id=downloadUrl", "id"],
-        ["name=downloadUrl", "name"],
-        ["css=#downloadUrl", "css:finder"],
-        ["xpath=//input[@id='downloadUrl']", "xpath:attributes"],
-        ["xpath=//form[@id='new3ppLibraryForm']/div[2]/div/div/div[2]/input", "xpath:idRelative"],
-        ["xpath=//div[2]/input", "xpath:position"]
-      ],
-      "value": "https://${libName}.com/downloads/${libName}-${libVersion}.jar"
-    }, {
-      "id": "83147e59-0851-40db-9850-949b4a8f4f0c",
-      "comment": "",
-      "command": "type",
-      "target": "id=library.softwareData.vendor",
-      "targets": [
-        ["id=library.softwareData.vendor", "id"],
-        ["name=library.softwareData.vendor", "name"],
-        ["css=#library\\.softwareData\\.vendor", "css:finder"],
-        ["xpath=//input[@id='library.softwareData.vendor']", "xpath:attributes"],
-        ["xpath=//form[@id='new3ppLibraryForm']/div[2]/div/div[2]/div/input", "xpath:idRelative"],
-        ["xpath=//div[2]/div/input", "xpath:position"]
-      ],
-      "value": "${libName} Provider"
-    }, {
-      "id": "c555a784-b514-4b3d-84a6-8d1d32f45430",
-      "comment": "",
-      "command": "type",
-      "target": "id=library.softwareData.website",
-      "targets": [
-        ["id=library.softwareData.website", "id"],
-        ["name=library.softwareData.website", "name"],
-        ["css=#library\\.softwareData\\.website", "css:finder"],
-        ["xpath=//input[@id='library.softwareData.website']", "xpath:attributes"],
-        ["xpath=//form[@id='new3ppLibraryForm']/div[2]/div/div[2]/div[2]/input", "xpath:idRelative"],
-        ["xpath=//div[2]/div[2]/input", "xpath:position"]
-      ],
-      "value": "https://${libName}-provider.com"
-    }, {
-      "id": "73d24274-a1e3-4403-9400-0fd268961772",
-      "comment": "",
-      "command": "select",
-      "target": "id=library.softwareData.softwareType",
-      "targets": [],
-      "value": "label=${swType}"
-    }, {
-      "id": "f4d840ad-f379-48aa-93d9-5bba58a6294a",
-      "comment": "",
-      "command": "type",
-      "target": "id=library.softwareData.platform",
-      "targets": [
-        ["id=library.softwareData.platform", "id"],
-        ["name=library.softwareData.platform", "name"],
-        ["css=#library\\.softwareData\\.platform", "css:finder"],
-        ["xpath=//input[@id='library.softwareData.platform']", "xpath:attributes"],
-        ["xpath=//form[@id='new3ppLibraryForm']/div[2]/div/div[3]/div[2]/input", "xpath:idRelative"],
-        ["xpath=//div[3]/div[2]/input", "xpath:position"]
-      ],
-      "value": "${osType}"
-    }, {
-      "id": "86abcca9-7dc5-4aec-a00e-3e2aff76ec8f",
-      "comment": "",
-      "command": "type",
-      "target": "id=library.tradeCompliance.countryCode",
-      "targets": [
-        ["id=library.tradeCompliance.countryCode", "id"],
-        ["name=library.tradeCompliance.countryCode", "name"],
-        ["css=#library\\.tradeCompliance\\.countryCode", "css:finder"],
-        ["xpath=//input[@id='library.tradeCompliance.countryCode']", "xpath:attributes"],
-        ["xpath=//form[@id='new3ppLibraryForm']/div[3]/div/div/div/input", "xpath:idRelative"],
-        ["xpath=//div[3]/div/div/div/input", "xpath:position"]
-      ],
-      "value": "${country}"
-    }, {
-      "id": "b355f924-c248-4e52-80f5-95b7c12218a9",
-      "comment": "",
-      "command": "type",
-      "target": "id=library.tradeCompliance.euECCN",
-      "targets": [
-        ["id=library.tradeCompliance.euECCN", "id"],
-        ["name=library.tradeCompliance.euECCN", "name"],
-        ["css=#library\\.tradeCompliance\\.euECCN", "css:finder"],
-        ["xpath=//input[@id='library.tradeCompliance.euECCN']", "xpath:attributes"],
-        ["xpath=//form[@id='new3ppLibraryForm']/div[3]/div/div/div[2]/input", "xpath:idRelative"],
-        ["xpath=//div[3]/div/div/div[2]/input", "xpath:position"]
-      ],
-      "value": "${euECCN}"
-    }, {
-      "id": "16bc142f-e200-44fe-961c-75868bbbd1aa",
-      "comment": "",
-      "command": "type",
-      "target": "id=library.tradeCompliance.usECCN",
-      "targets": [
-        ["id=library.tradeCompliance.usECCN", "id"],
-        ["name=library.tradeCompliance.usECCN", "name"],
-        ["css=#library\\.tradeCompliance\\.usECCN", "css:finder"],
-        ["xpath=//input[@id='library.tradeCompliance.usECCN']", "xpath:attributes"],
-        ["xpath=//form[@id='new3ppLibraryForm']/div[3]/div/div/div[3]/input", "xpath:idRelative"],
-        ["xpath=//div[3]/input", "xpath:position"]
-      ],
-      "value": "${usECCN}"
-    }, {
-      "id": "222817a5-1906-4631-822e-499092791f40",
-      "comment": "",
-      "command": "type",
-      "target": "id=library.tradeCompliance.bisAuthorization",
-      "targets": [
-        ["id=library.tradeCompliance.bisAuthorization", "id"],
-        ["name=library.tradeCompliance.bisAuthorization", "name"],
-        ["css=#library\\.tradeCompliance\\.bisAuthorization", "css:finder"],
-        ["xpath=//input[@id='library.tradeCompliance.bisAuthorization']", "xpath:attributes"],
-        ["xpath=//form[@id='new3ppLibraryForm']/div[3]/div/div/div[4]/input", "xpath:idRelative"],
-        ["xpath=//div[4]/input", "xpath:position"]
-      ],
-      "value": "BIS"
-    }, {
-      "id": "aa5034e1-8158-4e85-8b6e-484d21dd3af6",
-      "comment": "",
-      "command": "type",
-      "target": "id=library.tradeCompliance.encryptionProtocol",
-      "targets": [
-        ["id=library.tradeCompliance.encryptionProtocol", "id"],
-        ["name=library.tradeCompliance.encryptionProtocol", "name"],
-        ["css=#library\\.tradeCompliance\\.encryptionProtocol", "css:finder"],
-        ["xpath=//input[@id='library.tradeCompliance.encryptionProtocol']", "xpath:attributes"],
-        ["xpath=//form[@id='new3ppLibraryForm']/div[3]/div/div[2]/div/input", "xpath:idRelative"],
-        ["xpath=//div[3]/div/div[2]/div/input", "xpath:position"]
-      ],
-      "value": "SSL"
-    }, {
-      "id": "47209550-cc41-47e9-b3bc-ae96b56feb02",
-      "comment": "",
-      "command": "click",
-      "target": "css=.mt-2",
-      "targets": [
-        ["css=.mt-2", "css:finder"],
-        ["xpath=(//button[@type='submit'])[2]", "xpath:attributes"],
-        ["xpath=//form[@id='new3ppLibraryForm']/button", "xpath:idRelative"],
-        ["xpath=//div[2]/form/button", "xpath:position"],
-        ["xpath=//button[contains(.,'Save')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "ef3bc754-3d5a-49ab-b224-8033b15acb38",
-      "comment": "",
-      "command": "verifyText",
-      "target": "css=div.container.pb-5.mb-auto > div:nth-child(2) > div > div:nth-child(5) > div > table > tbody > tr:nth-child(1) > td:nth-child(1)",
-      "targets": [
-        ["css=td:nth-child(1)", "css:finder"],
-        ["xpath=//td", "xpath:position"],
-        ["xpath=//td[contains(.,'Libraryjbc5on')]", "xpath:innerText"]
-      ],
-      "value": "${libName}"
-    }, {
-      "id": "eb9b7570-9b3f-4319-aace-ccc31c203ae7",
-      "comment": "",
-      "command": "verifyText",
-      "target": "css=div.container.pb-5.mb-auto > div:nth-child(2) > div > div:nth-child(5) > div > table > tbody > tr:nth-child(1) > td:nth-child(2)",
-      "targets": [
-        ["css=td:nth-child(1)", "css:finder"],
-        ["xpath=//td", "xpath:position"],
-        ["xpath=//td[contains(.,'Libraryjbc5on')]", "xpath:innerText"]
-      ],
-      "value": "${libName} Provider"
-    }, {
-      "id": "ff08e57a-0e91-40a4-8474-35f1a06184a3",
-      "comment": "",
-      "command": "verifyText",
-      "target": "css=div.container.pb-5.mb-auto > div:nth-child(2) > div > div:nth-child(5) > div > table > tbody > tr:nth-child(1) > td:nth-child(3)",
-      "targets": [
-        ["css=td:nth-child(1)", "css:finder"],
-        ["xpath=//td", "xpath:position"],
-        ["xpath=//td[contains(.,'Libraryjbc5on')]", "xpath:innerText"]
-      ],
-      "value": "https://${libName}-provider.com"
-    }, {
-      "id": "89049a42-b3b8-4c23-97fb-fe8f89acfa97",
-      "comment": "",
-      "command": "verifyText",
-      "target": "css=div.container.pb-5.mb-auto > div:nth-child(2) > div > div:nth-child(5) > div > table > tbody > tr:nth-child(1) > td:nth-child(4)",
-      "targets": [
-        ["css=td:nth-child(1)", "css:finder"],
-        ["xpath=//td", "xpath:position"],
-        ["xpath=//td[contains(.,'Libraryjbc5on')]", "xpath:innerText"]
-      ],
-      "value": "${swType}"
-    }, {
-      "id": "fa063b6c-1d13-4961-98fd-b0e2a8ce7e65",
-      "comment": "",
-      "command": "verifyText",
-      "target": "css=div.container.pb-5.mb-auto > div:nth-child(2) > div > div:nth-child(5) > div > table > tbody > tr:nth-child(1) > td:nth-child(5)",
-      "targets": [
-        ["css=td:nth-child(1)", "css:finder"],
-        ["xpath=//td", "xpath:position"],
-        ["xpath=//td[contains(.,'Libraryjbc5on')]", "xpath:innerText"]
-      ],
-      "value": "${libVersion}"
-    }, {
-      "id": "ca3ed86b-3f2d-4aa5-abcd-46c2e5d9b4ac",
-      "comment": "",
-      "command": "verifyText",
-      "target": "css=div.container.pb-5.mb-auto > div:nth-child(2) > div > div:nth-child(5) > div > table > tbody > tr:nth-child(1) > td:nth-child(6)",
-      "targets": [
-        ["css=td:nth-child(1)", "css:finder"],
-        ["xpath=//td", "xpath:position"],
-        ["xpath=//td[contains(.,'Libraryjbc5on')]", "xpath:innerText"]
-      ],
-      "value": "${osType}"
-    }, {
-      "id": "a6f90ba9-9fbd-43da-a9bb-b6d8ab578fff",
-      "comment": "",
-      "command": "verifyText",
-      "target": "css=div.container.pb-5.mb-auto > div:nth-child(2) > div > div:nth-child(5) > div > table > tbody > tr:nth-child(1) > td:nth-child(7)",
-      "targets": [
-        ["css=td:nth-child(1)", "css:finder"],
-        ["xpath=//td", "xpath:position"],
-        ["xpath=//td[contains(.,'Libraryjbc5on')]", "xpath:innerText"]
-      ],
-      "value": "${country}"
-    }, {
-      "id": "8b2bb36a-0ef7-41be-b4d4-34cd0e116471",
-      "comment": "",
-      "command": "verifyText",
-      "target": "css=div.container.pb-5.mb-auto > div:nth-child(2) > div > div:nth-child(5) > div > table > tbody > tr:nth-child(1) > td:nth-child(8)",
-      "targets": [
-        ["css=td:nth-child(1)", "css:finder"],
-        ["xpath=//td", "xpath:position"],
-        ["xpath=//td[contains(.,'Libraryjbc5on')]", "xpath:innerText"]
-      ],
-      "value": "${euECCN}"
-    }, {
-      "id": "b6f9a5ab-a8a3-4f98-bb27-2dfc86dc7894",
-      "comment": "",
-      "command": "verifyText",
-      "target": "css=div.container.pb-5.mb-auto > div:nth-child(2) > div > div:nth-child(5) > div > table > tbody > tr:nth-child(1) > td:nth-child(9)",
-      "targets": [
-        ["css=td:nth-child(1)", "css:finder"],
-        ["xpath=//td", "xpath:position"],
-        ["xpath=//td[contains(.,'Libraryjbc5on')]", "xpath:innerText"]
-      ],
-      "value": "${usECCN}"
-    }, {
-      "id": "96db3e1e-1aaa-41a7-ac9f-e76f8d5a1d99",
-      "comment": "",
-      "command": "verifyText",
-      "target": "css=div.container.pb-5.mb-auto > div:nth-child(2) > div > div:nth-child(5) > div > table > tbody > tr:nth-child(1) > td:nth-child(10)",
-      "targets": [
-        ["css=td:nth-child(1)", "css:finder"],
-        ["xpath=//td", "xpath:position"],
-        ["xpath=//td[contains(.,'Libraryjbc5on')]", "xpath:innerText"]
-      ],
-      "value": "BIS"
-    }, {
-      "id": "55f98523-37fe-4fc3-b6fe-88396ce43e07",
-      "comment": "",
-      "command": "verifyText",
-      "target": "css=div.container.pb-5.mb-auto > div:nth-child(2) > div > div:nth-child(5) > div > table > tbody > tr:nth-child(1) > td:nth-child(11)",
-      "targets": [
-        ["css=td:nth-child(1)", "css:finder"],
-        ["xpath=//td", "xpath:position"],
-        ["xpath=//td[contains(.,'Libraryjbc5on')]", "xpath:innerText"]
-      ],
-      "value": "SSL"
-    }, {
-      "id": "7434c747-c774-471f-8a5b-69b0ed166518",
-      "comment": "",
-      "command": "executeScript",
-      "target": "return ${l} + 1;",
-      "targets": [],
-      "value": "l"
-    }, {
-      "id": "9d007a32-409d-4948-9c7d-d7b6de474859",
-      "comment": "",
-      "command": "repeatIf",
-      "target": "${l} <= ${noOfLibs}",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "e954d5ba-bd69-4edf-9f56-33fcbcb9b39e",
-      "comment": "",
-      "command": "click",
-      "target": "linkText=${projectName}",
-      "targets": [
-        ["linkText=Project-2flwp9", "linkText"],
-        ["css=.card-title > a", "css:finder"],
-        ["xpath=//a[contains(text(),'Project-2flwp9')]", "xpath:link"],
-        ["xpath=//a[contains(@href, '/projects/5eed1f036efa586d185dbe04')]", "xpath:href"],
-        ["xpath=//h5/a", "xpath:position"],
-        ["xpath=//a[contains(.,'Project-2flwp9')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "533362ee-d6a1-4764-be3f-b560620d6fbf",
-      "comment": "",
-      "command": "verifyText",
-      "target": "css=td:nth-child(1) span",
-      "targets": [
-        ["css=td:nth-child(1) span", "css:finder"],
-        ["xpath=//a/span", "xpath:position"],
-        ["xpath=//span[contains(.,'21.10')]", "xpath:innerText"]
-      ],
-      "value": "${newVersion}"
-    }, {
-      "id": "63cf6d1f-d375-46e9-b758-f4d7835f555c",
-      "comment": "",
-      "command": "verifyText",
-      "target": "css=tr:nth-child(1) > td:nth-child(2) span",
-      "targets": [
-        ["css=tr:nth-child(1) > td:nth-child(2) span", "css:finder"],
-        ["xpath=//td[2]/a/span", "xpath:position"],
-        ["xpath=//span[contains(.,'222')]", "xpath:innerText"]
-      ],
-      "value": "${oldVersion}"
-    }, {
-      "id": "3efbd59a-b3c1-4765-b856-f6b0d6e91d4f",
-      "comment": "",
-      "command": "verifyText",
-      "target": "css=tr:nth-child(1) div",
-      "targets": [
-        ["css=tr:nth-child(1) div", "css:finder"],
-        ["xpath=//a/div", "xpath:position"]
-      ],
-      "value": "1 library"
-    }, {
-      "id": "c9735c55-cc90-40cd-8a74-fecc658df56a",
-      "comment": "",
-      "command": "executeScript",
-      "target": "return ${r} + 1;",
-      "targets": [],
-      "value": "r"
-    }, {
-      "id": "14c69dae-17a1-464d-aea9-0a6252ea7339",
-      "comment": "",
-      "command": "repeatIf",
-      "target": "${r} <= ${noOfReleases}",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "3b3d9385-18a1-48cb-8950-ceec396e7c95",
-      "comment": "",
-      "command": "click",
-      "target": "linkText=Projects",
-      "targets": [
-        ["linkText=Projects", "linkText"],
-        ["css=.nav-item:nth-child(1) > .nav-link", "css:finder"],
-        ["xpath=//a[contains(text(),'Projects')]", "xpath:link"],
-        ["xpath=//div[@id='navbarSupportedContent']/ul/li/a", "xpath:idRelative"],
-        ["xpath=//a[contains(@href, '/projects/')]", "xpath:href"],
-        ["xpath=//li/a", "xpath:position"],
-        ["xpath=//a[contains(.,'Projects')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "5c340fb5-1844-45ba-b50c-349429651b28",
-      "comment": "",
-      "command": "executeScript",
-      "target": "return ${p} + 1;",
-      "targets": [],
-      "value": "p"
-    }, {
-      "id": "f5c5b005-6986-4eb6-9061-06a7c8066bfc",
-      "comment": "",
-      "command": "repeatIf",
-      "target": "${p} <= ${noOfProjects}",
-      "targets": [],
-      "value": ""
-    }]
-  }, {
-    "id": "fd61f6cb-52c3-4b06-8902-0caa1908c1ec",
+    "id": "599dbc56-aeb8-4492-839e-d08813766268",
     "name": "sanity_* Library",
     "commands": [{
-      "id": "0f2012ff-93df-4643-89a3-6f4b7cc6a601",
+      "id": "060d67a2-58e6-4cd3-8f2d-251ddbd28e00",
       "comment": "",
       "command": "executeScript",
-      "target": "return Math.floor(Math.random() * 3) + 3;",
+      "target": "return Math.floor(Math.random() * 4) + 2;",
       "targets": [],
       "value": "noOfLibs"
     }, {
-      "id": "282465e0-d369-45dd-bc69-f92a5e670657",
+      "id": "9ef394ad-216a-413d-aac6-10d9eae512f3",
       "comment": "",
       "command": "open",
       "target": "http://localhost:8081/logout",
       "targets": [],
       "value": ""
     }, {
-      "id": "42631bd2-ee18-485c-9092-cbf1f4dd28b4",
+      "id": "867c72b1-c134-4509-b737-213f1268f86a",
       "comment": "",
       "command": "setWindowSize",
       "target": "1280x720",
       "targets": [],
       "value": ""
     }, {
-      "id": "c6e0af5d-5d99-434c-8002-fe4f1ed9e2ba",
+      "id": "577980f8-af7b-4213-8691-90c005ec3753",
       "comment": "",
       "command": "click",
       "target": "css=.btn",
@@ -2065,7 +1311,7 @@
       ],
       "value": ""
     }, {
-      "id": "a54500f5-9dbf-4fd6-977c-0f821d910c1a",
+      "id": "cee85ee9-47db-4a62-aed8-cd22e0c2f86c",
       "comment": "",
       "command": "type",
       "target": "id=username",
@@ -2078,7 +1324,7 @@
       ],
       "value": "admin"
     }, {
-      "id": "41c3dcd4-e0a2-4294-b92d-e9db40a841a2",
+      "id": "07474fb1-30ac-494d-90aa-97079583335c",
       "comment": "",
       "command": "type",
       "target": "id=password",
@@ -2091,7 +1337,7 @@
       ],
       "value": "admin"
     }, {
-      "id": "c9741a6c-721f-4fe3-a64e-45484252dc8d",
+      "id": "fe3293b6-4f0a-4c06-ad63-178335456dd0",
       "comment": "",
       "command": "click",
       "target": "css=.btn",
@@ -2103,7 +1349,7 @@
       ],
       "value": ""
     }, {
-      "id": "b4b818ca-6f17-4b13-8cd4-6afb3e81328c",
+      "id": "1e2185ef-ffe4-491a-a84b-e53d8c3cc11e",
       "comment": "",
       "command": "click",
       "target": "linkText=3PP Libraries",
@@ -2118,91 +1364,161 @@
       ],
       "value": ""
     }, {
-      "id": "44a985b3-6fcf-47ad-bb9d-4ed8c4de44ba",
+      "id": "67557e46-f827-42b5-8372-692d47108f9b",
       "comment": "",
       "command": "executeScript",
       "target": "return 1;",
       "targets": [],
       "value": "l"
     }, {
-      "id": "53dd1fc3-e029-49f2-ab6d-a4a585dfd7d0",
+      "id": "47e3a237-1c57-4764-99b9-911b459808d9",
       "comment": "",
       "command": "do",
       "target": "",
       "targets": [],
       "value": ""
     }, {
-      "id": "58a94e64-f956-4d91-bfba-b7618eb3fbe7",
+      "id": "ca60f0ce-c7de-4105-b952-65dfd4e2b043",
       "comment": "",
       "command": "executeScript",
       "target": "return \"Library\" + Math.random().toString(36).substring(7);",
       "targets": [],
       "value": "libName"
     }, {
-      "id": "62e59136-ffb9-46ff-bd5a-b19e517d216c",
+      "id": "271c38a5-7b2c-4523-a36f-7051fcf9682f",
       "comment": "",
       "command": "executeScript",
       "target": "return \"Rel-\" + Math.floor(Math.random() * 50) + \".\" + Math.floor(Math.random() * 50);",
       "targets": [],
       "value": "libVersion"
     }, {
-      "id": "76d0766b-3f4d-406d-a11f-13e1ba2837b0",
+      "id": "d690ea3e-5560-4161-8e9e-588783074f51",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return \"https://${libName}.com/downloads/${libName}-${libVersion}.jar\"",
+      "targets": [],
+      "value": "downloadUrl"
+    }, {
+      "id": "dcb6fc83-59c7-4be0-bf4c-d519a52e46f2",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return \"https://${libName}.-provider.com/\"",
+      "targets": [],
+      "value": "websiteUrl"
+    }, {
+      "id": "1fb4aa9e-11c2-4ca1-b09b-41e453245a4e",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return \"${downloadUrl}\".substring(0, 20);",
+      "targets": [],
+      "value": "downloadUrlPrefix"
+    }, {
+      "id": "9b0b68ab-b90e-4eb3-a953-1032a69178a5",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return \"Library\" + Math.random().toString(36).substring(7);",
+      "targets": [],
+      "value": "encryptionAlgorithms"
+    }, {
+      "id": "6a7c13b3-3630-42fa-a69e-9d9e6445cc2b",
       "comment": "",
       "command": "executeScript",
       "target": "swType = Array(\"FOSS\", \"Commercial\", \"Internal\", \"Others\"); return swType[Math.floor(Math.random() * swType.length)];",
       "targets": [],
       "value": "swType"
     }, {
-      "id": "660a7b9f-e87b-4978-85f5-dfe26a947f6e",
+      "id": "9f5a34c6-b9df-400a-a917-58c41a645fdc",
       "comment": "",
       "command": "executeScript",
       "target": "osType= Array(\"Linux\", \"Windows\", \"MacOS\"); return osType[Math.floor(Math.random() * osType.length)];",
       "targets": [],
       "value": "osType"
     }, {
-      "id": "3501ac7f-35e3-4a0d-8645-5345271844a5",
+      "id": "5c90481a-d84a-44a4-9a3f-57d5a363769a",
       "comment": "",
       "command": "executeScript",
       "target": "list= Array(\"US\", \"CA\", \"IN\", \"\", \"\", \"\", \"\"); return list[Math.floor(Math.random() * list.length)];",
       "targets": [],
       "value": "country"
     }, {
-      "id": "315442f4-38ad-4046-9839-55674807a3ec",
+      "id": "98b61d5d-4f4c-4398-9852-ad6e3c71a280",
       "comment": "",
       "command": "executeScript",
       "target": "list= Array(\"5D992C\", \"5D002C1\", \"EAR99\", \"\", \"\", \"\", \"\"); return list[Math.floor(Math.random() * list.length)];",
       "targets": [],
       "value": "usECCN"
     }, {
-      "id": "ef563c31-3add-40aa-b11e-b6ea1c6c464f",
+      "id": "26009ecc-b8d5-42cc-98e8-0e97d3bde684",
       "comment": "",
       "command": "executeScript",
       "target": "list= Array(\"5D992C\", \"5D002C1\", \"EAR99\", \"\", \"\", \"\", \"\"); return list[Math.floor(Math.random() * list.length)];",
       "targets": [],
       "value": "euECCN"
     }, {
-      "id": "cb424bf0-a95c-4e59-a86f-c75c5844b30c",
+      "id": "230d1f06-0477-4a88-9a70-ee435279af89",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return \"Library\" + Math.random().toString(36).substring(7);",
+      "targets": [],
+      "value": "earRegulationRestrictions"
+    }, {
+      "id": "834bc063-8b86-40c8-a5b6-a53592424330",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return \"Library\" + Math.random().toString(36).substring(7);",
+      "targets": [],
+      "value": "encryptionProtocol"
+    }, {
+      "id": "6664142f-418f-4085-9c8e-80952ed9412d",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return \"Library\" + Math.random().toString(36).substring(7);",
+      "targets": [],
+      "value": "encryptionAlgorithms"
+    }, {
+      "id": "44e24732-d267-422c-abb8-4b8b6f518548",
       "comment": "",
       "command": "echo",
       "target": "###################### Library no ${l} - ${libName} ######################",
       "targets": [],
       "value": ""
     }, {
-      "id": "1855cba0-5c11-4da2-acff-2b75b8a6ad9d",
+      "id": "bcafbf9b-ba1d-4766-b63a-3282e27c3c46",
       "comment": "",
       "command": "echo",
       "target": "v${libVersion},          swt:${swType}          osT: ${osType},          c:${country},          us:${usECCN},          eu:${euECCN}",
       "targets": [],
       "value": ""
     }, {
-      "id": "df11e5b5-6abd-48c1-8071-43085a38c013",
+      "id": "3c825fbc-af0c-42a0-bb4e-af2b3d6f9633",
+      "comment": "",
+      "command": "echo",
+      "target": "${earRegulationRestrictions}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2aee386b-2df7-44c0-9ee1-967605f60d28",
+      "comment": "",
+      "command": "echo",
+      "target": "${encryptionProtocol}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5e382b7c-15b7-4f34-bc48-ef49f49694ed",
+      "comment": "",
+      "command": "echo",
+      "target": "${encryptionAlgorithms}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b6180801-a383-4b66-a297-0bfc73cd2007",
       "comment": "",
       "command": "echo",
       "target": "###################################################################",
       "targets": [],
       "value": ""
     }, {
-      "id": "d77ae310-773c-46ac-949c-d78608f00259",
+      "id": "2f60d018-a7cd-4bdc-a984-dc7958f4c4f4",
       "comment": "",
       "command": "click",
       "target": "css=.my-2",
@@ -2214,7 +1530,7 @@
       ],
       "value": ""
     }, {
-      "id": "e609bee8-d05c-43a6-8260-5d28fd65b82b",
+      "id": "4a2c1f12-8429-4921-85eb-60a2d4ad1f92",
       "comment": "",
       "command": "type",
       "target": "id=library.name",
@@ -2228,7 +1544,7 @@
       ],
       "value": "${libName}"
     }, {
-      "id": "653784af-5a9f-476f-aeb9-dcc0911d0645",
+      "id": "e9b15723-782a-4fba-ad69-76581f4055f4",
       "comment": "",
       "command": "type",
       "target": "id=version",
@@ -2242,7 +1558,7 @@
       ],
       "value": "${libVersion}"
     }, {
-      "id": "d171e195-3765-40ac-9b21-40845b6e9a09",
+      "id": "a2647df8-6c2f-4c7d-8b60-71d558891931",
       "comment": "",
       "command": "type",
       "target": "id=downloadUrl",
@@ -2256,7 +1572,7 @@
       ],
       "value": "https://${libName}.com/downloads/${libName}-${libVersion}.jar"
     }, {
-      "id": "591d6559-1af7-4224-a5ff-33fbd764077e",
+      "id": "6db4b28a-0e05-42e2-b5ff-a001a77b4aaf",
       "comment": "",
       "command": "type",
       "target": "id=library.softwareData.vendor",
@@ -2270,7 +1586,7 @@
       ],
       "value": "${libName} Provider"
     }, {
-      "id": "224ff4c9-45c7-43ba-9f3a-d542b6ec458e",
+      "id": "df30d9b1-edda-459a-8775-c662ba13a205",
       "comment": "",
       "command": "type",
       "target": "id=library.softwareData.website",
@@ -2284,14 +1600,14 @@
       ],
       "value": "https://${libName}-provider.com"
     }, {
-      "id": "604eb482-6a18-4353-a454-724fb2d60a45",
+      "id": "2595e112-7672-4b79-9969-d1628f553668",
       "comment": "",
       "command": "select",
       "target": "id=library.softwareData.softwareType",
       "targets": [],
       "value": "label=${swType}"
     }, {
-      "id": "82f612ef-cfe7-4d65-9523-83c9b9a67486",
+      "id": "b02f5534-09f0-4248-8035-57aab80903a1",
       "comment": "",
       "command": "type",
       "target": "id=library.softwareData.platform",
@@ -2305,7 +1621,7 @@
       ],
       "value": "${osType}"
     }, {
-      "id": "427d1876-471b-4a36-9a77-44918199ff80",
+      "id": "06d084a0-97a0-4d47-b891-10689ca7d72b",
       "comment": "",
       "command": "type",
       "target": "id=library.tradeCompliance.countryCode",
@@ -2319,7 +1635,7 @@
       ],
       "value": "${country}"
     }, {
-      "id": "1eca9178-15e1-4678-ac70-3e48306ed468",
+      "id": "91781feb-3f96-42de-a370-75328be39574",
       "comment": "",
       "command": "type",
       "target": "id=library.tradeCompliance.euECCN",
@@ -2333,7 +1649,7 @@
       ],
       "value": "${euECCN}"
     }, {
-      "id": "06f8af3b-c66e-45e3-9b4f-1f618c666684",
+      "id": "d410b6ee-78f8-4a3b-a872-22f5b2e32066",
       "comment": "",
       "command": "type",
       "target": "id=library.tradeCompliance.usECCN",
@@ -2347,7 +1663,7 @@
       ],
       "value": "${usECCN}"
     }, {
-      "id": "ebf026fa-9004-4e1c-9a54-ee7c06f097fe",
+      "id": "7413504e-5ffd-4aca-8947-2ee792e294f4",
       "comment": "",
       "command": "type",
       "target": "id=library.tradeCompliance.bisAuthorization",
@@ -2361,7 +1677,21 @@
       ],
       "value": "BIS"
     }, {
-      "id": "1ca9d307-9746-42dc-9b19-67a172e30991",
+      "id": "1c2ae1b5-5d61-463f-82f1-5c80554f9d4c",
+      "comment": "",
+      "command": "type",
+      "target": "id=library.tradeCompliance.earRegulationRestrictions",
+      "targets": [
+        ["id=library.tradeCompliance.earRegulationRestrictions", "id"],
+        ["name=library.tradeCompliance.earRegulationRestrictions", "name"],
+        ["css=#library\\.tradeCompliance\\.earRegulationRestrictions", "css:finder"],
+        ["xpath=//textarea[@id='library.tradeCompliance.earRegulationRestrictions']", "xpath:attributes"],
+        ["xpath=//form[@id='new3ppLibraryForm']/div[3]/div/div[2]/div/textarea", "xpath:idRelative"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": "${earRegulationRestrictions}"
+    }, {
+      "id": "eec5f9ab-c0ee-42f0-a094-7302301e85a1",
       "comment": "",
       "command": "type",
       "target": "id=library.tradeCompliance.encryptionProtocol",
@@ -2369,13 +1699,27 @@
         ["id=library.tradeCompliance.encryptionProtocol", "id"],
         ["name=library.tradeCompliance.encryptionProtocol", "name"],
         ["css=#library\\.tradeCompliance\\.encryptionProtocol", "css:finder"],
-        ["xpath=//input[@id='library.tradeCompliance.encryptionProtocol']", "xpath:attributes"],
-        ["xpath=//form[@id='new3ppLibraryForm']/div[3]/div/div[2]/div/input", "xpath:idRelative"],
-        ["xpath=//div[3]/div/div[2]/div/input", "xpath:position"]
+        ["xpath=//textarea[@id='library.tradeCompliance.encryptionProtocol']", "xpath:attributes"],
+        ["xpath=//form[@id='new3ppLibraryForm']/div[3]/div/div[2]/div[2]/textarea", "xpath:idRelative"],
+        ["xpath=//div[2]/textarea", "xpath:position"]
       ],
-      "value": "SSL"
+      "value": "${encryptionProtocol}"
     }, {
-      "id": "773241c3-4d0e-4635-a618-fd171b0d6baa",
+      "id": "bed0456f-59f8-442d-a471-840c38ce8082",
+      "comment": "",
+      "command": "type",
+      "target": "id=library.tradeCompliance.encryptionAlgorithms",
+      "targets": [
+        ["id=library.tradeCompliance.encryptionAlgorithms", "id"],
+        ["name=library.tradeCompliance.encryptionAlgorithms", "name"],
+        ["css=#library\\.tradeCompliance\\.encryptionAlgorithms", "css:finder"],
+        ["xpath=//textarea[@id='library.tradeCompliance.encryptionAlgorithms']", "xpath:attributes"],
+        ["xpath=//form[@id='new3ppLibraryForm']/div[3]/div/div[2]/div[3]/textarea", "xpath:idRelative"],
+        ["xpath=//div[3]/textarea", "xpath:position"]
+      ],
+      "value": "${encryptionAlgorithms}"
+    }, {
+      "id": "9da02179-cf44-41b6-984d-f51a84525c2f",
       "comment": "",
       "command": "click",
       "target": "css=.mt-2",
@@ -2388,7 +1732,7 @@
       ],
       "value": ""
     }, {
-      "id": "7d4796ba-5826-4273-bf02-9d43e596e035",
+      "id": "6cfbfad7-3a06-47f2-8c02-8cf2aed1a9ca",
       "comment": "",
       "command": "verifyText",
       "target": "css=tr:nth-child(1) > td:nth-child(1)",
@@ -2399,7 +1743,7 @@
       ],
       "value": "${libName}"
     }, {
-      "id": "5186e40f-3b0a-455a-b937-192e5e9630df",
+      "id": "bd32910d-7fb3-4253-9402-399fb309b32c",
       "comment": "",
       "command": "verifyText",
       "target": "css=tr:nth-child(1) > td:nth-child(2)",
@@ -2410,7 +1754,7 @@
       ],
       "value": "${libName} Provider"
     }, {
-      "id": "65348c79-87a6-4bc5-b93c-bd4285c1cdc1",
+      "id": "31439b91-32fd-44f3-b6d2-a790939e01aa",
       "comment": "",
       "command": "verifyText",
       "target": "css=tr:nth-child(1) > td:nth-child(3)",
@@ -2421,7 +1765,7 @@
       ],
       "value": "https://${libName}-provider.com"
     }, {
-      "id": "e1410902-8e18-4b01-b23a-9b7d85e44e11",
+      "id": "cd14cea9-1f5e-4138-9b32-6f1f19487ffe",
       "comment": "",
       "command": "verifyText",
       "target": "css=tr:nth-child(1) > td:nth-child(4)",
@@ -2432,7 +1776,7 @@
       ],
       "value": "${swType}"
     }, {
-      "id": "92205156-7801-45fe-9ee9-946a88d1005f",
+      "id": "71431093-3dc9-4cdb-8d86-3b9b6ba71f91",
       "comment": "",
       "command": "verifyText",
       "target": "css=tr:nth-child(1) > td:nth-child(5)",
@@ -2443,7 +1787,7 @@
       ],
       "value": "${osType}"
     }, {
-      "id": "b72735e9-c924-4dc2-b94f-7a89980fa132",
+      "id": "a97ff546-e7ad-4d94-b888-ecffcc011787",
       "comment": "",
       "command": "verifyText",
       "target": "css=tr:nth-child(1) > td:nth-child(6)",
@@ -2454,7 +1798,7 @@
       ],
       "value": "${country}"
     }, {
-      "id": "7cefe257-6f6d-4442-a5e6-bf6f7859ae62",
+      "id": "0d06120a-977c-4776-9f4c-72c00639d4fa",
       "comment": "",
       "command": "verifyText",
       "target": "css=tr:nth-child(1) > td:nth-child(7)",
@@ -2465,7 +1809,7 @@
       ],
       "value": "${euECCN}"
     }, {
-      "id": "49c2914b-25bc-4de6-b68f-684461a92097",
+      "id": "27f179b9-dc5f-40cf-957d-c15bbdd868ad",
       "comment": "",
       "command": "verifyText",
       "target": "css=tr:nth-child(1) > td:nth-child(8)",
@@ -2476,7 +1820,7 @@
       ],
       "value": "${usECCN}"
     }, {
-      "id": "6d34f961-3705-4e77-a0a4-bd309872d782",
+      "id": "a7e3b671-54b9-4593-8e95-7ca189dece76",
       "comment": "",
       "command": "verifyText",
       "target": "css=tr:nth-child(1) > td:nth-child(9)",
@@ -2487,7 +1831,7 @@
       ],
       "value": "BIS"
     }, {
-      "id": "2fc1d4e5-90ef-42f4-91fa-587ad31d6c42",
+      "id": "6822d6de-b6ab-4cbf-9bdb-2920945b16c1",
       "comment": "",
       "command": "verifyText",
       "target": "css=tr:nth-child(1) > td:nth-child(10)",
@@ -2496,16 +1840,38 @@
         ["xpath=//td", "xpath:position"],
         ["xpath=//td[contains(.,'Libraryjbc5on')]", "xpath:innerText"]
       ],
-      "value": "SSL"
+      "value": "${earRegulationRestrictions}"
     }, {
-      "id": "1eea4777-6ae9-4eeb-8423-08080baedbdb",
+      "id": "432c6aaf-408d-4df4-814b-6cb68f392cb1",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=tr:nth-child(1) > td:nth-child(11)",
+      "targets": [
+        ["css=td:nth-child(1)", "css:finder"],
+        ["xpath=//td", "xpath:position"],
+        ["xpath=//td[contains(.,'Libraryjbc5on')]", "xpath:innerText"]
+      ],
+      "value": "${encryptionProtocol}"
+    }, {
+      "id": "167c4a59-4990-4b74-866c-9743607ac978",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=tr:nth-child(1) > td:nth-child(12)",
+      "targets": [
+        ["css=td:nth-child(1)", "css:finder"],
+        ["xpath=//td", "xpath:position"],
+        ["xpath=//td[contains(.,'Libraryjbc5on')]", "xpath:innerText"]
+      ],
+      "value": "${encryptionAlgorithms}"
+    }, {
+      "id": "5d78d3af-a2b3-45d4-9704-78596b4eb630",
       "comment": "",
       "command": "executeScript",
       "target": "return ${l} + 1;",
       "targets": [],
       "value": "l"
     }, {
-      "id": "f762c8df-b5fa-4f6e-b347-943358a1e921",
+      "id": "3b5872ad-cce2-457c-9af6-94b5ab2f749d",
       "comment": "",
       "command": "repeatIf",
       "target": "${l} <= ${noOfLibs}",
@@ -2513,31 +1879,31 @@
       "value": ""
     }]
   }, {
-    "id": "3fea60fa-3b57-4f7b-aaf2-a05f85e69c18",
-    "name": "sanity_* Project * Release * Library",
+    "id": "8947f2f9-adac-4136-8489-5f3a542055ae",
+    "name": "gunner_1 Project 1 Release ** Library",
     "commands": [{
-      "id": "651eb3c9-5b8b-417f-a3d2-3911f2627b1c",
+      "id": "17d84604-bb36-4057-bee5-7c091edb39ca",
       "comment": "",
       "command": "executeScript",
-      "target": "return Math.floor(Math.random() * 2) + 2;",
+      "target": "return 1;",
       "targets": [],
       "value": "noOfProjects"
     }, {
-      "id": "bb4d1ea5-1f43-4fa1-8550-ec73726403c6",
+      "id": "d7d7ad41-a6aa-411d-9e5a-c5724485912d",
       "comment": "",
       "command": "open",
       "target": "http://localhost:8081/logout",
       "targets": [],
       "value": ""
     }, {
-      "id": "bd692a3d-a0d2-41e9-a93b-8d5747445c80",
+      "id": "770c7c52-69e5-44f2-bdf6-0591f4f6b363",
       "comment": "",
       "command": "setWindowSize",
       "target": "1280x720",
       "targets": [],
       "value": ""
     }, {
-      "id": "a089c5a9-ebce-4e73-9aec-9b1e8cf4893d",
+      "id": "b692310a-6bd3-4b3c-85de-65262c70ac9a",
       "comment": "",
       "command": "click",
       "target": "css=.btn",
@@ -2549,7 +1915,7 @@
       ],
       "value": ""
     }, {
-      "id": "92835d1d-ff9e-4c6e-8b71-51d3e1cc07de",
+      "id": "aa81e2a0-07a8-441a-aa50-8055ac1e8327",
       "comment": "",
       "command": "type",
       "target": "id=username",
@@ -2562,7 +1928,7 @@
       ],
       "value": "admin"
     }, {
-      "id": "a825b0ce-6829-4e94-9124-936c64e51582",
+      "id": "55e1f7a1-3a9e-46c3-8918-b8d0b0a6815f",
       "comment": "",
       "command": "type",
       "target": "id=password",
@@ -2575,7 +1941,7 @@
       ],
       "value": "admin"
     }, {
-      "id": "a34f827f-d2e0-4737-9e8f-5de768ceba73",
+      "id": "a7e8019b-6261-49e0-b707-82df4ae20754",
       "comment": "",
       "command": "click",
       "target": "css=.btn",
@@ -2587,42 +1953,42 @@
       ],
       "value": ""
     }, {
-      "id": "0cf3ffb3-3579-4554-8163-7844069330a6",
+      "id": "f91b5b72-629a-469a-9673-a4c314cf6f37",
       "comment": "",
       "command": "executeScript",
       "target": "return 1;",
       "targets": [],
       "value": "p"
     }, {
-      "id": "a6464827-4a6b-4010-a76c-a5924b7f6b6d",
+      "id": "49720675-3a8d-44d8-b0a3-0ae2d15e02a7",
       "comment": "",
       "command": "do",
       "target": "",
       "targets": [],
       "value": ""
     }, {
-      "id": "1cb5c2fb-38fb-4fbe-85cd-636432dccd6e",
+      "id": "09b92b80-2f60-438f-aab8-0f8c05d4dd42",
       "comment": "",
       "command": "executeScript",
-      "target": "return Math.floor(Math.random() * 3) + 2;",
+      "target": "return 1",
       "targets": [],
       "value": "noOfReleases"
     }, {
-      "id": "0910f75b-f180-4928-974d-fb0aaa9cbbd7",
+      "id": "7f24543d-5667-42ad-bd5a-7ad7577aef4c",
       "comment": "",
       "command": "executeScript",
       "target": "return \"Project-\" + Math.random().toString(36).substring(7);",
       "targets": [],
       "value": "projectName"
     }, {
-      "id": "6f82aa7b-a3dd-45ab-8f3a-6e079ffbfe0b",
+      "id": "0431f909-4a71-4eff-aa8f-32eee611b148",
       "comment": "",
       "command": "echo",
       "target": "###################### Project No ${p} - ${projectName} ######################",
       "targets": [],
       "value": ""
     }, {
-      "id": "ba718b76-179d-4197-a45e-70313fe31885",
+      "id": "32a1644e-4aee-497b-ad8a-d8c77b8e6f91",
       "comment": "",
       "command": "click",
       "target": "css=.my-2",
@@ -2633,7 +1999,7 @@
       ],
       "value": ""
     }, {
-      "id": "64bbd251-187a-4f17-beaa-b82e8694316b",
+      "id": "3bacaa5f-51e7-4834-832e-19f2fefc6b39",
       "comment": "",
       "command": "type",
       "target": "id=name",
@@ -2646,7 +2012,7 @@
       ],
       "value": "${projectName}"
     }, {
-      "id": "95a35eef-f9c2-4c21-beed-8b517f09e73a",
+      "id": "879556e9-5cde-4253-8397-4ac042e91397",
       "comment": "",
       "command": "type",
       "target": "id=description",
@@ -2659,7 +2025,7 @@
       ],
       "value": "This is a demo project to work with. This is created by running selenium test cases."
     }, {
-      "id": "f7386c90-e4f5-4c9d-9c79-9071f6b37ca5",
+      "id": "bfeca2dc-88aa-4e47-b165-0499e11bce79",
       "comment": "",
       "command": "click",
       "target": "css=#newProject > div > div > div.modal-body > form > button",
@@ -2671,21 +2037,21 @@
       ],
       "value": ""
     }, {
-      "id": "5ab62512-ea81-43c7-85c6-506d77659b80",
+      "id": "db67115e-39f9-442d-bd64-aede0f30f6d0",
       "comment": "",
       "command": "assertElementPresent",
       "target": "linkText=${projectName}",
       "targets": [],
       "value": ""
     }, {
-      "id": "84cc0cf1-952c-4648-8afb-3e38605ae146",
+      "id": "89cbd970-db23-42dc-a2bf-246887d0ad61",
       "comment": "",
       "command": "verifyText",
       "target": "css=tr:nth-child(1) div",
       "targets": [],
       "value": "${projectName}"
     }, {
-      "id": "1aa4971c-2ef9-4492-9dfb-08dce3a1bcbf",
+      "id": "fd808a92-029e-42e1-80ad-7b9a036e6b8b",
       "comment": "",
       "command": "click",
       "target": "linkText=${projectName}",
@@ -2696,52 +2062,52 @@
       ],
       "value": ""
     }, {
-      "id": "7331aff2-797f-4b02-b605-109ccae6bdd3",
+      "id": "39959ea8-188f-4eb0-830b-4f352860f4a6",
       "comment": "",
       "command": "executeScript",
       "target": "return 1;",
       "targets": [],
       "value": "r"
     }, {
-      "id": "560e0a96-fc17-460a-a764-62b3f9303fdd",
+      "id": "f399cd67-89b6-4075-ba5f-762eb8a7e8cb",
       "comment": "",
       "command": "do",
       "target": "",
       "targets": [],
       "value": ""
     }, {
-      "id": "8b0b95db-99ec-47b1-a2d1-dd356ec967c1",
+      "id": "2744d697-8154-44f6-aebd-f26035461e68",
       "comment": "",
       "command": "executeScript",
-      "target": "return Math.floor(Math.random() * 3) + 3;",
+      "target": "return Math.floor(Math.random() * 15) + 15;",
       "targets": [],
       "value": "noOfLibs"
     }, {
-      "id": "ed442768-fa4c-4c83-a6b3-4e4774862a89",
+      "id": "e31dbea1-aa4e-47f6-965e-1329314e070a",
       "comment": "",
       "command": "executeScript",
       "target": "return Math.floor(Math.random() * 50) + \".\" + Math.floor(Math.random() * 50);",
       "targets": [],
       "value": "oldVersion"
     }, {
-      "id": "03b2f356-a5cf-4af2-be85-3771ad67cbeb",
+      "id": "a1d54eef-43b3-4336-a298-1c8425f9ac9a",
       "comment": "",
       "command": "executeScript",
       "target": "return Math.floor(Math.random() * 50) + \".\" + Math.floor(Math.random() * 50);",
       "targets": [],
       "value": "newVersion"
     }, {
-      "id": "75a98874-305f-48f2-b779-96e99b29f2d6",
+      "id": "c2874c61-9873-4817-96ef-6155c1b6b5df",
       "comment": "",
       "command": "echo",
       "target": "###################### Release No ${r} (${oldVersion}, ${newVersion}) ######################",
       "targets": [],
       "value": ""
     }, {
-      "id": "674f93f4-beb8-4094-bcb4-d973ff8f5570",
+      "id": "62dbde8d-396f-444a-80d9-5c340364c250",
       "comment": "",
       "command": "click",
-      "target": "css=body > div.container.pb-5.mb-auto > div:nth-child(2) > div > button",
+      "target": "css=.mb-2",
       "targets": [
         ["css=.mb-2", "css:finder"],
         ["xpath=(//button[@type='button'])[2]", "xpath:attributes"],
@@ -2750,7 +2116,7 @@
       ],
       "value": ""
     }, {
-      "id": "45d8778b-3edd-40fe-8ba7-75927869fce5",
+      "id": "7d79ccaa-b2d4-4a98-a91b-0e5030ad40fe",
       "comment": "",
       "command": "type",
       "target": "id=version",
@@ -2764,7 +2130,7 @@
       ],
       "value": "${oldVersion}"
     }, {
-      "id": "5da0be6b-3526-49a7-a95d-a389b2c07c08",
+      "id": "c6e30ab9-ab9c-4581-b17c-9af8d2a4d0c7",
       "comment": "",
       "command": "click",
       "target": "css=.mt-2",
@@ -2777,7 +2143,7 @@
       ],
       "value": ""
     }, {
-      "id": "48202ca2-edb6-4e84-9ee4-0f29077bdf3c",
+      "id": "fd520775-3663-4307-a358-e727f3544235",
       "comment": "",
       "command": "verifyText",
       "target": "css=td:nth-child(1) span",
@@ -2788,7 +2154,7 @@
       ],
       "value": "${oldVersion}"
     }, {
-      "id": "679ad0f3-efeb-48fe-9171-e1e43995cfb8",
+      "id": "75e96066-b8d6-4b1c-8e79-967064d8b41b",
       "comment": "",
       "command": "verifyText",
       "target": "css=tr:nth-child(1) div",
@@ -2798,7 +2164,7 @@
       ],
       "value": "0 libraries"
     }, {
-      "id": "7d7e2c3f-5b5f-4e69-83ce-28a903b2d952",
+      "id": "f809a388-a594-4e46-85bf-8ea8451b65bb",
       "comment": "",
       "command": "click",
       "target": "css=.mb-2",
@@ -2810,7 +2176,7 @@
       ],
       "value": ""
     }, {
-      "id": "efe46bd3-9105-44bd-a2fc-da4e1b16881d",
+      "id": "0eb8a068-28d4-4d85-a938-97cd8ff95b87",
       "comment": "",
       "command": "type",
       "target": "id=version",
@@ -2824,7 +2190,7 @@
       ],
       "value": "${newVersion}"
     }, {
-      "id": "cc6d7c89-07fe-43b9-848a-fa6546945e7b",
+      "id": "de2832ad-1624-4028-a45d-0c69478b1d4d",
       "comment": "",
       "command": "type",
       "target": "id=baseVersion",
@@ -2838,7 +2204,7 @@
       ],
       "value": "${oldVersion}"
     }, {
-      "id": "ecbe0cca-850c-4bc1-87fc-13c653fb5115",
+      "id": "4e28ddf5-4c67-4aeb-a985-285333eae643",
       "comment": "",
       "command": "click",
       "target": "css=.mt-2",
@@ -2851,7 +2217,7 @@
       ],
       "value": ""
     }, {
-      "id": "2363114c-c2e9-40f0-8d6e-2bfe253fc0e4",
+      "id": "27c495be-5367-4091-b735-e5f12bc1306a",
       "comment": "",
       "command": "verifyText",
       "target": "css=td:nth-child(1) span",
@@ -2862,7 +2228,7 @@
       ],
       "value": "${newVersion}"
     }, {
-      "id": "c6056c4d-bf1e-4c9e-b167-7708d64018ad",
+      "id": "3bd789f2-ace4-4642-bf82-c11d90205e3d",
       "comment": "",
       "command": "verifyText",
       "target": "css=tr:nth-child(1) > td:nth-child(2) span",
@@ -2873,7 +2239,7 @@
       ],
       "value": "${oldVersion}"
     }, {
-      "id": "73b3071f-bffc-4d51-8e6b-b913acdacfbc",
+      "id": "d6a29a6a-f8db-4187-bca0-ec6275410e2e",
       "comment": "",
       "command": "verifyText",
       "target": "css=tr:nth-child(1) div",
@@ -2883,14 +2249,14 @@
       ],
       "value": "0 libraries"
     }, {
-      "id": "67048b53-0991-4979-bd32-b9d6cc962171",
+      "id": "001f4288-2696-49d2-b614-f3441f06ba24",
       "comment": "",
       "command": "verifyElementPresent",
       "target": "linkText=${newVersion}",
       "targets": [],
       "value": ""
     }, {
-      "id": "86d1edc2-15e0-4876-a695-f0cffd9a383a",
+      "id": "26805b27-6ca5-4fb4-b786-8957628b648e",
       "comment": "",
       "command": "click",
       "target": "linkText=${newVersion}",
@@ -2900,103 +2266,159 @@
       ],
       "value": ""
     }, {
-      "id": "960ca15f-7fa0-47de-9583-1458b235d824",
+      "id": "bf4bddab-de68-498d-900d-66f9004ea270",
       "comment": "",
       "command": "executeScript",
       "target": "return 1;",
       "targets": [],
       "value": "l"
     }, {
-      "id": "789b97e9-83f4-4b68-b134-f051de294cb5",
+      "id": "9844d74b-7f75-4913-8aa6-1028ba1de62e",
       "comment": "",
       "command": "do",
       "target": "",
       "targets": [],
       "value": ""
     }, {
-      "id": "0e9669d3-98c4-4eb4-b0e0-0fd7a9963138",
+      "id": "646bfe57-3640-4992-b5db-b4467c7dbca5",
       "comment": "",
       "command": "executeScript",
       "target": "return \"Library\" + Math.random().toString(36).substring(7);",
       "targets": [],
       "value": "libName"
     }, {
-      "id": "8ea8d2de-e0c6-4485-aa75-b7b2e2b7f5a2",
+      "id": "c35963d7-f910-4a50-b09b-a1b890e86bd2",
       "comment": "",
       "command": "executeScript",
       "target": "return \"Rel-\" + Math.floor(Math.random() * 50) + \".\" + Math.floor(Math.random() * 50);",
       "targets": [],
       "value": "libVersion"
     }, {
-      "id": "20fabfeb-11a9-479e-9822-bf5d55063974",
+      "id": "b7559af7-2a02-4f81-8efa-8fc8271826a5",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return \"https://\" + ${libName} + \".com/downloads/\" + ${libName} + \"-\" + ${libVersion}+ \".jar\";",
+      "targets": [],
+      "value": "downloadUrl"
+    }, {
+      "id": "90c84d20-d1a7-4bb3-bd50-01bae703914a",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return \"https://\" + ${libName}+ \".-provider.com/\";",
+      "targets": [],
+      "value": "websiteUrl"
+    }, {
+      "id": "6146e4b1-bb04-4f5b-bff1-bf5708b8b951",
       "comment": "",
       "command": "executeScript",
       "target": "swType= Array(\"FOSS\", \"Commercial\", \"Internal\", \"Others\"); return swType[Math.floor(Math.random() * swType.length)];",
       "targets": [],
       "value": "swType"
     }, {
-      "id": "94df967b-bdaf-497d-8120-5c0e9fee23ee",
+      "id": "21c761a1-f9a2-42dc-b658-6c2287a49484",
       "comment": "",
       "command": "executeScript",
       "target": "osType= Array(\"Linux\", \"Windows\", \"MacOS\"); return osType[Math.floor(Math.random() * osType.length)];",
       "targets": [],
       "value": "osType"
     }, {
-      "id": "e17e049e-b44e-449b-a60d-06834baa86dc",
+      "id": "e676f4a0-731a-43ea-bd37-1f1701480e30",
       "comment": "",
       "command": "executeScript",
       "target": "list= Array(\"US\", \"CA\", \"IN\", \"\", \"\", \"\", \"\"); return list[Math.floor(Math.random() * list.length)];",
       "targets": [],
       "value": "country"
     }, {
-      "id": "240d6946-1adb-4f56-ad1f-40accf665852",
+      "id": "3760659e-44be-49a1-a7b5-fb958239a489",
       "comment": "",
       "command": "executeScript",
       "target": "list= Array(\"5D992C\", \"5D002C1\", \"EAR99\", \"\", \"\", \"\", \"\"); return list[Math.floor(Math.random() * list.length)];",
       "targets": [],
       "value": "usECCN"
     }, {
-      "id": "0093a884-9058-4fd3-a43d-84e04f839ed2",
+      "id": "104953e6-9d20-4fe3-bb99-97a0fd1da268",
       "comment": "",
       "command": "executeScript",
       "target": "list= Array(\"5D992C\", \"5D002C1\", \"EAR99\", \"\", \"\", \"\", \"\"); return list[Math.floor(Math.random() * list.length)];",
       "targets": [],
       "value": "euECCN"
     }, {
-      "id": "ba7f15b1-11fa-4a57-87ca-e45aed386ecf",
+      "id": "9e41590b-ec8e-4ede-88c5-c4ea710b7622",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return \"Library\" + Math.random().toString(36).substring(7);",
+      "targets": [],
+      "value": "earRegulationRestrictions"
+    }, {
+      "id": "364e8fbd-7a35-44e4-8f53-0d1ff166d350",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return \"Library\" + Math.random().toString(36).substring(7);",
+      "targets": [],
+      "value": "encryptionProtocol"
+    }, {
+      "id": "73fd395b-51fe-48a8-8e06-6e3ae7ef9aed",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return \"Library\" + Math.random().toString(36).substring(7);",
+      "targets": [],
+      "value": "encryptionAlgorithms"
+    }, {
+      "id": "e81fdb55-0d2c-422b-b781-9a12a2fda380",
       "comment": "",
       "command": "echo",
       "target": "###################### Library no ${l} - ${libName} ######################",
       "targets": [],
       "value": ""
     }, {
-      "id": "20f074bc-e069-422b-abc4-7109a6d1fa6a",
+      "id": "c425836d-9113-44fc-b045-4bf5b9341f27",
       "comment": "",
       "command": "echo",
       "target": "v${libVersion},          swt:${swType}          osT: ${osType},          c:${country},          us:${usECCN},          eu:${euECCN}",
       "targets": [],
       "value": ""
     }, {
-      "id": "f1ae6468-cb0a-430b-9f9a-4c79549ccd86",
+      "id": "716972dd-e195-4550-8b6b-f9af3b95f7c5",
+      "comment": "",
+      "command": "echo",
+      "target": "${earRegulationRestrictions}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1281e4b1-4bbb-4fa0-8c30-34b8f6683128",
+      "comment": "",
+      "command": "echo",
+      "target": "${encryptionProtocol}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a7bf3b09-465b-42d6-923f-3f69ddc55c45",
+      "comment": "",
+      "command": "echo",
+      "target": "${encryptionAlgorithms}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "feb31e64-beff-4d78-8e68-130f92cca12a",
       "comment": "",
       "command": "echo",
       "target": "###################################################################",
       "targets": [],
       "value": ""
     }, {
-      "id": "003d6b9c-4be4-4cfc-9df7-056c2f277100",
+      "id": "bcc225d8-6689-413c-8226-6f1c89b6c97d",
       "comment": "",
       "command": "click",
-      "target": "css=body > div.container.pb-5.mb-auto > div:nth-child(2) > div > button",
+      "target": "css=.mb-2:nth-child(3)",
       "targets": [
-        ["css=.btn:nth-child(3)", "css:finder"],
+        ["css=.mb-2:nth-child(3)", "css:finder"],
         ["xpath=(//button[@type='button'])[2]", "xpath:attributes"],
         ["xpath=//div/button", "xpath:position"],
-        ["xpath=//button[contains(.,'Add 3PP Dependency')]", "xpath:innerText"]
+        ["xpath=//button[contains(.,'Add / Edit 3PP Dependency')]", "xpath:innerText"]
       ],
       "value": ""
     }, {
-      "id": "f272d533-022a-41b9-81cd-6a48548ec69d",
+      "id": "cf0cb1d8-66a2-43ec-a2c8-f9436298944f",
       "comment": "",
       "command": "type",
       "target": "id=library.name",
@@ -3010,7 +2432,7 @@
       ],
       "value": "${libName}"
     }, {
-      "id": "ccf6bb44-f1cb-46d5-807c-39dfa7d1210c",
+      "id": "baaa8243-41a3-45e2-ac2f-f7c276b7909f",
       "comment": "",
       "command": "type",
       "target": "id=version",
@@ -3024,7 +2446,7 @@
       ],
       "value": "${libVersion}"
     }, {
-      "id": "f3d2245f-7e42-4ad9-8369-d4543043c09c",
+      "id": "94bd241d-ac63-4d7e-83ca-6dddd3cb6732",
       "comment": "",
       "command": "type",
       "target": "id=downloadUrl",
@@ -3036,9 +2458,9 @@
         ["xpath=//form[@id='new3ppLibraryForm']/div[2]/div/div/div[2]/input", "xpath:idRelative"],
         ["xpath=//div[2]/input", "xpath:position"]
       ],
-      "value": "https://${libName}.com/downloads/${libName}-${libVersion}.jar"
+      "value": "${downloadUrl}"
     }, {
-      "id": "588b7e7f-07de-4cf5-9eea-3e2ca782822a",
+      "id": "2260f5bf-b5ba-40d1-9c89-7f71bf9f239a",
       "comment": "",
       "command": "type",
       "target": "id=library.softwareData.vendor",
@@ -3052,7 +2474,7 @@
       ],
       "value": "${libName} Provider"
     }, {
-      "id": "92cbedef-22dd-4029-b175-95ab06d61b56",
+      "id": "9ca8b8dc-059f-4c19-bed6-32d3b74d8675",
       "comment": "",
       "command": "type",
       "target": "id=library.softwareData.website",
@@ -3064,16 +2486,16 @@
         ["xpath=//form[@id='new3ppLibraryForm']/div[2]/div/div[2]/div[2]/input", "xpath:idRelative"],
         ["xpath=//div[2]/div[2]/input", "xpath:position"]
       ],
-      "value": "https://${libName}-provider.com"
+      "value": "${websiteUrl}"
     }, {
-      "id": "e67680a5-cb13-4df8-a699-f1bff752b422",
+      "id": "9d298795-5085-4c10-a839-625f24a7b051",
       "comment": "",
       "command": "select",
       "target": "id=library.softwareData.softwareType",
       "targets": [],
       "value": "label=${swType}"
     }, {
-      "id": "db7f71de-fbc6-4ad7-97fb-7aca84ccea28",
+      "id": "96a4d69f-fd10-468b-b72b-277b47bb26c2",
       "comment": "",
       "command": "type",
       "target": "id=library.softwareData.platform",
@@ -3087,7 +2509,7 @@
       ],
       "value": "${osType}"
     }, {
-      "id": "3bfd9d83-df8f-4767-a17d-ea7f26ac099a",
+      "id": "a1544bee-d32b-4300-b229-f33948325b68",
       "comment": "",
       "command": "type",
       "target": "id=library.tradeCompliance.countryCode",
@@ -3101,7 +2523,7 @@
       ],
       "value": "${country}"
     }, {
-      "id": "cdb697f9-119c-4cd4-8b6e-6f07fac40ac5",
+      "id": "00583af8-b7aa-4141-a0fd-7e98948af9fd",
       "comment": "",
       "command": "type",
       "target": "id=library.tradeCompliance.euECCN",
@@ -3115,7 +2537,7 @@
       ],
       "value": "${euECCN}"
     }, {
-      "id": "f58d3abb-9080-41b4-96b4-2203068d8870",
+      "id": "7d7d2ed3-57ef-4d1a-b3f7-3511101b76c2",
       "comment": "",
       "command": "type",
       "target": "id=library.tradeCompliance.usECCN",
@@ -3129,7 +2551,7 @@
       ],
       "value": "${usECCN}"
     }, {
-      "id": "af8d7358-ec75-4809-9a77-2533563c5203",
+      "id": "9bc6faaf-03fe-45e0-bc7d-d567cd894a89",
       "comment": "",
       "command": "type",
       "target": "id=library.tradeCompliance.bisAuthorization",
@@ -3143,7 +2565,21 @@
       ],
       "value": "BIS"
     }, {
-      "id": "ca6b43a1-e202-474a-9107-183232fe90ea",
+      "id": "b303fd97-2713-47fa-ace6-1ac93b0dd2f9",
+      "comment": "",
+      "command": "type",
+      "target": "id=library.tradeCompliance.earRegulationRestrictions",
+      "targets": [
+        ["id=library.tradeCompliance.earRegulationRestrictions", "id"],
+        ["name=library.tradeCompliance.earRegulationRestrictions", "name"],
+        ["css=#library\\.tradeCompliance\\.earRegulationRestrictions", "css:finder"],
+        ["xpath=//textarea[@id='library.tradeCompliance.earRegulationRestrictions']", "xpath:attributes"],
+        ["xpath=//form[@id='new3ppLibraryForm']/div[3]/div/div[2]/div/textarea", "xpath:idRelative"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": "${earRegulationRestrictions}"
+    }, {
+      "id": "36e82c7b-0ff2-41fe-93a0-fb7042f79231",
       "comment": "",
       "command": "type",
       "target": "id=library.tradeCompliance.encryptionProtocol",
@@ -3151,13 +2587,27 @@
         ["id=library.tradeCompliance.encryptionProtocol", "id"],
         ["name=library.tradeCompliance.encryptionProtocol", "name"],
         ["css=#library\\.tradeCompliance\\.encryptionProtocol", "css:finder"],
-        ["xpath=//input[@id='library.tradeCompliance.encryptionProtocol']", "xpath:attributes"],
-        ["xpath=//form[@id='new3ppLibraryForm']/div[3]/div/div[2]/div/input", "xpath:idRelative"],
-        ["xpath=//div[3]/div/div[2]/div/input", "xpath:position"]
+        ["xpath=//textarea[@id='library.tradeCompliance.encryptionProtocol']", "xpath:attributes"],
+        ["xpath=//form[@id='new3ppLibraryForm']/div[3]/div/div[2]/div[2]/textarea", "xpath:idRelative"],
+        ["xpath=//div[2]/textarea", "xpath:position"]
       ],
-      "value": "SSL"
+      "value": "${encryptionProtocol}"
     }, {
-      "id": "179bf3a2-9b2e-4355-892d-835ba5df3da2",
+      "id": "efa4d74c-e616-4845-a651-e4e68db33e0d",
+      "comment": "",
+      "command": "type",
+      "target": "id=library.tradeCompliance.encryptionAlgorithms",
+      "targets": [
+        ["id=library.tradeCompliance.encryptionAlgorithms", "id"],
+        ["name=library.tradeCompliance.encryptionAlgorithms", "name"],
+        ["css=#library\\.tradeCompliance\\.encryptionAlgorithms", "css:finder"],
+        ["xpath=//textarea[@id='library.tradeCompliance.encryptionAlgorithms']", "xpath:attributes"],
+        ["xpath=//form[@id='new3ppLibraryForm']/div[3]/div/div[2]/div[3]/textarea", "xpath:idRelative"],
+        ["xpath=//div[3]/textarea", "xpath:position"]
+      ],
+      "value": "${encryptionAlgorithms}"
+    }, {
+      "id": "d04af7df-ca3d-4100-b8b0-99b28c46e6b7",
       "comment": "",
       "command": "click",
       "target": "css=.mt-2",
@@ -3170,142 +2620,161 @@
       ],
       "value": ""
     }, {
-      "id": "d71400c6-1a26-42da-b2c5-20aa8ce32b4c",
+      "id": "4f19bf58-3c20-4a3f-913c-6b7323bd8cea",
       "comment": "",
       "command": "verifyText",
-      "target": "css=div.container.pb-5.mb-auto > div:nth-child(2) > div > div:nth-child(5) > div > table > tbody > tr:nth-child(1) > td:nth-child(1)",
+      "target": "css=td:nth-child(1)",
       "targets": [
         ["css=td:nth-child(1)", "css:finder"],
         ["xpath=//td", "xpath:position"],
-        ["xpath=//td[contains(.,'Libraryjbc5on')]", "xpath:innerText"]
+        ["xpath=//td[contains(.,'Librarybphkvt')]", "xpath:innerText"]
       ],
       "value": "${libName}"
     }, {
-      "id": "77391aba-e80c-4b73-bf2c-96dac5a3eef2",
+      "id": "e4da4721-0fce-40ab-a908-db40bfbc48a6",
       "comment": "",
       "command": "verifyText",
-      "target": "css=div.container.pb-5.mb-auto > div:nth-child(2) > div > div:nth-child(5) > div > table > tbody > tr:nth-child(1) > td:nth-child(2)",
+      "target": "css=td:nth-child(2)",
       "targets": [
-        ["css=td:nth-child(1)", "css:finder"],
-        ["xpath=//td", "xpath:position"],
-        ["xpath=//td[contains(.,'Libraryjbc5on')]", "xpath:innerText"]
+        ["css=td:nth-child(2)", "css:finder"],
+        ["xpath=//td[2]", "xpath:position"],
+        ["xpath=//td[contains(.,'Librarybphkvt Provider')]", "xpath:innerText"]
       ],
       "value": "${libName} Provider"
     }, {
-      "id": "bdac5bf2-ee6b-4041-b198-e9c6b268957e",
+      "id": "9795a6ea-535f-484e-9159-9bf47b3d87bb",
       "comment": "",
       "command": "verifyText",
-      "target": "css=div.container.pb-5.mb-auto > div:nth-child(2) > div > div:nth-child(5) > div > table > tbody > tr:nth-child(1) > td:nth-child(3)",
+      "target": "css=td:nth-child(3) > .truncated",
       "targets": [
-        ["css=td:nth-child(1)", "css:finder"],
-        ["xpath=//td", "xpath:position"],
-        ["xpath=//td[contains(.,'Libraryjbc5on')]", "xpath:innerText"]
+        ["css=td:nth-child(3) > .truncated", "css:finder"],
+        ["xpath=//td[3]/div", "xpath:position"]
       ],
-      "value": "https://${libName}-provider.com"
+      "value": "${websiteUrl}"
     }, {
-      "id": "c97f8c43-8e40-4ffe-bf78-2e3a9fa9078d",
+      "id": "26ee0021-042c-4a3d-a576-40b5328b7adf",
       "comment": "",
       "command": "verifyText",
-      "target": "css=div.container.pb-5.mb-auto > div:nth-child(2) > div > div:nth-child(5) > div > table > tbody > tr:nth-child(1) > td:nth-child(4)",
+      "target": "css=td:nth-child(4)",
       "targets": [
-        ["css=td:nth-child(1)", "css:finder"],
-        ["xpath=//td", "xpath:position"],
-        ["xpath=//td[contains(.,'Libraryjbc5on')]", "xpath:innerText"]
+        ["css=td:nth-child(4)", "css:finder"],
+        ["xpath=//td[4]", "xpath:position"],
+        ["xpath=//td[contains(.,'Others')]", "xpath:innerText"]
       ],
       "value": "${swType}"
     }, {
-      "id": "8496ae1d-9b1c-442f-8f55-3aad5c5c02ef",
+      "id": "4408f17b-bd10-4da2-8d16-89092892b7d1",
       "comment": "",
       "command": "verifyText",
-      "target": "css=div.container.pb-5.mb-auto > div:nth-child(2) > div > div:nth-child(5) > div > table > tbody > tr:nth-child(1) > td:nth-child(5)",
+      "target": "css=td:nth-child(5)",
       "targets": [
-        ["css=td:nth-child(1)", "css:finder"],
-        ["xpath=//td", "xpath:position"],
-        ["xpath=//td[contains(.,'Libraryjbc5on')]", "xpath:innerText"]
+        ["css=td:nth-child(5)", "css:finder"],
+        ["xpath=//td[5]", "xpath:position"],
+        ["xpath=//td[contains(.,'Rel-10.9')]", "xpath:innerText"]
       ],
       "value": "${libVersion}"
     }, {
-      "id": "0b2d5c5d-7dae-40ec-ab4e-564803ead821",
+      "id": "a653edaf-2621-483f-a490-3d1fb21963af",
       "comment": "",
       "command": "verifyText",
-      "target": "css=div.container.pb-5.mb-auto > div:nth-child(2) > div > div:nth-child(5) > div > table > tbody > tr:nth-child(1) > td:nth-child(6)",
+      "target": "css=td:nth-child(7)",
       "targets": [
-        ["css=td:nth-child(1)", "css:finder"],
-        ["xpath=//td", "xpath:position"],
-        ["xpath=//td[contains(.,'Libraryjbc5on')]", "xpath:innerText"]
+        ["css=td:nth-child(7)", "css:finder"],
+        ["xpath=//td[7]", "xpath:position"],
+        ["xpath=//td[contains(.,'Windows')]", "xpath:innerText"]
       ],
       "value": "${osType}"
     }, {
-      "id": "15b43997-0130-49ae-914c-da366927069c",
+      "id": "6965ab42-d23f-4a8d-957b-4bd92c1e28d0",
       "comment": "",
       "command": "verifyText",
-      "target": "css=div.container.pb-5.mb-auto > div:nth-child(2) > div > div:nth-child(5) > div > table > tbody > tr:nth-child(1) > td:nth-child(7)",
+      "target": "css=td:nth-child(8)",
       "targets": [
-        ["css=td:nth-child(1)", "css:finder"],
-        ["xpath=//td", "xpath:position"],
-        ["xpath=//td[contains(.,'Libraryjbc5on')]", "xpath:innerText"]
+        ["css=td:nth-child(8)", "css:finder"],
+        ["xpath=//td[8]", "xpath:position"]
       ],
       "value": "${country}"
     }, {
-      "id": "0f0f8179-025d-4c49-a330-e28ed59190d2",
+      "id": "186b0954-d31c-4fa3-b5e3-8dbb59923d34",
       "comment": "",
       "command": "verifyText",
-      "target": "css=div.container.pb-5.mb-auto > div:nth-child(2) > div > div:nth-child(5) > div > table > tbody > tr:nth-child(1) > td:nth-child(8)",
+      "target": "css=td:nth-child(9)",
       "targets": [
-        ["css=td:nth-child(1)", "css:finder"],
-        ["xpath=//td", "xpath:position"],
-        ["xpath=//td[contains(.,'Libraryjbc5on')]", "xpath:innerText"]
+        ["css=td:nth-child(9)", "css:finder"],
+        ["xpath=//td[9]", "xpath:position"]
       ],
       "value": "${euECCN}"
     }, {
-      "id": "5bf8072c-9784-45ae-8161-83bd8506eaba",
+      "id": "8c63223c-65ba-4d4f-97c8-469b7e43aa2e",
       "comment": "",
       "command": "verifyText",
-      "target": "css=div.container.pb-5.mb-auto > div:nth-child(2) > div > div:nth-child(5) > div > table > tbody > tr:nth-child(1) > td:nth-child(9)",
+      "target": "css=td:nth-child(10)",
       "targets": [
-        ["css=td:nth-child(1)", "css:finder"],
-        ["xpath=//td", "xpath:position"],
-        ["xpath=//td[contains(.,'Libraryjbc5on')]", "xpath:innerText"]
+        ["css=td:nth-child(10)", "css:finder"],
+        ["xpath=//td[10]", "xpath:position"],
+        ["xpath=//td[contains(.,'EAR99')]", "xpath:innerText"]
       ],
       "value": "${usECCN}"
     }, {
-      "id": "210f9850-6c88-475b-aa90-255179b3c00b",
+      "id": "1f39c3dd-9c30-4491-b718-fc0951952219",
       "comment": "",
       "command": "verifyText",
-      "target": "css=div.container.pb-5.mb-auto > div:nth-child(2) > div > div:nth-child(5) > div > table > tbody > tr:nth-child(1) > td:nth-child(10)",
+      "target": "css=td:nth-child(11)",
       "targets": [
-        ["css=td:nth-child(1)", "css:finder"],
-        ["xpath=//td", "xpath:position"],
-        ["xpath=//td[contains(.,'Libraryjbc5on')]", "xpath:innerText"]
+        ["css=td:nth-child(11)", "css:finder"],
+        ["xpath=//td[11]", "xpath:position"],
+        ["xpath=//td[contains(.,'BIS')]", "xpath:innerText"]
       ],
       "value": "BIS"
     }, {
-      "id": "4e0a4220-4229-4abb-88dd-47476f2be678",
+      "id": "26123fc8-f9b0-4b76-bf28-8020c9673e3a",
       "comment": "",
       "command": "verifyText",
-      "target": "css=div.container.pb-5.mb-auto > div:nth-child(2) > div > div:nth-child(5) > div > table > tbody > tr:nth-child(1) > td:nth-child(11)",
+      "target": "css=td:nth-child(12)",
       "targets": [
         ["css=td:nth-child(1)", "css:finder"],
         ["xpath=//td", "xpath:position"],
         ["xpath=//td[contains(.,'Libraryjbc5on')]", "xpath:innerText"]
       ],
-      "value": "SSL"
+      "value": "${earRegulationRestrictions}"
     }, {
-      "id": "335b7af0-cdce-4a8b-8ecc-ff57a5992652",
+      "id": "a340b504-4f66-45f9-a06c-0e4d74c7acc9",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=td:nth-child(13)",
+      "targets": [
+        ["css=td:nth-child(1)", "css:finder"],
+        ["xpath=//td", "xpath:position"],
+        ["xpath=//td[contains(.,'Libraryjbc5on')]", "xpath:innerText"]
+      ],
+      "value": "${encryptionProtocol}"
+    }, {
+      "id": "2ae81288-0331-48b5-904c-fbb3d684db3c",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=td:nth-child(14)",
+      "targets": [
+        ["css=td:nth-child(1)", "css:finder"],
+        ["xpath=//td", "xpath:position"],
+        ["xpath=//td[contains(.,'Libraryjbc5on')]", "xpath:innerText"]
+      ],
+      "value": "${encryptionAlgorithms}"
+    }, {
+      "id": "286f5553-d117-40d7-aabc-6dcd18de14d8",
       "comment": "",
       "command": "executeScript",
       "target": "return ${l} + 1;",
       "targets": [],
       "value": "l"
     }, {
-      "id": "50ba52ba-e3c3-4f66-b2dc-19e219e6c3b8",
+      "id": "f0ef7228-0941-4a27-9d9b-953d103b47ca",
       "comment": "",
       "command": "repeatIf",
       "target": "${l} <= ${noOfLibs}",
       "targets": [],
       "value": ""
     }, {
-      "id": "73cfaa28-bbdd-4b0a-bd58-446b35bbecc2",
+      "id": "ee273c0e-355b-44d5-bda4-a9a456695093",
       "comment": "",
       "command": "click",
       "target": "linkText=${projectName}",
@@ -3319,7 +2788,7 @@
       ],
       "value": ""
     }, {
-      "id": "225efc6e-ee56-4ced-9998-7d460d88792a",
+      "id": "392c9320-c75c-4323-9706-9ebf30ee03b6",
       "comment": "",
       "command": "verifyText",
       "target": "css=td:nth-child(1) span",
@@ -3330,7 +2799,7 @@
       ],
       "value": "${newVersion}"
     }, {
-      "id": "a999dea1-4b35-4785-8014-e9626517e5b5",
+      "id": "31c95995-1477-4099-8ab4-1b5abe90f4ba",
       "comment": "",
       "command": "verifyText",
       "target": "css=tr:nth-child(1) > td:nth-child(2) span",
@@ -3341,7 +2810,31 @@
       ],
       "value": "${oldVersion}"
     }, {
-      "id": "23ec5849-29c7-4b88-b818-ff9686e9e1b1",
+      "id": "d6cb9258-14d4-4856-a9ce-6a5dd9dbc478",
+      "comment": "",
+      "command": "if",
+      "target": "${noOfLibs} == 1",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "764adeb3-99fb-4e8f-b488-ddc5b9c55f79",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=tr:nth-child(1) div",
+      "targets": [
+        ["css=tr:nth-child(1) div", "css:finder"],
+        ["xpath=//a/div", "xpath:position"]
+      ],
+      "value": "1 library"
+    }, {
+      "id": "54861d7b-6cf6-42ee-bc77-4c6f5017eb53",
+      "comment": "",
+      "command": "else",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "18eaf483-6446-4fa3-bc86-b3ce9889a7ee",
       "comment": "",
       "command": "verifyText",
       "target": "css=tr:nth-child(1) div",
@@ -3351,21 +2844,28 @@
       ],
       "value": "${noOfLibs} libraries"
     }, {
-      "id": "30562cb5-ad77-4b14-bdce-4a0db3455dee",
+      "id": "689d94e4-4f27-4e1d-867c-bf66b4c9a976",
+      "comment": "",
+      "command": "end",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "645e319b-0fcf-4bb0-a1b8-d36fe7410a3d",
       "comment": "",
       "command": "executeScript",
       "target": "return ${r} + 1;",
       "targets": [],
       "value": "r"
     }, {
-      "id": "a0f35403-7104-485f-ab1d-bc9417d95cfa",
+      "id": "caec1db2-5fff-40c6-80d2-608a32acea18",
       "comment": "",
       "command": "repeatIf",
       "target": "${r} <= ${noOfReleases}",
       "targets": [],
       "value": ""
     }, {
-      "id": "f6816780-b2f7-4dd1-8431-f3c2aa0ad622",
+      "id": "bb36b0f8-711e-4400-a6eb-8ebf46273fcd",
       "comment": "",
       "command": "click",
       "target": "linkText=Projects",
@@ -3380,19 +2880,2412 @@
       ],
       "value": ""
     }, {
-      "id": "0c260b0b-2834-4da6-a9d0-45b551c6629a",
+      "id": "5f74a932-2c17-445a-ad45-075f05c734c0",
       "comment": "",
       "command": "executeScript",
       "target": "return ${p} + 1;",
       "targets": [],
       "value": "p"
     }, {
-      "id": "1f26d93e-a40d-4209-b4cd-49a608b34be8",
+      "id": "53192505-b78f-4abe-9059-66d836cac919",
       "comment": "",
       "command": "repeatIf",
       "target": "${p} <= ${noOfProjects}",
       "targets": [],
       "value": ""
+    }]
+  }, {
+    "id": "be1b47c9-8b72-4a2b-ba05-1070eb1793ec",
+    "name": "sanity_1 Project 1 Release * Library",
+    "commands": [{
+      "id": "6eb078e1-a2aa-486a-900c-f4c04814bcbd",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return 1;",
+      "targets": [],
+      "value": "noOfProjects"
+    }, {
+      "id": "0f321d64-72fb-4a66-bdd0-0652f93320b6",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8081/logout",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "dd454461-c715-4743-b631-9654f87c0bd0",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1280x720",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8ea196c4-f40f-47fa-bd90-ce0bb4eba3b0",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Log Out')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c40ff476-9a82-47be-9be2-ad29dbcd7c12",
+      "comment": "",
+      "command": "type",
+      "target": "id=username",
+      "targets": [
+        ["id=username", "id"],
+        ["name=username", "name"],
+        ["css=#username", "css:finder"],
+        ["xpath=//input[@id='username']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "admin"
+    }, {
+      "id": "bdb06191-653b-4931-8b5e-264622fe11aa",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//p[2]/input", "xpath:position"]
+      ],
+      "value": "admin"
+    }, {
+      "id": "91584e5c-16eb-4dac-9460-24fdcd8a0d52",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Sign in')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e1c57d93-fe26-4a48-b51d-e39548d4405c",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return 1;",
+      "targets": [],
+      "value": "p"
+    }, {
+      "id": "11877de5-6dad-4b6a-bc58-6b0ed0784a7c",
+      "comment": "",
+      "command": "do",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "680daf7f-0a50-4818-98c6-cc1184535456",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return 1",
+      "targets": [],
+      "value": "noOfReleases"
+    }, {
+      "id": "bc3ea1b3-ce38-4c07-a74a-1e2b5511f8e5",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return \"Project-\" + Math.random().toString(36).substring(7);",
+      "targets": [],
+      "value": "projectName"
+    }, {
+      "id": "a9a1820f-b110-49d2-b4e3-aa4b62e854fb",
+      "comment": "",
+      "command": "echo",
+      "target": "###################### Project No ${p} - ${projectName} ######################",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "65b84a50-c362-4146-a20c-856b042640ea",
+      "comment": "",
+      "command": "click",
+      "target": "css=.my-2",
+      "targets": [
+        ["css=.my-2", "css:finder"],
+        ["xpath=//div[3]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Add / Edit Project')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "bede6251-bd71-4135-9eae-6268f0476b1f",
+      "comment": "",
+      "command": "type",
+      "target": "id=name",
+      "targets": [
+        ["id=name", "id"],
+        ["name=name", "name"],
+        ["css=#name", "css:finder"],
+        ["xpath=//input[@id='name']", "xpath:attributes"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "${projectName}"
+    }, {
+      "id": "181efc90-4b49-428e-896f-8fd407a91dac",
+      "comment": "",
+      "command": "type",
+      "target": "id=description",
+      "targets": [
+        ["id=description", "id"],
+        ["name=description", "name"],
+        ["css=#description", "css:finder"],
+        ["xpath=//textarea[@id='description']", "xpath:attributes"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": "This is a demo project to work with. This is created by running selenium test cases."
+    }, {
+      "id": "355bd683-f327-45dd-8f95-6764b6e998a4",
+      "comment": "",
+      "command": "click",
+      "target": "css=#newProject > div > div > div.modal-body > form > button",
+      "targets": [
+        ["css=.btn-primary", "css:finder"],
+        ["xpath=(//button[@type='submit'])[2]", "xpath:attributes"],
+        ["xpath=//body/div/form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Create Project')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ea4e4840-e78b-46ad-bb8a-df95158e9ee0",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "linkText=${projectName}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b456b609-e2ec-4208-bb17-aa04f0cd0277",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=tr:nth-child(1) div",
+      "targets": [],
+      "value": "${projectName}"
+    }, {
+      "id": "5c0f4a00-e418-4530-ac71-ece72c06b23b",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=${projectName}",
+      "targets": [
+        ["css=#list-item-Project- > div", "css:finder"],
+        ["xpath=//a[@id='list-item-Project-']/div", "xpath:idRelative"],
+        ["xpath=//a/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6f13fd38-5ce9-4f91-96cf-6e8b6e8ee1ca",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return 1;",
+      "targets": [],
+      "value": "r"
+    }, {
+      "id": "20433983-30fd-4997-8693-6ed339f61b96",
+      "comment": "",
+      "command": "do",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6954ba29-ab51-4d91-a3fe-7718277c500c",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return Math.round(Math.random() * 2) + 3;",
+      "targets": [],
+      "value": "noOfLibs"
+    }, {
+      "id": "5281b239-5844-4c46-8b2c-7f2387f70e6e",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return Math.floor(Math.random() * 50) + \".\" + Math.floor(Math.random() * 50);",
+      "targets": [],
+      "value": "oldVersion"
+    }, {
+      "id": "36c1754f-5e95-49b0-a78f-39b1a9dfdaa6",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return Math.floor(Math.random() * 50) + \".\" + Math.floor(Math.random() * 50);",
+      "targets": [],
+      "value": "newVersion"
+    }, {
+      "id": "0b607b6b-05a7-49eb-bc5d-a98f1ed66807",
+      "comment": "",
+      "command": "echo",
+      "target": "###################### Release No ${r} (${oldVersion}, ${newVersion}) ######################",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8c6568f2-342e-4527-b2c7-e505222504cc",
+      "comment": "",
+      "command": "click",
+      "target": "css=.mb-2",
+      "targets": [
+        ["css=.mb-2", "css:finder"],
+        ["xpath=(//button[@type='button'])[2]", "xpath:attributes"],
+        ["xpath=//div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Add New Version')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "9e5e5745-2b13-47c7-92bf-c80751eed663",
+      "comment": "",
+      "command": "type",
+      "target": "id=version",
+      "targets": [
+        ["id=version", "id"],
+        ["name=version", "name"],
+        ["css=#version", "css:finder"],
+        ["xpath=//input[@id='version']", "xpath:attributes"],
+        ["xpath=//form[@id='newVersionForm']/div/div/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "${oldVersion}"
+    }, {
+      "id": "a52aa35e-df1c-451a-816a-d24a6dbfd077",
+      "comment": "",
+      "command": "click",
+      "target": "css=.mt-2",
+      "targets": [
+        ["css=.mt-2", "css:finder"],
+        ["xpath=(//button[@type='submit'])[2]", "xpath:attributes"],
+        ["xpath=//form[@id='newVersionForm']/button", "xpath:idRelative"],
+        ["xpath=//div[2]/form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Save')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "1b1a4bf0-92a2-4995-a6b9-a6e115c6a1e5",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=td:nth-child(1) span",
+      "targets": [
+        ["css=td:nth-child(1) span", "css:finder"],
+        ["xpath=//a/span", "xpath:position"],
+        ["xpath=//span[contains(.,'21.10')]", "xpath:innerText"]
+      ],
+      "value": "${oldVersion}"
+    }, {
+      "id": "ec6246f2-fd21-4153-bccb-26c4be8fa593",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=tr:nth-child(1) div",
+      "targets": [
+        ["css=a > div", "css:finder"],
+        ["xpath=//a/div", "xpath:position"]
+      ],
+      "value": "0 libraries"
+    }, {
+      "id": "4edbabeb-6230-418a-a028-c9b501f23725",
+      "comment": "",
+      "command": "click",
+      "target": "css=.mb-2",
+      "targets": [
+        ["css=.mb-2", "css:finder"],
+        ["xpath=(//button[@type='button'])[2]", "xpath:attributes"],
+        ["xpath=//div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Add New Version')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "6342d1a3-cff2-4c65-bba9-a18aaf616f8f",
+      "comment": "",
+      "command": "type",
+      "target": "id=version",
+      "targets": [
+        ["id=version", "id"],
+        ["name=version", "name"],
+        ["css=#version", "css:finder"],
+        ["xpath=//input[@id='version']", "xpath:attributes"],
+        ["xpath=//form[@id='newVersionForm']/div/div/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "${newVersion}"
+    }, {
+      "id": "b4279265-ed94-4dbf-b2b1-1216993980fb",
+      "comment": "",
+      "command": "type",
+      "target": "id=baseVersion",
+      "targets": [
+        ["id=baseVersion", "id"],
+        ["name=baseVersion", "name"],
+        ["css=#baseVersion", "css:finder"],
+        ["xpath=//input[@id='baseVersion']", "xpath:attributes"],
+        ["xpath=//form[@id='newVersionForm']/div/div/div[4]/input", "xpath:idRelative"],
+        ["xpath=//div[4]/input", "xpath:position"]
+      ],
+      "value": "${oldVersion}"
+    }, {
+      "id": "dd4fd295-8f69-4229-aa2b-b39ec657f7f1",
+      "comment": "",
+      "command": "click",
+      "target": "css=.mt-2",
+      "targets": [
+        ["css=.mt-2", "css:finder"],
+        ["xpath=(//button[@type='submit'])[2]", "xpath:attributes"],
+        ["xpath=//form[@id='newVersionForm']/button", "xpath:idRelative"],
+        ["xpath=//div[2]/form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Save')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "8a658360-d507-4dca-8ca8-58ed3efd2935",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=td:nth-child(1) span",
+      "targets": [
+        ["css=td:nth-child(1) span", "css:finder"],
+        ["xpath=//a/span", "xpath:position"],
+        ["xpath=//span[contains(.,'21.10')]", "xpath:innerText"]
+      ],
+      "value": "${newVersion}"
+    }, {
+      "id": "3f128484-59a8-4efb-bd83-20bab1c710a7",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=tr:nth-child(1) > td:nth-child(2) span",
+      "targets": [
+        ["css=tr:nth-child(1) > td:nth-child(2) span", "css:finder"],
+        ["xpath=//td[2]/a/span", "xpath:position"],
+        ["xpath=//span[contains(.,'222')]", "xpath:innerText"]
+      ],
+      "value": "${oldVersion}"
+    }, {
+      "id": "e4d149ee-2eda-4797-a89b-cfa1c348d308",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=tr:nth-child(1) div",
+      "targets": [
+        ["css=tr:nth-child(1) div", "css:finder"],
+        ["xpath=//a/div", "xpath:position"]
+      ],
+      "value": "0 libraries"
+    }, {
+      "id": "488e86cc-6815-4bb9-bb15-077ce5a602d8",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "linkText=${newVersion}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6b41b582-7719-42b0-950e-9e0e6987232b",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=${newVersion}",
+      "targets": [
+        ["css=tr:nth-child(2) > td:nth-child(1) div", "css:finder"],
+        ["xpath=//tr[2]/td/a/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ad857354-0f2e-4a22-8eec-e4d6e0e478d5",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return 1;",
+      "targets": [],
+      "value": "l"
+    }, {
+      "id": "a4dbb9bf-7e1f-43f1-ad2a-884df0be8810",
+      "comment": "",
+      "command": "do",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2dab0271-ee8e-4c59-8b14-e82c61c8bb7d",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return \"Library\" + Math.random().toString(36).substring(7);",
+      "targets": [],
+      "value": "libName"
+    }, {
+      "id": "fd87e81a-48df-4ec5-976d-57b3b1841e16",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return \"Rel-\" + Math.floor(Math.random() * 50) + \".\" + Math.floor(Math.random() * 50);",
+      "targets": [],
+      "value": "libVersion"
+    }, {
+      "id": "6b59b191-9a52-47f6-83f8-b431d14816a9",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return \"https://\" + ${libName} + \".com/downloads/\" + ${libName} + \"-\" + ${libVersion}+ \".jar\";",
+      "targets": [],
+      "value": "downloadUrl"
+    }, {
+      "id": "b5717f7d-6ab4-4add-a435-ab1baa08fc27",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return \"https://\" + ${libName}+ \".-provider.com/\";",
+      "targets": [],
+      "value": "websiteUrl"
+    }, {
+      "id": "54b2eb1d-b638-4e01-b805-1e5065fe2dbd",
+      "comment": "",
+      "command": "executeScript",
+      "target": "swType= Array(\"FOSS\", \"Commercial\", \"Internal\", \"Others\"); return swType[Math.floor(Math.random() * swType.length)];",
+      "targets": [],
+      "value": "swType"
+    }, {
+      "id": "a885646d-01dc-481c-a30f-e53b7216c28b",
+      "comment": "",
+      "command": "executeScript",
+      "target": "osType= Array(\"Linux\", \"Windows\", \"MacOS\"); return osType[Math.floor(Math.random() * osType.length)];",
+      "targets": [],
+      "value": "osType"
+    }, {
+      "id": "a0ca526e-7b1c-4128-a2be-b614ff062c3a",
+      "comment": "",
+      "command": "executeScript",
+      "target": "list= Array(\"US\", \"CA\", \"IN\", \"\", \"\", \"\", \"\"); return list[Math.floor(Math.random() * list.length)];",
+      "targets": [],
+      "value": "country"
+    }, {
+      "id": "f3e3e748-9e87-49ec-9680-0eabc41f94d6",
+      "comment": "",
+      "command": "executeScript",
+      "target": "list= Array(\"5D992C\", \"5D002C1\", \"EAR99\", \"\", \"\", \"\", \"\"); return list[Math.floor(Math.random() * list.length)];",
+      "targets": [],
+      "value": "usECCN"
+    }, {
+      "id": "58bed01c-7276-43c6-9173-fb06ee75c128",
+      "comment": "",
+      "command": "executeScript",
+      "target": "list= Array(\"5D992C\", \"5D002C1\", \"EAR99\", \"\", \"\", \"\", \"\"); return list[Math.floor(Math.random() * list.length)];",
+      "targets": [],
+      "value": "euECCN"
+    }, {
+      "id": "ec1586a8-356a-43aa-ab95-c4a2892af523",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return \"Library\" + Math.random().toString(36).substring(7);",
+      "targets": [],
+      "value": "earRegulationRestrictions"
+    }, {
+      "id": "d0292b9b-101a-4c62-9a8c-bc419b23383c",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return \"Library\" + Math.random().toString(36).substring(7);",
+      "targets": [],
+      "value": "encryptionProtocol"
+    }, {
+      "id": "2a73f8d6-d0ce-43eb-9fb5-e7a52c7b0f79",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return \"Library\" + Math.random().toString(36).substring(7);",
+      "targets": [],
+      "value": "encryptionAlgorithms"
+    }, {
+      "id": "6da2b9f2-9932-4f2a-80b3-ec19bf06a312",
+      "comment": "",
+      "command": "echo",
+      "target": "###################### Library no ${l} - ${libName} ######################",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4af4d463-a914-40c7-8950-0c7466375484",
+      "comment": "",
+      "command": "echo",
+      "target": "v${libVersion},          swt:${swType}          osT: ${osType},          c:${country},          us:${usECCN},          eu:${euECCN}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2694bf8e-b876-4bb2-978f-bdcc5c93bdac",
+      "comment": "",
+      "command": "echo",
+      "target": "${earRegulationRestrictions}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1928a121-52fe-4c66-93a9-79e13084ac3e",
+      "comment": "",
+      "command": "echo",
+      "target": "${encryptionProtocol}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c60d98a4-81e9-4e18-a9f5-b37abbf3a60b",
+      "comment": "",
+      "command": "echo",
+      "target": "${encryptionAlgorithms}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5bbb5e09-f720-4421-8fb6-23c1673a3166",
+      "comment": "",
+      "command": "echo",
+      "target": "###################################################################",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "46ea48e6-b828-4411-927a-b3c4a2af8a83",
+      "comment": "",
+      "command": "click",
+      "target": "css=.mb-2:nth-child(3)",
+      "targets": [
+        ["css=.mb-2:nth-child(3)", "css:finder"],
+        ["xpath=(//button[@type='button'])[2]", "xpath:attributes"],
+        ["xpath=//div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Add / Edit 3PP Dependency')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "04eabf85-9c04-47ee-9b9a-1dbfaa86e7db",
+      "comment": "",
+      "command": "type",
+      "target": "id=library.name",
+      "targets": [
+        ["id=library.name", "id"],
+        ["name=library.name", "name"],
+        ["css=#library\\.name", "css:finder"],
+        ["xpath=//input[@id='library.name']", "xpath:attributes"],
+        ["xpath=//form[@id='new3ppLibraryForm']/div/div/input[2]", "xpath:idRelative"],
+        ["xpath=//form/div/div/input[2]", "xpath:position"]
+      ],
+      "value": "${libName}"
+    }, {
+      "id": "ad3baf82-92d0-4007-9c18-24557ad98555",
+      "comment": "",
+      "command": "type",
+      "target": "id=version",
+      "targets": [
+        ["id=version", "id"],
+        ["name=version", "name"],
+        ["css=#version", "css:finder"],
+        ["xpath=//input[@id='version']", "xpath:attributes"],
+        ["xpath=//form[@id='new3ppLibraryForm']/div[2]/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/div/input", "xpath:position"]
+      ],
+      "value": "${libVersion}"
+    }, {
+      "id": "3e607aee-a470-4c5e-9771-1cc92cbbc162",
+      "comment": "",
+      "command": "type",
+      "target": "id=downloadUrl",
+      "targets": [
+        ["id=downloadUrl", "id"],
+        ["name=downloadUrl", "name"],
+        ["css=#downloadUrl", "css:finder"],
+        ["xpath=//input[@id='downloadUrl']", "xpath:attributes"],
+        ["xpath=//form[@id='new3ppLibraryForm']/div[2]/div/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "${downloadUrl}"
+    }, {
+      "id": "1cf6a058-0c51-41b8-8a3b-769ad96ed26e",
+      "comment": "",
+      "command": "type",
+      "target": "id=library.softwareData.vendor",
+      "targets": [
+        ["id=library.softwareData.vendor", "id"],
+        ["name=library.softwareData.vendor", "name"],
+        ["css=#library\\.softwareData\\.vendor", "css:finder"],
+        ["xpath=//input[@id='library.softwareData.vendor']", "xpath:attributes"],
+        ["xpath=//form[@id='new3ppLibraryForm']/div[2]/div/div[2]/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": "${libName} Provider"
+    }, {
+      "id": "5f87610d-cf45-4c2f-8435-1f456ec6780f",
+      "comment": "",
+      "command": "type",
+      "target": "id=library.softwareData.website",
+      "targets": [
+        ["id=library.softwareData.website", "id"],
+        ["name=library.softwareData.website", "name"],
+        ["css=#library\\.softwareData\\.website", "css:finder"],
+        ["xpath=//input[@id='library.softwareData.website']", "xpath:attributes"],
+        ["xpath=//form[@id='new3ppLibraryForm']/div[2]/div/div[2]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/input", "xpath:position"]
+      ],
+      "value": "${websiteUrl}"
+    }, {
+      "id": "3c7e7522-7363-4be5-a937-7b636bd95896",
+      "comment": "",
+      "command": "select",
+      "target": "id=library.softwareData.softwareType",
+      "targets": [],
+      "value": "label=${swType}"
+    }, {
+      "id": "e60e544d-48aa-4705-b67d-667d6797ffe2",
+      "comment": "",
+      "command": "type",
+      "target": "id=library.softwareData.platform",
+      "targets": [
+        ["id=library.softwareData.platform", "id"],
+        ["name=library.softwareData.platform", "name"],
+        ["css=#library\\.softwareData\\.platform", "css:finder"],
+        ["xpath=//input[@id='library.softwareData.platform']", "xpath:attributes"],
+        ["xpath=//form[@id='new3ppLibraryForm']/div[2]/div/div[3]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/div[2]/input", "xpath:position"]
+      ],
+      "value": "${osType}"
+    }, {
+      "id": "868ce6c6-5f0f-4e4b-a724-f79f665d28a1",
+      "comment": "",
+      "command": "type",
+      "target": "id=library.tradeCompliance.countryCode",
+      "targets": [
+        ["id=library.tradeCompliance.countryCode", "id"],
+        ["name=library.tradeCompliance.countryCode", "name"],
+        ["css=#library\\.tradeCompliance\\.countryCode", "css:finder"],
+        ["xpath=//input[@id='library.tradeCompliance.countryCode']", "xpath:attributes"],
+        ["xpath=//form[@id='new3ppLibraryForm']/div[3]/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[3]/div/div/div/input", "xpath:position"]
+      ],
+      "value": "${country}"
+    }, {
+      "id": "33b96391-6dec-4520-bdc4-f06328f19573",
+      "comment": "",
+      "command": "type",
+      "target": "id=library.tradeCompliance.euECCN",
+      "targets": [
+        ["id=library.tradeCompliance.euECCN", "id"],
+        ["name=library.tradeCompliance.euECCN", "name"],
+        ["css=#library\\.tradeCompliance\\.euECCN", "css:finder"],
+        ["xpath=//input[@id='library.tradeCompliance.euECCN']", "xpath:attributes"],
+        ["xpath=//form[@id='new3ppLibraryForm']/div[3]/div/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/div/div/div[2]/input", "xpath:position"]
+      ],
+      "value": "${euECCN}"
+    }, {
+      "id": "d8a6efd8-5bf3-4c78-9415-62e96d827ef8",
+      "comment": "",
+      "command": "type",
+      "target": "id=library.tradeCompliance.usECCN",
+      "targets": [
+        ["id=library.tradeCompliance.usECCN", "id"],
+        ["name=library.tradeCompliance.usECCN", "name"],
+        ["css=#library\\.tradeCompliance\\.usECCN", "css:finder"],
+        ["xpath=//input[@id='library.tradeCompliance.usECCN']", "xpath:attributes"],
+        ["xpath=//form[@id='new3ppLibraryForm']/div[3]/div/div/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "${usECCN}"
+    }, {
+      "id": "cf8fd344-8993-4f8b-a2b3-0380977a70a4",
+      "comment": "",
+      "command": "type",
+      "target": "id=library.tradeCompliance.bisAuthorization",
+      "targets": [
+        ["id=library.tradeCompliance.bisAuthorization", "id"],
+        ["name=library.tradeCompliance.bisAuthorization", "name"],
+        ["css=#library\\.tradeCompliance\\.bisAuthorization", "css:finder"],
+        ["xpath=//input[@id='library.tradeCompliance.bisAuthorization']", "xpath:attributes"],
+        ["xpath=//form[@id='new3ppLibraryForm']/div[3]/div/div/div[4]/input", "xpath:idRelative"],
+        ["xpath=//div[4]/input", "xpath:position"]
+      ],
+      "value": "BIS"
+    }, {
+      "id": "afcaf2f4-5734-47d2-89dd-8caf4303399b",
+      "comment": "",
+      "command": "type",
+      "target": "id=library.tradeCompliance.earRegulationRestrictions",
+      "targets": [
+        ["id=library.tradeCompliance.earRegulationRestrictions", "id"],
+        ["name=library.tradeCompliance.earRegulationRestrictions", "name"],
+        ["css=#library\\.tradeCompliance\\.earRegulationRestrictions", "css:finder"],
+        ["xpath=//textarea[@id='library.tradeCompliance.earRegulationRestrictions']", "xpath:attributes"],
+        ["xpath=//form[@id='new3ppLibraryForm']/div[3]/div/div[2]/div/textarea", "xpath:idRelative"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": "${earRegulationRestrictions}"
+    }, {
+      "id": "e4855985-0db1-46af-b89b-b6c041901459",
+      "comment": "",
+      "command": "type",
+      "target": "id=library.tradeCompliance.encryptionProtocol",
+      "targets": [
+        ["id=library.tradeCompliance.encryptionProtocol", "id"],
+        ["name=library.tradeCompliance.encryptionProtocol", "name"],
+        ["css=#library\\.tradeCompliance\\.encryptionProtocol", "css:finder"],
+        ["xpath=//textarea[@id='library.tradeCompliance.encryptionProtocol']", "xpath:attributes"],
+        ["xpath=//form[@id='new3ppLibraryForm']/div[3]/div/div[2]/div[2]/textarea", "xpath:idRelative"],
+        ["xpath=//div[2]/textarea", "xpath:position"]
+      ],
+      "value": "${encryptionProtocol}"
+    }, {
+      "id": "7d5a3daf-90b7-4134-ba78-4f279caa6b93",
+      "comment": "",
+      "command": "type",
+      "target": "id=library.tradeCompliance.encryptionAlgorithms",
+      "targets": [
+        ["id=library.tradeCompliance.encryptionAlgorithms", "id"],
+        ["name=library.tradeCompliance.encryptionAlgorithms", "name"],
+        ["css=#library\\.tradeCompliance\\.encryptionAlgorithms", "css:finder"],
+        ["xpath=//textarea[@id='library.tradeCompliance.encryptionAlgorithms']", "xpath:attributes"],
+        ["xpath=//form[@id='new3ppLibraryForm']/div[3]/div/div[2]/div[3]/textarea", "xpath:idRelative"],
+        ["xpath=//div[3]/textarea", "xpath:position"]
+      ],
+      "value": "${encryptionAlgorithms}"
+    }, {
+      "id": "124606a7-933b-4627-b870-9a953338bce3",
+      "comment": "",
+      "command": "click",
+      "target": "css=.mt-2",
+      "targets": [
+        ["css=.mt-2", "css:finder"],
+        ["xpath=(//button[@type='submit'])[2]", "xpath:attributes"],
+        ["xpath=//form[@id='new3ppLibraryForm']/button", "xpath:idRelative"],
+        ["xpath=//div[2]/form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Save')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b9123023-1451-4853-9bd6-b8f839379ef4",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=td:nth-child(1)",
+      "targets": [
+        ["css=td:nth-child(1)", "css:finder"],
+        ["xpath=//td", "xpath:position"],
+        ["xpath=//td[contains(.,'Librarybphkvt')]", "xpath:innerText"]
+      ],
+      "value": "${libName}"
+    }, {
+      "id": "1fb5c6e1-0edc-4665-b691-216e6f70b609",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=td:nth-child(2)",
+      "targets": [
+        ["css=td:nth-child(2)", "css:finder"],
+        ["xpath=//td[2]", "xpath:position"],
+        ["xpath=//td[contains(.,'Librarybphkvt Provider')]", "xpath:innerText"]
+      ],
+      "value": "${libName} Provider"
+    }, {
+      "id": "2ecabce0-afac-4cf4-9203-7aab5896760a",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=td:nth-child(3) > .truncated",
+      "targets": [
+        ["css=td:nth-child(3) > .truncated", "css:finder"],
+        ["xpath=//td[3]/div", "xpath:position"]
+      ],
+      "value": "${websiteUrl}"
+    }, {
+      "id": "11aa0a0a-f1da-4484-bd84-0e7e70c3203e",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=td:nth-child(4)",
+      "targets": [
+        ["css=td:nth-child(4)", "css:finder"],
+        ["xpath=//td[4]", "xpath:position"],
+        ["xpath=//td[contains(.,'Others')]", "xpath:innerText"]
+      ],
+      "value": "${swType}"
+    }, {
+      "id": "e067497b-bbcb-481c-8d59-69205f5a5cdc",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=td:nth-child(5)",
+      "targets": [
+        ["css=td:nth-child(5)", "css:finder"],
+        ["xpath=//td[5]", "xpath:position"],
+        ["xpath=//td[contains(.,'Rel-10.9')]", "xpath:innerText"]
+      ],
+      "value": "${libVersion}"
+    }, {
+      "id": "d044eb48-13ec-44c5-a651-e23eed92cd4b",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=td:nth-child(7)",
+      "targets": [
+        ["css=td:nth-child(7)", "css:finder"],
+        ["xpath=//td[7]", "xpath:position"],
+        ["xpath=//td[contains(.,'Windows')]", "xpath:innerText"]
+      ],
+      "value": "${osType}"
+    }, {
+      "id": "421a40c8-ffa7-464a-ae9b-860be6c9e638",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=td:nth-child(8)",
+      "targets": [
+        ["css=td:nth-child(8)", "css:finder"],
+        ["xpath=//td[8]", "xpath:position"]
+      ],
+      "value": "${country}"
+    }, {
+      "id": "d7c3b23d-c32e-439e-b620-336626c3dbad",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=td:nth-child(9)",
+      "targets": [
+        ["css=td:nth-child(9)", "css:finder"],
+        ["xpath=//td[9]", "xpath:position"]
+      ],
+      "value": "${euECCN}"
+    }, {
+      "id": "8bf03869-f95f-49aa-8186-d81af0df8b32",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=td:nth-child(10)",
+      "targets": [
+        ["css=td:nth-child(10)", "css:finder"],
+        ["xpath=//td[10]", "xpath:position"],
+        ["xpath=//td[contains(.,'EAR99')]", "xpath:innerText"]
+      ],
+      "value": "${usECCN}"
+    }, {
+      "id": "7981afb9-8c42-41ba-8fab-f0dd1083f149",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=td:nth-child(11)",
+      "targets": [
+        ["css=td:nth-child(11)", "css:finder"],
+        ["xpath=//td[11]", "xpath:position"],
+        ["xpath=//td[contains(.,'BIS')]", "xpath:innerText"]
+      ],
+      "value": "BIS"
+    }, {
+      "id": "0fc77f7a-9e66-4d69-9b99-a082581cb481",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=td:nth-child(12)",
+      "targets": [
+        ["css=td:nth-child(1)", "css:finder"],
+        ["xpath=//td", "xpath:position"],
+        ["xpath=//td[contains(.,'Libraryjbc5on')]", "xpath:innerText"]
+      ],
+      "value": "${earRegulationRestrictions}"
+    }, {
+      "id": "78668841-33b2-44fd-877d-2d26d7176123",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=td:nth-child(13)",
+      "targets": [
+        ["css=td:nth-child(1)", "css:finder"],
+        ["xpath=//td", "xpath:position"],
+        ["xpath=//td[contains(.,'Libraryjbc5on')]", "xpath:innerText"]
+      ],
+      "value": "${encryptionProtocol}"
+    }, {
+      "id": "9b2885d1-f579-4de0-8e73-072af003185d",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=td:nth-child(14)",
+      "targets": [
+        ["css=td:nth-child(1)", "css:finder"],
+        ["xpath=//td", "xpath:position"],
+        ["xpath=//td[contains(.,'Libraryjbc5on')]", "xpath:innerText"]
+      ],
+      "value": "${encryptionAlgorithms}"
+    }, {
+      "id": "a562e560-52db-4baa-915c-e6ef93eaca19",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return ${l} + 1;",
+      "targets": [],
+      "value": "l"
+    }, {
+      "id": "de37b19f-7580-4e51-8567-c8de6e4b7461",
+      "comment": "",
+      "command": "repeatIf",
+      "target": "${l} <= ${noOfLibs}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "24926cc9-8909-45ba-b4a2-cd62fdfe5f48",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=${projectName}",
+      "targets": [
+        ["linkText=Project-2flwp9", "linkText"],
+        ["css=.card-title > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Project-2flwp9')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/projects/5eed1f036efa586d185dbe04')]", "xpath:href"],
+        ["xpath=//h5/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Project-2flwp9')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a1056bbb-a5bc-43ea-a325-53d10fba5b53",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=td:nth-child(1) span",
+      "targets": [
+        ["css=td:nth-child(1) span", "css:finder"],
+        ["xpath=//a/span", "xpath:position"],
+        ["xpath=//span[contains(.,'21.10')]", "xpath:innerText"]
+      ],
+      "value": "${newVersion}"
+    }, {
+      "id": "581768c1-c7a1-4dff-b6de-6703b280904d",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=tr:nth-child(1) > td:nth-child(2) span",
+      "targets": [
+        ["css=tr:nth-child(1) > td:nth-child(2) span", "css:finder"],
+        ["xpath=//td[2]/a/span", "xpath:position"],
+        ["xpath=//span[contains(.,'222')]", "xpath:innerText"]
+      ],
+      "value": "${oldVersion}"
+    }, {
+      "id": "7a72d7d0-0d94-42ea-ab2f-a01e39f98811",
+      "comment": "",
+      "command": "if",
+      "target": "${noOfLibs} == 1",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "fd63c023-a9db-4ad7-bdfe-ba9467ea2f1f",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=tr:nth-child(1) div",
+      "targets": [
+        ["css=tr:nth-child(1) div", "css:finder"],
+        ["xpath=//a/div", "xpath:position"]
+      ],
+      "value": "1 library"
+    }, {
+      "id": "2c10add4-ad5f-4e55-b76f-1a2b48d7ab67",
+      "comment": "",
+      "command": "else",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5abddfd2-4e0b-451d-a6f0-2c7c4d346635",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=tr:nth-child(1) div",
+      "targets": [
+        ["css=tr:nth-child(1) div", "css:finder"],
+        ["xpath=//a/div", "xpath:position"]
+      ],
+      "value": "${noOfLibs} libraries"
+    }, {
+      "id": "4427f688-99c1-43a1-8aba-9cbe61893b76",
+      "comment": "",
+      "command": "end",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8acbe2d7-2ec6-401f-b598-714e37bfe93c",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return ${r} + 1;",
+      "targets": [],
+      "value": "r"
+    }, {
+      "id": "6dd5cad7-be49-4573-8e1d-ac8e1c579c13",
+      "comment": "",
+      "command": "repeatIf",
+      "target": "${r} <= ${noOfReleases}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a533a6ce-0ece-481a-88e8-ed04407d7dcd",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Projects",
+      "targets": [
+        ["linkText=Projects", "linkText"],
+        ["css=.nav-item:nth-child(1) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Projects')]", "xpath:link"],
+        ["xpath=//div[@id='navbarSupportedContent']/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/projects/')]", "xpath:href"],
+        ["xpath=//li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Projects')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "98018bb6-44f9-44c1-8d1c-1510029bca2b",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return ${p} + 1;",
+      "targets": [],
+      "value": "p"
+    }, {
+      "id": "423795b8-193a-420e-bb6e-db227fbb0854",
+      "comment": "",
+      "command": "repeatIf",
+      "target": "${p} <= ${noOfProjects}",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "e060d65d-5c7f-4f0f-93b6-44b285cddaf9",
+    "name": "onlyOne_1 Project 1 Release 1 Library",
+    "commands": [{
+      "id": "538dedf4-849f-4def-b857-a28137d3c3cc",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return 1;",
+      "targets": [],
+      "value": "noOfProjects"
+    }, {
+      "id": "433de5ff-7106-4a18-a87a-43d765fc9d5c",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8081/logout",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "828e5c02-1c3e-485f-897f-c2301b8d1d02",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1280x720",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2ce28418-0fc9-4bfb-8fbc-ab39d761a71b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Log Out')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "433a596c-2b6b-4582-8f50-df4153a14c7e",
+      "comment": "",
+      "command": "type",
+      "target": "id=username",
+      "targets": [
+        ["id=username", "id"],
+        ["name=username", "name"],
+        ["css=#username", "css:finder"],
+        ["xpath=//input[@id='username']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "admin"
+    }, {
+      "id": "eb663185-bc2b-406c-a9a2-363e096f8b39",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//p[2]/input", "xpath:position"]
+      ],
+      "value": "admin"
+    }, {
+      "id": "9730e249-03b5-4d70-8eda-c21d3ceace7b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Sign in')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "9b72b4b1-64df-4fb0-b765-23b9b2ee43d8",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return 1;",
+      "targets": [],
+      "value": "p"
+    }, {
+      "id": "f2d289cc-56a4-4a13-bf55-ab79f84cfb5c",
+      "comment": "",
+      "command": "do",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d845c977-b6cd-43f7-a4f7-b42e8a41b9db",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return 1",
+      "targets": [],
+      "value": "noOfReleases"
+    }, {
+      "id": "edae555c-1f0b-4d2c-825b-f4ebdd0db75f",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return \"Project-\" + Math.random().toString(36).substring(7);",
+      "targets": [],
+      "value": "projectName"
+    }, {
+      "id": "55d5580b-cb7b-47d0-b902-2025f46991eb",
+      "comment": "",
+      "command": "echo",
+      "target": "###################### Project No ${p} - ${projectName} ######################",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4efd499e-4bd3-44db-bdea-f26d5896579b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.my-2",
+      "targets": [
+        ["css=.my-2", "css:finder"],
+        ["xpath=//div[3]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Add / Edit Project')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "23969a83-123d-4042-8cd3-73131ba604ba",
+      "comment": "",
+      "command": "type",
+      "target": "id=name",
+      "targets": [
+        ["id=name", "id"],
+        ["name=name", "name"],
+        ["css=#name", "css:finder"],
+        ["xpath=//input[@id='name']", "xpath:attributes"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "${projectName}"
+    }, {
+      "id": "fe1dd931-ea58-4192-99fe-77af4d617634",
+      "comment": "",
+      "command": "type",
+      "target": "id=description",
+      "targets": [
+        ["id=description", "id"],
+        ["name=description", "name"],
+        ["css=#description", "css:finder"],
+        ["xpath=//textarea[@id='description']", "xpath:attributes"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": "This is a demo project to work with. This is created by running selenium test cases."
+    }, {
+      "id": "14985acc-3f6e-4d87-8ed8-cc65d5079760",
+      "comment": "",
+      "command": "click",
+      "target": "css=#newProject > div > div > div.modal-body > form > button",
+      "targets": [
+        ["css=.btn-primary", "css:finder"],
+        ["xpath=(//button[@type='submit'])[2]", "xpath:attributes"],
+        ["xpath=//body/div/form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Create Project')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "19c7f0c1-f618-468f-ada1-8ae2d91b8ce1",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "linkText=${projectName}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b3a957e3-de7d-4875-852a-a2e729178e44",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=tr:nth-child(1) div",
+      "targets": [],
+      "value": "${projectName}"
+    }, {
+      "id": "5546afc9-463c-42d4-809d-4959e0ed3dcf",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=${projectName}",
+      "targets": [
+        ["css=#list-item-Project- > div", "css:finder"],
+        ["xpath=//a[@id='list-item-Project-']/div", "xpath:idRelative"],
+        ["xpath=//a/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f2f35cef-4f04-4a3c-9d4b-3ca05dba132d",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return 1;",
+      "targets": [],
+      "value": "r"
+    }, {
+      "id": "605084ab-a2cc-42d3-b8fe-e3c9acc6fce0",
+      "comment": "",
+      "command": "do",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9389c6d9-5086-475f-b5bf-30efceb193e9",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return 1;",
+      "targets": [],
+      "value": "noOfLibs"
+    }, {
+      "id": "b5837272-3044-40dd-add9-92a0262a6f6f",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return Math.floor(Math.random() * 50) + \".\" + Math.floor(Math.random() * 50);",
+      "targets": [],
+      "value": "oldVersion"
+    }, {
+      "id": "75fd919e-f2fa-4766-af0d-dd818868def1",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return Math.floor(Math.random() * 50) + \".\" + Math.floor(Math.random() * 50);",
+      "targets": [],
+      "value": "newVersion"
+    }, {
+      "id": "3c39ecf2-2f15-485e-9298-737a7e41d70a",
+      "comment": "",
+      "command": "echo",
+      "target": "###################### Release No ${r} (${oldVersion}, ${newVersion}) ######################",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b096795a-75d5-47be-a2e1-69b404996849",
+      "comment": "",
+      "command": "click",
+      "target": "css=.mb-2",
+      "targets": [
+        ["css=.mb-2", "css:finder"],
+        ["xpath=(//button[@type='button'])[2]", "xpath:attributes"],
+        ["xpath=//div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Add New Version')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "fd7cec33-cd94-4b59-86a6-c2af032fd85c",
+      "comment": "",
+      "command": "type",
+      "target": "id=version",
+      "targets": [
+        ["id=version", "id"],
+        ["name=version", "name"],
+        ["css=#version", "css:finder"],
+        ["xpath=//input[@id='version']", "xpath:attributes"],
+        ["xpath=//form[@id='newVersionForm']/div/div/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "${oldVersion}"
+    }, {
+      "id": "0303987a-fcd0-4634-b12a-665e45135ee6",
+      "comment": "",
+      "command": "click",
+      "target": "css=.mt-2",
+      "targets": [
+        ["css=.mt-2", "css:finder"],
+        ["xpath=(//button[@type='submit'])[2]", "xpath:attributes"],
+        ["xpath=//form[@id='newVersionForm']/button", "xpath:idRelative"],
+        ["xpath=//div[2]/form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Save')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "46fd5378-a5b4-4694-a683-a135e7dd8706",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=td:nth-child(1) span",
+      "targets": [
+        ["css=td:nth-child(1) span", "css:finder"],
+        ["xpath=//a/span", "xpath:position"],
+        ["xpath=//span[contains(.,'21.10')]", "xpath:innerText"]
+      ],
+      "value": "${oldVersion}"
+    }, {
+      "id": "298be184-7e44-46db-bdb6-864177cc3538",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=tr:nth-child(1) div",
+      "targets": [
+        ["css=a > div", "css:finder"],
+        ["xpath=//a/div", "xpath:position"]
+      ],
+      "value": "0 libraries"
+    }, {
+      "id": "a663dda4-e84b-4f1a-a85a-280b0a3240bd",
+      "comment": "",
+      "command": "click",
+      "target": "css=.mb-2",
+      "targets": [
+        ["css=.mb-2", "css:finder"],
+        ["xpath=(//button[@type='button'])[2]", "xpath:attributes"],
+        ["xpath=//div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Add New Version')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "8e4a6dd2-4069-4edb-a0a2-b3c69545df8a",
+      "comment": "",
+      "command": "type",
+      "target": "id=version",
+      "targets": [
+        ["id=version", "id"],
+        ["name=version", "name"],
+        ["css=#version", "css:finder"],
+        ["xpath=//input[@id='version']", "xpath:attributes"],
+        ["xpath=//form[@id='newVersionForm']/div/div/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "${newVersion}"
+    }, {
+      "id": "e6e65f9a-b811-4f2b-85f7-66cc0da38568",
+      "comment": "",
+      "command": "type",
+      "target": "id=baseVersion",
+      "targets": [
+        ["id=baseVersion", "id"],
+        ["name=baseVersion", "name"],
+        ["css=#baseVersion", "css:finder"],
+        ["xpath=//input[@id='baseVersion']", "xpath:attributes"],
+        ["xpath=//form[@id='newVersionForm']/div/div/div[4]/input", "xpath:idRelative"],
+        ["xpath=//div[4]/input", "xpath:position"]
+      ],
+      "value": "${oldVersion}"
+    }, {
+      "id": "9f8245f1-f30f-4c28-b065-e93e2735ac86",
+      "comment": "",
+      "command": "click",
+      "target": "css=.mt-2",
+      "targets": [
+        ["css=.mt-2", "css:finder"],
+        ["xpath=(//button[@type='submit'])[2]", "xpath:attributes"],
+        ["xpath=//form[@id='newVersionForm']/button", "xpath:idRelative"],
+        ["xpath=//div[2]/form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Save')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "6f3ab1b2-23dc-4579-9f9f-d433baf1c056",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=td:nth-child(1) span",
+      "targets": [
+        ["css=td:nth-child(1) span", "css:finder"],
+        ["xpath=//a/span", "xpath:position"],
+        ["xpath=//span[contains(.,'21.10')]", "xpath:innerText"]
+      ],
+      "value": "${newVersion}"
+    }, {
+      "id": "7a07b77f-194a-481d-9c8a-5455831be45d",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=tr:nth-child(1) > td:nth-child(2) span",
+      "targets": [
+        ["css=tr:nth-child(1) > td:nth-child(2) span", "css:finder"],
+        ["xpath=//td[2]/a/span", "xpath:position"],
+        ["xpath=//span[contains(.,'222')]", "xpath:innerText"]
+      ],
+      "value": "${oldVersion}"
+    }, {
+      "id": "4a7555e9-2519-4c46-941c-cd9887e11fef",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=tr:nth-child(1) div",
+      "targets": [
+        ["css=tr:nth-child(1) div", "css:finder"],
+        ["xpath=//a/div", "xpath:position"]
+      ],
+      "value": "0 libraries"
+    }, {
+      "id": "998ef244-b038-4319-81ba-a072839bd5f1",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "linkText=${newVersion}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c1739f14-d66c-4008-8c96-56dfb8d81de5",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=${newVersion}",
+      "targets": [
+        ["css=tr:nth-child(2) > td:nth-child(1) div", "css:finder"],
+        ["xpath=//tr[2]/td/a/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "09df5b0a-a5f9-408d-90dd-5b9c5ceb3d4c",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return 1;",
+      "targets": [],
+      "value": "l"
+    }, {
+      "id": "40dc3f82-4b8f-44da-a07b-d36585555d54",
+      "comment": "",
+      "command": "do",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "47dea9e0-1e57-4191-a1fc-82f9a2fb32b4",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return \"Library\" + Math.random().toString(36).substring(7);",
+      "targets": [],
+      "value": "libName"
+    }, {
+      "id": "547d00a0-18ba-414e-967c-49c309cf279c",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return \"Rel-\" + Math.floor(Math.random() * 50) + \".\" + Math.floor(Math.random() * 50);",
+      "targets": [],
+      "value": "libVersion"
+    }, {
+      "id": "c897b057-25a3-4c78-ac40-7a82e1534199",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return \"https://\" + ${libName} + \".com/downloads/\" + ${libName} + \"-\" + ${libVersion}+ \".jar\";",
+      "targets": [],
+      "value": "downloadUrl"
+    }, {
+      "id": "da671c75-6875-434f-b1e5-69690fdd225c",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return \"https://\" + ${libName}+ \".-provider.com/\";",
+      "targets": [],
+      "value": "websiteUrl"
+    }, {
+      "id": "7bf076e8-bcfe-4b27-acce-07ff3ac379c2",
+      "comment": "",
+      "command": "executeScript",
+      "target": "swType= Array(\"FOSS\", \"Commercial\", \"Internal\", \"Others\"); return swType[Math.floor(Math.random() * swType.length)];",
+      "targets": [],
+      "value": "swType"
+    }, {
+      "id": "fc78a95d-2427-4ab1-8045-af3347772493",
+      "comment": "",
+      "command": "executeScript",
+      "target": "osType= Array(\"Linux\", \"Windows\", \"MacOS\"); return osType[Math.floor(Math.random() * osType.length)];",
+      "targets": [],
+      "value": "osType"
+    }, {
+      "id": "c60f41df-3920-491a-9897-79778ff8ce85",
+      "comment": "",
+      "command": "executeScript",
+      "target": "list= Array(\"US\", \"CA\", \"IN\", \"\", \"\", \"\", \"\"); return list[Math.floor(Math.random() * list.length)];",
+      "targets": [],
+      "value": "country"
+    }, {
+      "id": "69ff31f7-8ff6-417b-9b42-319eeda908bf",
+      "comment": "",
+      "command": "executeScript",
+      "target": "list= Array(\"5D992C\", \"5D002C1\", \"EAR99\", \"\", \"\", \"\", \"\"); return list[Math.floor(Math.random() * list.length)];",
+      "targets": [],
+      "value": "usECCN"
+    }, {
+      "id": "8d55ae28-05c9-4e6e-9481-4d6a02b5ea9a",
+      "comment": "",
+      "command": "executeScript",
+      "target": "list= Array(\"5D992C\", \"5D002C1\", \"EAR99\", \"\", \"\", \"\", \"\"); return list[Math.floor(Math.random() * list.length)];",
+      "targets": [],
+      "value": "euECCN"
+    }, {
+      "id": "78a16b49-b70d-4101-b892-beb30f082066",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return \"Library\" + Math.random().toString(36).substring(7);",
+      "targets": [],
+      "value": "earRegulationRestrictions"
+    }, {
+      "id": "3c7ce588-daff-482a-9420-fe41f59b815d",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return \"Library\" + Math.random().toString(36).substring(7);",
+      "targets": [],
+      "value": "encryptionProtocol"
+    }, {
+      "id": "46dedb0d-ea49-4ff6-9af3-1575fa5ea20b",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return \"Library\" + Math.random().toString(36).substring(7);",
+      "targets": [],
+      "value": "encryptionAlgorithms"
+    }, {
+      "id": "5bb4e3ef-181d-4bbb-a105-5ba97c576ab8",
+      "comment": "",
+      "command": "echo",
+      "target": "###################### Library no ${l} - ${libName} ######################",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "25081f04-208e-41fa-94cc-ce8cca48a000",
+      "comment": "",
+      "command": "echo",
+      "target": "v${libVersion},          swt:${swType}          osT: ${osType},          c:${country},          us:${usECCN},          eu:${euECCN}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b0a47f20-628e-4db4-8cd2-d7836897bb1f",
+      "comment": "",
+      "command": "echo",
+      "target": "${earRegulationRestrictions}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f3abb9a8-4ce0-43a9-ae09-455d60cb20ed",
+      "comment": "",
+      "command": "echo",
+      "target": "${encryptionProtocol}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c5374501-4542-4f49-b404-e917ae7ed07b",
+      "comment": "",
+      "command": "echo",
+      "target": "${encryptionAlgorithms}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c5f2a44b-f4c3-45ee-a546-e3384bf3fffa",
+      "comment": "",
+      "command": "echo",
+      "target": "###################################################################",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a1e4d29a-fd09-43e4-a62d-b96e93fb9e79",
+      "comment": "",
+      "command": "click",
+      "target": "css=.mb-2:nth-child(3)",
+      "targets": [
+        ["css=.mb-2:nth-child(3)", "css:finder"],
+        ["xpath=(//button[@type='button'])[2]", "xpath:attributes"],
+        ["xpath=//div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Add / Edit 3PP Dependency')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e7528866-3e43-4706-bb09-cd44709a5c82",
+      "comment": "",
+      "command": "type",
+      "target": "id=library.name",
+      "targets": [
+        ["id=library.name", "id"],
+        ["name=library.name", "name"],
+        ["css=#library\\.name", "css:finder"],
+        ["xpath=//input[@id='library.name']", "xpath:attributes"],
+        ["xpath=//form[@id='new3ppLibraryForm']/div/div/input[2]", "xpath:idRelative"],
+        ["xpath=//form/div/div/input[2]", "xpath:position"]
+      ],
+      "value": "${libName}"
+    }, {
+      "id": "68fb78f9-d27e-4fb6-a67c-0afabf1ca0ab",
+      "comment": "",
+      "command": "type",
+      "target": "id=version",
+      "targets": [
+        ["id=version", "id"],
+        ["name=version", "name"],
+        ["css=#version", "css:finder"],
+        ["xpath=//input[@id='version']", "xpath:attributes"],
+        ["xpath=//form[@id='new3ppLibraryForm']/div[2]/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/div/input", "xpath:position"]
+      ],
+      "value": "${libVersion}"
+    }, {
+      "id": "b7025925-bde3-4ec2-8f4f-7d368d6ed201",
+      "comment": "",
+      "command": "type",
+      "target": "id=downloadUrl",
+      "targets": [
+        ["id=downloadUrl", "id"],
+        ["name=downloadUrl", "name"],
+        ["css=#downloadUrl", "css:finder"],
+        ["xpath=//input[@id='downloadUrl']", "xpath:attributes"],
+        ["xpath=//form[@id='new3ppLibraryForm']/div[2]/div/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "${downloadUrl}"
+    }, {
+      "id": "ffcc70e2-96ea-4ff4-8104-3435388ca443",
+      "comment": "",
+      "command": "type",
+      "target": "id=library.softwareData.vendor",
+      "targets": [
+        ["id=library.softwareData.vendor", "id"],
+        ["name=library.softwareData.vendor", "name"],
+        ["css=#library\\.softwareData\\.vendor", "css:finder"],
+        ["xpath=//input[@id='library.softwareData.vendor']", "xpath:attributes"],
+        ["xpath=//form[@id='new3ppLibraryForm']/div[2]/div/div[2]/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": "${libName} Provider"
+    }, {
+      "id": "99f13f97-f28c-4db4-842b-cd52d4333611",
+      "comment": "",
+      "command": "type",
+      "target": "id=library.softwareData.website",
+      "targets": [
+        ["id=library.softwareData.website", "id"],
+        ["name=library.softwareData.website", "name"],
+        ["css=#library\\.softwareData\\.website", "css:finder"],
+        ["xpath=//input[@id='library.softwareData.website']", "xpath:attributes"],
+        ["xpath=//form[@id='new3ppLibraryForm']/div[2]/div/div[2]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/input", "xpath:position"]
+      ],
+      "value": "${websiteUrl}"
+    }, {
+      "id": "25bdf28c-337d-4742-b201-8c7833f45ae4",
+      "comment": "",
+      "command": "select",
+      "target": "id=library.softwareData.softwareType",
+      "targets": [],
+      "value": "label=${swType}"
+    }, {
+      "id": "cd06e91f-cd99-4cb0-b084-232021e22c17",
+      "comment": "",
+      "command": "type",
+      "target": "id=library.softwareData.platform",
+      "targets": [
+        ["id=library.softwareData.platform", "id"],
+        ["name=library.softwareData.platform", "name"],
+        ["css=#library\\.softwareData\\.platform", "css:finder"],
+        ["xpath=//input[@id='library.softwareData.platform']", "xpath:attributes"],
+        ["xpath=//form[@id='new3ppLibraryForm']/div[2]/div/div[3]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/div[2]/input", "xpath:position"]
+      ],
+      "value": "${osType}"
+    }, {
+      "id": "2f0ebb7f-8fec-4beb-9be3-8a3b015013d1",
+      "comment": "",
+      "command": "type",
+      "target": "id=library.tradeCompliance.countryCode",
+      "targets": [
+        ["id=library.tradeCompliance.countryCode", "id"],
+        ["name=library.tradeCompliance.countryCode", "name"],
+        ["css=#library\\.tradeCompliance\\.countryCode", "css:finder"],
+        ["xpath=//input[@id='library.tradeCompliance.countryCode']", "xpath:attributes"],
+        ["xpath=//form[@id='new3ppLibraryForm']/div[3]/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[3]/div/div/div/input", "xpath:position"]
+      ],
+      "value": "${country}"
+    }, {
+      "id": "e148a66b-d757-4b56-8285-6fbc0757f31f",
+      "comment": "",
+      "command": "type",
+      "target": "id=library.tradeCompliance.euECCN",
+      "targets": [
+        ["id=library.tradeCompliance.euECCN", "id"],
+        ["name=library.tradeCompliance.euECCN", "name"],
+        ["css=#library\\.tradeCompliance\\.euECCN", "css:finder"],
+        ["xpath=//input[@id='library.tradeCompliance.euECCN']", "xpath:attributes"],
+        ["xpath=//form[@id='new3ppLibraryForm']/div[3]/div/div/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/div/div/div[2]/input", "xpath:position"]
+      ],
+      "value": "${euECCN}"
+    }, {
+      "id": "4fa06d34-ac2d-4bf7-bce3-e34522eff39f",
+      "comment": "",
+      "command": "type",
+      "target": "id=library.tradeCompliance.usECCN",
+      "targets": [
+        ["id=library.tradeCompliance.usECCN", "id"],
+        ["name=library.tradeCompliance.usECCN", "name"],
+        ["css=#library\\.tradeCompliance\\.usECCN", "css:finder"],
+        ["xpath=//input[@id='library.tradeCompliance.usECCN']", "xpath:attributes"],
+        ["xpath=//form[@id='new3ppLibraryForm']/div[3]/div/div/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "${usECCN}"
+    }, {
+      "id": "d6792874-fd20-4739-ba06-ae289fe70f4f",
+      "comment": "",
+      "command": "type",
+      "target": "id=library.tradeCompliance.bisAuthorization",
+      "targets": [
+        ["id=library.tradeCompliance.bisAuthorization", "id"],
+        ["name=library.tradeCompliance.bisAuthorization", "name"],
+        ["css=#library\\.tradeCompliance\\.bisAuthorization", "css:finder"],
+        ["xpath=//input[@id='library.tradeCompliance.bisAuthorization']", "xpath:attributes"],
+        ["xpath=//form[@id='new3ppLibraryForm']/div[3]/div/div/div[4]/input", "xpath:idRelative"],
+        ["xpath=//div[4]/input", "xpath:position"]
+      ],
+      "value": "BIS"
+    }, {
+      "id": "c9854c63-132a-4aca-bea9-a38f05f3e348",
+      "comment": "",
+      "command": "type",
+      "target": "id=library.tradeCompliance.earRegulationRestrictions",
+      "targets": [
+        ["id=library.tradeCompliance.earRegulationRestrictions", "id"],
+        ["name=library.tradeCompliance.earRegulationRestrictions", "name"],
+        ["css=#library\\.tradeCompliance\\.earRegulationRestrictions", "css:finder"],
+        ["xpath=//textarea[@id='library.tradeCompliance.earRegulationRestrictions']", "xpath:attributes"],
+        ["xpath=//form[@id='new3ppLibraryForm']/div[3]/div/div[2]/div/textarea", "xpath:idRelative"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": "${earRegulationRestrictions}"
+    }, {
+      "id": "6947906a-410f-4161-8e02-df72f00b2436",
+      "comment": "",
+      "command": "type",
+      "target": "id=library.tradeCompliance.encryptionProtocol",
+      "targets": [
+        ["id=library.tradeCompliance.encryptionProtocol", "id"],
+        ["name=library.tradeCompliance.encryptionProtocol", "name"],
+        ["css=#library\\.tradeCompliance\\.encryptionProtocol", "css:finder"],
+        ["xpath=//textarea[@id='library.tradeCompliance.encryptionProtocol']", "xpath:attributes"],
+        ["xpath=//form[@id='new3ppLibraryForm']/div[3]/div/div[2]/div[2]/textarea", "xpath:idRelative"],
+        ["xpath=//div[2]/textarea", "xpath:position"]
+      ],
+      "value": "${encryptionProtocol}"
+    }, {
+      "id": "4f8be400-74ca-4463-acc8-ac82115ff5eb",
+      "comment": "",
+      "command": "type",
+      "target": "id=library.tradeCompliance.encryptionAlgorithms",
+      "targets": [
+        ["id=library.tradeCompliance.encryptionAlgorithms", "id"],
+        ["name=library.tradeCompliance.encryptionAlgorithms", "name"],
+        ["css=#library\\.tradeCompliance\\.encryptionAlgorithms", "css:finder"],
+        ["xpath=//textarea[@id='library.tradeCompliance.encryptionAlgorithms']", "xpath:attributes"],
+        ["xpath=//form[@id='new3ppLibraryForm']/div[3]/div/div[2]/div[3]/textarea", "xpath:idRelative"],
+        ["xpath=//div[3]/textarea", "xpath:position"]
+      ],
+      "value": "${encryptionAlgorithms}"
+    }, {
+      "id": "46d58990-968b-427c-93ee-2d6d650f32ac",
+      "comment": "",
+      "command": "click",
+      "target": "css=.mt-2",
+      "targets": [
+        ["css=.mt-2", "css:finder"],
+        ["xpath=(//button[@type='submit'])[2]", "xpath:attributes"],
+        ["xpath=//form[@id='new3ppLibraryForm']/button", "xpath:idRelative"],
+        ["xpath=//div[2]/form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Save')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "bf2f8996-aafd-44e4-8be7-4be7b7ddab8b",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=td:nth-child(1)",
+      "targets": [
+        ["css=td:nth-child(1)", "css:finder"],
+        ["xpath=//td", "xpath:position"],
+        ["xpath=//td[contains(.,'Librarybphkvt')]", "xpath:innerText"]
+      ],
+      "value": "${libName}"
+    }, {
+      "id": "3d429057-7465-4c19-8a12-ec8ef19002a8",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=td:nth-child(2)",
+      "targets": [
+        ["css=td:nth-child(2)", "css:finder"],
+        ["xpath=//td[2]", "xpath:position"],
+        ["xpath=//td[contains(.,'Librarybphkvt Provider')]", "xpath:innerText"]
+      ],
+      "value": "${libName} Provider"
+    }, {
+      "id": "ea2a3722-a390-4335-92f3-7885a03599ab",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=td:nth-child(3) > .truncated",
+      "targets": [
+        ["css=td:nth-child(3) > .truncated", "css:finder"],
+        ["xpath=//td[3]/div", "xpath:position"]
+      ],
+      "value": "${websiteUrl}"
+    }, {
+      "id": "3d769be7-d571-4ec4-a7f5-77dccf683ba3",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=td:nth-child(4)",
+      "targets": [
+        ["css=td:nth-child(4)", "css:finder"],
+        ["xpath=//td[4]", "xpath:position"],
+        ["xpath=//td[contains(.,'Others')]", "xpath:innerText"]
+      ],
+      "value": "${swType}"
+    }, {
+      "id": "07b7ed25-4b18-453d-9fc7-c5b873b2f36b",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=td:nth-child(5)",
+      "targets": [
+        ["css=td:nth-child(5)", "css:finder"],
+        ["xpath=//td[5]", "xpath:position"],
+        ["xpath=//td[contains(.,'Rel-10.9')]", "xpath:innerText"]
+      ],
+      "value": "${libVersion}"
+    }, {
+      "id": "b4fb17f4-b9b0-4efc-8bb8-89bcebe146a9",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=td:nth-child(7)",
+      "targets": [
+        ["css=td:nth-child(7)", "css:finder"],
+        ["xpath=//td[7]", "xpath:position"],
+        ["xpath=//td[contains(.,'Windows')]", "xpath:innerText"]
+      ],
+      "value": "${osType}"
+    }, {
+      "id": "a0e71ddd-558b-4461-90b6-199338aabfb2",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=td:nth-child(8)",
+      "targets": [
+        ["css=td:nth-child(8)", "css:finder"],
+        ["xpath=//td[8]", "xpath:position"]
+      ],
+      "value": "${country}"
+    }, {
+      "id": "b7798d62-e4c4-4d7c-bac8-8dfead21fd95",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=td:nth-child(9)",
+      "targets": [
+        ["css=td:nth-child(9)", "css:finder"],
+        ["xpath=//td[9]", "xpath:position"]
+      ],
+      "value": "${euECCN}"
+    }, {
+      "id": "d79b7207-c88d-4dc3-8e81-b458aee3e6a9",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=td:nth-child(10)",
+      "targets": [
+        ["css=td:nth-child(10)", "css:finder"],
+        ["xpath=//td[10]", "xpath:position"],
+        ["xpath=//td[contains(.,'EAR99')]", "xpath:innerText"]
+      ],
+      "value": "${usECCN}"
+    }, {
+      "id": "efaad827-b3cf-4f05-8e3e-ab563b8e6611",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=td:nth-child(11)",
+      "targets": [
+        ["css=td:nth-child(11)", "css:finder"],
+        ["xpath=//td[11]", "xpath:position"],
+        ["xpath=//td[contains(.,'BIS')]", "xpath:innerText"]
+      ],
+      "value": "BIS"
+    }, {
+      "id": "5461c597-3d81-4454-975f-f0de3b0e046c",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=td:nth-child(12)",
+      "targets": [
+        ["css=td:nth-child(1)", "css:finder"],
+        ["xpath=//td", "xpath:position"],
+        ["xpath=//td[contains(.,'Libraryjbc5on')]", "xpath:innerText"]
+      ],
+      "value": "${earRegulationRestrictions}"
+    }, {
+      "id": "2a727159-d55f-4fe7-abcd-8d5e5bbacb2b",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=td:nth-child(13)",
+      "targets": [
+        ["css=td:nth-child(1)", "css:finder"],
+        ["xpath=//td", "xpath:position"],
+        ["xpath=//td[contains(.,'Libraryjbc5on')]", "xpath:innerText"]
+      ],
+      "value": "${encryptionProtocol}"
+    }, {
+      "id": "2c57ff0e-63a9-4ddf-9a47-bf17f32b6fc8",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=td:nth-child(14)",
+      "targets": [
+        ["css=td:nth-child(1)", "css:finder"],
+        ["xpath=//td", "xpath:position"],
+        ["xpath=//td[contains(.,'Libraryjbc5on')]", "xpath:innerText"]
+      ],
+      "value": "${encryptionAlgorithms}"
+    }, {
+      "id": "6a3e921c-83ed-4718-94b0-cd493a75df61",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return ${l} + 1;",
+      "targets": [],
+      "value": "l"
+    }, {
+      "id": "2e987e74-6a56-43c3-b052-7c07c3be9a4b",
+      "comment": "",
+      "command": "repeatIf",
+      "target": "${l} <= ${noOfLibs}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ac8b170a-64c4-4ca7-99ff-ccd4d0475086",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=${projectName}",
+      "targets": [
+        ["linkText=Project-2flwp9", "linkText"],
+        ["css=.card-title > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Project-2flwp9')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/projects/5eed1f036efa586d185dbe04')]", "xpath:href"],
+        ["xpath=//h5/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Project-2flwp9')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b4a77af7-11b3-46dd-bd43-a3d15cbe146b",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=td:nth-child(1) span",
+      "targets": [
+        ["css=td:nth-child(1) span", "css:finder"],
+        ["xpath=//a/span", "xpath:position"],
+        ["xpath=//span[contains(.,'21.10')]", "xpath:innerText"]
+      ],
+      "value": "${newVersion}"
+    }, {
+      "id": "69831cb3-deff-4b5c-92cf-35bbd730a7e9",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=tr:nth-child(1) > td:nth-child(2) span",
+      "targets": [
+        ["css=tr:nth-child(1) > td:nth-child(2) span", "css:finder"],
+        ["xpath=//td[2]/a/span", "xpath:position"],
+        ["xpath=//span[contains(.,'222')]", "xpath:innerText"]
+      ],
+      "value": "${oldVersion}"
+    }, {
+      "id": "00a3a837-24a5-4f88-8d12-e0fd9e191d3c",
+      "comment": "",
+      "command": "if",
+      "target": "${noOfLibs} == 1",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "01bbbbd1-773c-4a82-aac4-f758c7697ba1",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=tr:nth-child(1) div",
+      "targets": [
+        ["css=tr:nth-child(1) div", "css:finder"],
+        ["xpath=//a/div", "xpath:position"]
+      ],
+      "value": "1 library"
+    }, {
+      "id": "73719478-6011-48b9-94d7-7beaa21eba72",
+      "comment": "",
+      "command": "else",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c0652d31-ea7f-47f2-b721-f8ba953a9ba6",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=tr:nth-child(1) div",
+      "targets": [
+        ["css=tr:nth-child(1) div", "css:finder"],
+        ["xpath=//a/div", "xpath:position"]
+      ],
+      "value": "${noOfLibs} libraries"
+    }, {
+      "id": "a44b3f04-85ba-4c6f-be8a-918e2553a98e",
+      "comment": "",
+      "command": "end",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "798a107c-4a08-41cc-8782-18b69dc8deb9",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return ${r} + 1;",
+      "targets": [],
+      "value": "r"
+    }, {
+      "id": "3fc8b22d-72f8-411b-988e-17e7a5dfd688",
+      "comment": "",
+      "command": "repeatIf",
+      "target": "${r} <= ${noOfReleases}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "71540340-fafb-453e-8daf-7566ad401a35",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Projects",
+      "targets": [
+        ["linkText=Projects", "linkText"],
+        ["css=.nav-item:nth-child(1) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Projects')]", "xpath:link"],
+        ["xpath=//div[@id='navbarSupportedContent']/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/projects/')]", "xpath:href"],
+        ["xpath=//li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Projects')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c89d4dd2-1352-4cc9-af14-d5507fb63b14",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return ${p} + 1;",
+      "targets": [],
+      "value": "p"
+    }, {
+      "id": "661b5588-99df-4bba-8dfc-0ff5962f0269",
+      "comment": "",
+      "command": "repeatIf",
+      "target": "${p} <= ${noOfProjects}",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "10766094-4933-4460-854f-26ca6f1ea92e",
+    "name": "all_1 Project Team Information",
+    "commands": [{
+      "id": "b4d1bf29-a799-4d22-babe-8ac38eecfcc5",
+      "comment": "",
+      "command": "store",
+      "target": "Administratror",
+      "targets": [],
+      "value": "name"
+    }, {
+      "id": "45754ff0-080b-4adc-8eae-71b0a02275b3",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return \"Project-\" + Math.random().toString(36).substring(7);",
+      "targets": [],
+      "value": "projectName"
+    }, {
+      "id": "52750b4e-885e-4e59-965c-75ea14ffed24",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return Math.floor(Math.random() * 50) + \".\" + Math.floor(Math.random() * 50);",
+      "targets": [],
+      "value": "oldVersion"
+    }, {
+      "id": "d3689cdd-0750-463c-90f5-2994d41ae617",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return Math.floor(Math.random() * 50) + \".\" + Math.floor(Math.random() * 50);",
+      "targets": [],
+      "value": "newVersion"
+    }, {
+      "id": "47403ff7-7644-4361-97e3-ae2f830d165e",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8081/logout",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "881c39f9-90cf-45c5-b893-216803c920c7",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1280x720",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4870e18f-12b4-431f-adc4-1a4ae51e55b8",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Log Out')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "cb9ae54e-ef3d-4d85-84f5-ff80c97d6a77",
+      "comment": "",
+      "command": "type",
+      "target": "id=username",
+      "targets": [
+        ["id=username", "id"],
+        ["name=username", "name"],
+        ["css=#username", "css:finder"],
+        ["xpath=//input[@id='username']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "admin"
+    }, {
+      "id": "7624f4ad-02af-45ab-8e73-59c1d870da81",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//p[2]/input", "xpath:position"]
+      ],
+      "value": "admin"
+    }, {
+      "id": "c4415d8b-37f7-4af5-b705-3d3c31a8db57",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Sign in')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "bd6c5f87-176a-47b0-8987-b8c7da8b1e75",
+      "comment": "",
+      "command": "echo",
+      "target": "###################### Project No ${p} - ${projectName} ######################",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "49f01100-ed5e-445b-a782-119ed541c532",
+      "comment": "",
+      "command": "click",
+      "target": "css=.my-2",
+      "targets": [
+        ["css=.my-2", "css:finder"],
+        ["xpath=//div[3]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Add / Edit Project')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c97597a4-a2bf-4b6c-a734-5c38ebec773b",
+      "comment": "",
+      "command": "type",
+      "target": "id=name",
+      "targets": [
+        ["id=name", "id"],
+        ["name=name", "name"],
+        ["css=#name", "css:finder"],
+        ["xpath=//input[@id='name']", "xpath:attributes"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "${projectName}"
+    }, {
+      "id": "1251733d-23f6-4bcf-a137-1c2d8260cdad",
+      "comment": "",
+      "command": "type",
+      "target": "id=description",
+      "targets": [
+        ["id=description", "id"],
+        ["name=description", "name"],
+        ["css=#description", "css:finder"],
+        ["xpath=//textarea[@id='description']", "xpath:attributes"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": "This is a demo project to work with. This is created by running selenium test cases."
+    }, {
+      "id": "860275d0-3a82-4a57-bf58-abeff984b1c6",
+      "comment": "",
+      "command": "click",
+      "target": "css=#newProject > div > div > div.modal-body > form > button",
+      "targets": [
+        ["css=.btn-primary", "css:finder"],
+        ["xpath=(//button[@type='submit'])[2]", "xpath:attributes"],
+        ["xpath=//body/div/form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Create Project')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "badcbdd9-52ac-44d6-a9c5-f8754ae966a6",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "linkText=${projectName}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f967212a-8cb0-4610-acdc-6fe472a49434",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=tr:nth-child(1) div",
+      "targets": [],
+      "value": "${projectName}"
+    }, {
+      "id": "aa3655fb-1437-4857-9f95-31e18f84049c",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=${projectName}",
+      "targets": [
+        ["css=#list-item-Project- > div", "css:finder"],
+        ["xpath=//a[@id='list-item-Project-']/div", "xpath:idRelative"],
+        ["xpath=//a/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8c834554-0f4b-4d54-83c7-fc0ab7b8d504",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.font-italic",
+      "targets": [
+        ["css=.font-italic", "css:finder"],
+        ["xpath=//ul[@id='team-details']/small/li[2]", "xpath:idRelative"],
+        ["xpath=//small/li[2]", "xpath:position"]
+      ],
+      "value": "${name} (Owner)"
+    }, {
+      "id": "8c5b6950-51eb-47ce-b158-602e7bacca55",
+      "comment": "",
+      "command": "click",
+      "target": "css=.mb-2",
+      "targets": [
+        ["css=.mb-2", "css:finder"],
+        ["xpath=(//button[@type='button'])[2]", "xpath:attributes"],
+        ["xpath=//div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Add New Version')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b43f8265-1100-4ccd-ba5f-889f6f16fcb0",
+      "comment": "",
+      "command": "type",
+      "target": "id=version",
+      "targets": [
+        ["id=version", "id"],
+        ["name=version", "name"],
+        ["css=#version", "css:finder"],
+        ["xpath=//input[@id='version']", "xpath:attributes"],
+        ["xpath=//form[@id='newVersionForm']/div/div/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "${oldVersion}"
+    }, {
+      "id": "984798f2-60f8-4a4f-a59b-84e8df882016",
+      "comment": "",
+      "command": "click",
+      "target": "css=.mt-2",
+      "targets": [
+        ["css=.mt-2", "css:finder"],
+        ["xpath=(//button[@type='submit'])[2]", "xpath:attributes"],
+        ["xpath=//form[@id='newVersionForm']/button", "xpath:idRelative"],
+        ["xpath=//div[2]/form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Save')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "4fb47ff1-000d-4d0c-889e-e735401f91ec",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=td:nth-child(1) span",
+      "targets": [
+        ["css=td:nth-child(1) span", "css:finder"],
+        ["xpath=//a/span", "xpath:position"],
+        ["xpath=//span[contains(.,'21.10')]", "xpath:innerText"]
+      ],
+      "value": "${oldVersion}"
+    }, {
+      "id": "27b797b1-1407-4b0a-9737-888065c5edc3",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=tr:nth-child(1) div",
+      "targets": [
+        ["css=a > div", "css:finder"],
+        ["xpath=//a/div", "xpath:position"]
+      ],
+      "value": "0 libraries"
+    }, {
+      "id": "b52778dc-6075-4e46-b3d5-c203784d4df0",
+      "comment": "",
+      "command": "click",
+      "target": "css=.mb-2",
+      "targets": [
+        ["css=.mb-2", "css:finder"],
+        ["xpath=(//button[@type='button'])[2]", "xpath:attributes"],
+        ["xpath=//div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Add New Version')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "615482b0-ba83-435f-9ae6-4b3279591aed",
+      "comment": "",
+      "command": "type",
+      "target": "id=version",
+      "targets": [
+        ["id=version", "id"],
+        ["name=version", "name"],
+        ["css=#version", "css:finder"],
+        ["xpath=//input[@id='version']", "xpath:attributes"],
+        ["xpath=//form[@id='newVersionForm']/div/div/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "${newVersion}"
+    }, {
+      "id": "07a608b1-b388-44a0-aa7b-a4fb56f8e9cb",
+      "comment": "",
+      "command": "type",
+      "target": "id=baseVersion",
+      "targets": [
+        ["id=baseVersion", "id"],
+        ["name=baseVersion", "name"],
+        ["css=#baseVersion", "css:finder"],
+        ["xpath=//input[@id='baseVersion']", "xpath:attributes"],
+        ["xpath=//form[@id='newVersionForm']/div/div/div[4]/input", "xpath:idRelative"],
+        ["xpath=//div[4]/input", "xpath:position"]
+      ],
+      "value": "${oldVersion}"
+    }, {
+      "id": "1ce229fe-e029-42f0-8a38-73d09166b62d",
+      "comment": "",
+      "command": "click",
+      "target": "css=.mt-2",
+      "targets": [
+        ["css=.mt-2", "css:finder"],
+        ["xpath=(//button[@type='submit'])[2]", "xpath:attributes"],
+        ["xpath=//form[@id='newVersionForm']/button", "xpath:idRelative"],
+        ["xpath=//div[2]/form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Save')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a9729cc4-6743-477d-87db-bc215ca611ad",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=td:nth-child(1) span",
+      "targets": [
+        ["css=td:nth-child(1) span", "css:finder"],
+        ["xpath=//a/span", "xpath:position"],
+        ["xpath=//span[contains(.,'21.10')]", "xpath:innerText"]
+      ],
+      "value": "${newVersion}"
+    }, {
+      "id": "158d9652-24c8-4e8d-b9b1-973025e9aac9",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=tr:nth-child(1) > td:nth-child(2) span",
+      "targets": [
+        ["css=tr:nth-child(1) > td:nth-child(2) span", "css:finder"],
+        ["xpath=//td[2]/a/span", "xpath:position"],
+        ["xpath=//span[contains(.,'222')]", "xpath:innerText"]
+      ],
+      "value": "${oldVersion}"
+    }, {
+      "id": "1b98951b-3cba-42b7-aebe-f4493344a199",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=tr:nth-child(1) div",
+      "targets": [
+        ["css=tr:nth-child(1) div", "css:finder"],
+        ["xpath=//a/div", "xpath:position"]
+      ],
+      "value": "0 libraries"
+    }, {
+      "id": "6eee45a3-3f68-4778-9476-0f19c88d009d",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "linkText=${newVersion}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0ec91229-cf35-4816-8780-0a5bee1b9abf",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=${newVersion}",
+      "targets": [
+        ["css=tr:nth-child(2) > td:nth-child(1) div", "css:finder"],
+        ["xpath=//tr[2]/td/a/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "cb16f6d3-fe23-4a0d-9a01-fb780d14ff7f",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.font-italic",
+      "targets": [
+        ["css=.font-italic", "css:finder"],
+        ["xpath=//ul[@id='team-details']/small/li[2]", "xpath:idRelative"],
+        ["xpath=//small/li[2]", "xpath:position"]
+      ],
+      "value": "${name} (Owner)"
     }]
   }],
   "suites": [{
@@ -3401,14 +5294,21 @@
     "persistSession": false,
     "parallel": false,
     "timeout": 600,
-    "tests": ["65175f2a-864a-4929-89c6-63bef55d6fec", "fd61f6cb-52c3-4b06-8902-0caa1908c1ec", "8756c0e5-aea1-453c-bb86-4891d34ad767", "3fea60fa-3b57-4f7b-aaf2-a05f85e69c18"]
+    "tests": ["65175f2a-864a-4929-89c6-63bef55d6fec", "8756c0e5-aea1-453c-bb86-4891d34ad767", "599dbc56-aeb8-4492-839e-d08813766268", "be1b47c9-8b72-4a2b-ba05-1070eb1793ec", "10766094-4933-4460-854f-26ca6f1ea92e"]
   }, {
     "id": "6706fa59-9af2-4c6f-8201-7a02781fb1f3",
     "name": "JustOne",
     "persistSession": false,
     "parallel": false,
     "timeout": 300,
-    "tests": ["65175f2a-864a-4929-89c6-63bef55d6fec", "fa37fc38-6225-4124-b212-5b2edf2490f3", "f3afd57a-4daf-4ab1-965b-a9e05419a020"]
+    "tests": ["65175f2a-864a-4929-89c6-63bef55d6fec", "10766094-4933-4460-854f-26ca6f1ea92e", "fa37fc38-6225-4124-b212-5b2edf2490f3", "e060d65d-5c7f-4f0f-93b6-44b285cddaf9"]
+  }, {
+    "id": "7cd47432-3546-4bca-a67e-22b231a82e3f",
+    "name": "gunners",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["8947f2f9-adac-4136-8489-5f3a542055ae"]
   }],
   "urls": ["http://localhost:8081/"],
   "plugins": []

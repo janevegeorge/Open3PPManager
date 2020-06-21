@@ -25,7 +25,7 @@
         <script src="../../static/bootstrap-4.5.0/js/bootstrap.bundle.min.js" th:src="@{/bootstrap-4.5.0/js/bootstrap.bundle.min.js}"></script>
     </head>
     <body>
-        <div class="container pb-5 mb-auto">
+        <div class="container-fluid">
             <div th:replace="/fragments/navbar.html :: nav"></div>
             <form action="/new" class="form-horizontal" method="post" th:action="@{/projects/{projectId}/releases/new(projectId=${projectId})}" id="newVersionForm" th:fragment="newVersionForm (projectId, projectName)">
                 <div class="card">

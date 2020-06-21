@@ -25,7 +25,7 @@
     <script src="../../static/bootstrap-4.5.0/js/bootstrap.bundle.min.js" th:src="@{/bootstrap-4.5.0/js/bootstrap.bundle.min.js}"></script>
 </head>
 <body>
-<div class="container pb-5 mb-auto">
+<div class="container-fluid">
     <div th:replace="/fragments/navbar.html :: nav"></div>
     <form action="/new" class="form-horizontal needs-validation" method="post" th:action="@{/3pp_libraries/new}" id="new3ppLibraryForm" th:fragment="new3ppLibraryForm (projectId, releaseVersion)" novalidate>
         <div class="card">
@@ -80,7 +80,7 @@
             <div class="card-body">
                 <div class="row mb-2">
                     <div class="col">
-                        <input type="text" class="form-control" id="library.tradeCompliance.countryCode" name="library.tradeCompliance.countryCode" placeholder="ISO 3166 Country Code">
+                        <input type="text" class="form-control" id="library.tradeCompliance.countryCode" name="library.tradeCompliance.countryCode" placeholder="ISO 3166 Country Code" val>
                         <div class="invalid-feedback">Valid ISO 3166 Alpha-2 Country Code required.</div>
                     </div>
                     <div class="col"><input type="text" class="form-control" id="library.tradeCompliance.euECCN" name="library.tradeCompliance.euECCN" placeholder="EU ECCN No."></div>
@@ -89,7 +89,13 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <textarea class="form-control" id="library.tradeCompliance.encryptionProtocol" name="library.tradeCompliance.encryptionProtocol" placeholder="Encryption Protocol Information" rows="4"></textarea>
+                        <textarea class="form-control" id="library.tradeCompliance.earRegulationRestrictions" name="library.tradeCompliance.earRegulationRestrictions" placeholder="EAR Restrictions & Regulations" rows="3"></textarea>
+                    </div>
+                    <div class="col">
+                        <textarea class="form-control" id="library.tradeCompliance.encryptionProtocol" name="library.tradeCompliance.encryptionProtocol" placeholder="Encryption Protocol Information" rows="3"></textarea>
+                    </div>
+                    <div class="col">
+                        <textarea class="form-control" id="library.tradeCompliance.encryptionAlgorithms" name="library.tradeCompliance.encryptionAlgorithms" placeholder="Encryption Algorithm(Key Lengths)" rows="3"></textarea>
                     </div>
                 </div>
             </div>
@@ -109,9 +115,6 @@
                   var btn = document.getElementById('submit-btn-message');
                   btn.classList.add('d-inline');
                   btn.classList.remove('d-none');
-
-                  if(document.getElementById('library.softwareData.softwareType').selectedIndex == "0") {
-                  }
                 }
                 form.classList.add('was-validated');
               }, false);
