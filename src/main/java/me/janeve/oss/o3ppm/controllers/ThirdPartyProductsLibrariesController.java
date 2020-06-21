@@ -32,6 +32,7 @@ import java.time.ZoneOffset;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.TreeSet;
 
 @Controller
 @RequestMapping("/3pp_libraries")
@@ -72,9 +73,9 @@ public class ThirdPartyProductsLibrariesController extends BaseController {
         if(projectId != null && releaseVersion != null) {
             Project project = findProject(projectId);
             ProjectRelease projectRelease = getProjectRelease(project, releaseVersion);
-            List<LibraryVersion> projectReleaseDependencies = projectRelease.getDependencies();
+            TreeSet<LibraryVersion> projectReleaseDependencies = projectRelease.getDependencies();
             if(projectReleaseDependencies == null) {
-                projectReleaseDependencies = new ArrayList<>();
+                projectReleaseDependencies = new TreeSet<>();
             }
             projectReleaseDependencies.add(libraryVersion);
             projectRelease.setDependencies(projectReleaseDependencies);

@@ -25,8 +25,11 @@ import me.janeve.oss.o3ppm.dao.ProjectRepository;
 import me.janeve.oss.o3ppm.dao.UserRepository;
 import me.janeve.oss.o3ppm.entities.Project;
 import me.janeve.oss.o3ppm.entities.ProjectRelease;
+import me.janeve.oss.o3ppm.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -76,5 +79,19 @@ public abstract class BaseController {
         // tell spring to set empty values as null instead of empty string.
         binder.registerCustomEditor( String.class, new StringTrimmerEditor( true ));
 
+    }
+
+    protected User getLoggedInUser() {
+        User authenticatedUser;
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        if(auth.isAuthenticated()) {
+            authenticatedUser = userRepository.findByUsername(auth.getName());
+            if(authenticatedUser == null) {
+                throw new RuntimeException("Unauthorized access.");
+            }
+        } else {
+            throw new RuntimeException("Unauthorized access.");
+        }
+        return authenticatedUser;
     }
 }

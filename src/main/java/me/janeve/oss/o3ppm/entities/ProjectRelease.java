@@ -20,11 +20,13 @@
 package me.janeve.oss.o3ppm.entities;
 
 import lombok.*;
+import org.springframework.data.mongodb.core.index.IndexDirection;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
-import java.util.List;
+import java.time.ZonedDateTime;
+import java.util.TreeSet;
 
 @Getter @Setter
 @ToString
@@ -32,19 +34,22 @@ import java.util.List;
 public class ProjectRelease implements Comparable<ProjectRelease>{
     @NotEmpty private String version;
     private String baseVersion;
-    @DBRef private List<LibraryVersion> dependencies;
+    @DBRef private TreeSet<LibraryVersion> dependencies;
+    @Indexed(direction = IndexDirection.DESCENDING) protected ZonedDateTime createdAt;
+    @Indexed(direction = IndexDirection.DESCENDING) protected ZonedDateTime lastUpdatedAt;
+    @DBRef protected User createdBy;
+    @DBRef protected User lastUpdatedBy;
 
     @Override
-    public int compareTo( ProjectRelease o) {
+    public int compareTo(ProjectRelease o) {
         if(o == null) {
             return -1;
         }
 
-        if( version == null) {
-            return o.getVersion() == null ? 0 : 1;
+        if(o.equals(this)) {
+            return 0;
         }
 
-        return o.getVersion().compareTo(getVersion());
+        return o.getLastUpdatedAt().compareTo(getLastUpdatedAt());
     }
-
 }

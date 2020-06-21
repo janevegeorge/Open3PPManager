@@ -20,6 +20,7 @@
 package me.janeve.oss.o3ppm.entities;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -32,6 +33,7 @@ import javax.validation.constraints.Pattern;
 
 @Getter @Setter
 @ToString
+@EqualsAndHashCode(callSuper = false)
 @Document(collection = "library_versions")
 public class LibraryVersion extends TrackedEntity implements Comparable<LibraryVersion> {
     @JsonInclude(JsonInclude.Include.NON_NULL) @Valid @DBRef Library library;
@@ -44,10 +46,10 @@ public class LibraryVersion extends TrackedEntity implements Comparable<LibraryV
             return -1;
         }
 
-        if( version == null) {
-            return o.getVersion() == null ? 0 : 1;
+        if(o.equals(this)) {
+            return 0;
         }
 
-        return o.getVersion().compareTo(getVersion());
+        return o.getLastUpdatedAt().compareTo(getLastUpdatedAt());
     }
 }

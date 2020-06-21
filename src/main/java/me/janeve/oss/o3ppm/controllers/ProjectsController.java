@@ -22,8 +22,6 @@ package me.janeve.oss.o3ppm.controllers;
 import me.janeve.oss.o3ppm.entities.Project;
 import me.janeve.oss.o3ppm.entities.ProjectRelease;
 import me.janeve.oss.o3ppm.entities.User;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
@@ -32,6 +30,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.time.ZoneOffset;
+import java.time.ZonedDateTime;
 import java.util.*;
 
 @Controller
@@ -46,19 +46,10 @@ public class ProjectsController extends BaseController {
             dbProjectEntry.setName(project.getName());
             project = dbProjectEntry;
         } else {
-            Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-            if(auth.isAuthenticated()) {
-                User authenticatedUser = userRepository.findByUsername(auth.getName());
-                if(authenticatedUser == null) {
-                    throw new RuntimeException("Unauthorized access.");
-                }
-                project.setOwner(authenticatedUser);
-                logger.info("Adding : " + project.toString());
-            } else {
-                logger.severe("User not authenticated.");
-            }
+            project.setOwner(getLoggedInUser());
         }
 
+        logger.info("Adding : " + project.toString());
         projectRepository.save(project);
 
         return homePage(model);
@@ -85,26 +76,33 @@ public class ProjectsController extends BaseController {
             releases = new TreeSet<>();
         }
 
+        logger.info(">>>>>>>>>>> " + releases);
+
         for(ProjectRelease existingRelease:releases) {
-            if(existingRelease.compareTo(release) > 0) {
-                break;
-            }
-            if(existingRelease.compareTo(release) == 0) {
+            if(existingRelease.equals(release)) {
                 existingRelease.setBaseVersion(release.getBaseVersion());
                 release = existingRelease;
             }
         }
 
+        User loggedInUser = getLoggedInUser();
+        if(release.getCreatedBy() == null) {
+            release.setCreatedAt(ZonedDateTime.now(ZoneOffset.UTC));
+            release.setCreatedBy(loggedInUser);
+        }
+
         ProjectRelease baseRelease = getProjectRelease(project, release.getBaseVersion());
         if(baseRelease != null) {
             if(release.getDependencies() == null) {
-                release.setDependencies(new ArrayList<>());
+                release.setDependencies(new TreeSet<>());
             }
             if(baseRelease.getDependencies() != null) {
                 release.getDependencies().addAll(baseRelease.getDependencies());
             }
         }
 
+        release.setLastUpdatedAt(ZonedDateTime.now(ZoneOffset.UTC));
+        release.setLastUpdatedBy(loggedInUser);
         releases.add(release);
         project.setReleases(releases);
 

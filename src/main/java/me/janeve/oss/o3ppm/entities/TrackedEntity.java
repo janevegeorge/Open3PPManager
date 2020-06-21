@@ -19,6 +19,7 @@
  */
 package me.janeve.oss.o3ppm.entities;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -31,10 +32,11 @@ import java.time.ZonedDateTime;
 
 @Getter @Setter
 @ToString
+@EqualsAndHashCode(callSuper = false)
 public abstract class TrackedEntity {
-    @Id private String id;
-    @Indexed(direction = IndexDirection.DESCENDING) private ZonedDateTime createdAt;
-    @Indexed(direction = IndexDirection.DESCENDING) private ZonedDateTime lastUpdatedAt;
-    @DBRef private User createdBy;
-    @DBRef private User lastUpdatedBy;
+    @Id protected String id;
+    @Indexed(direction = IndexDirection.DESCENDING) protected ZonedDateTime createdAt;
+    @Indexed(direction = IndexDirection.DESCENDING) protected ZonedDateTime lastUpdatedAt;
+    @DBRef protected User createdBy;
+    @DBRef protected User lastUpdatedBy;
 }

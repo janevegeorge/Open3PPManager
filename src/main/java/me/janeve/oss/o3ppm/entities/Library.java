@@ -19,6 +19,7 @@
  */
 package me.janeve.oss.o3ppm.entities;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -31,6 +32,7 @@ import java.util.List;
 
 @Getter @Setter
 @ToString
+@EqualsAndHashCode(callSuper = false)
 @Document(collection = "3pp_libraries")
 public class Library extends TrackedEntity {
     @NotBlank private String name;
