@@ -56,9 +56,9 @@
                         <button type="button" class="btn btn-primary btn-sm my-1" data-toggle="modal" data-target="#new3ppLibrary">
                             Add / Edit 3PP Dependency
                         </button>
-                        <button type="button" class="btn btn-primary btn-sm my-1">
+                        <a type="button" class="btn btn-primary btn-sm my-1" href="#" target="_blank" th:href="@{/svl/downloads/{id}/{version}.xlsx(id=${project.id}, version=${release.version})}">
                             Download SVL File
-                        </button>
+                        </a>
                     </div>
                     <!-- Modal -->
                     <div class="modal fade" id="new3ppLibrary" tabindex="-1" role="dialog" aria-labelledby="new3ppLibraryLabel" aria-hidden="true">
@@ -109,19 +109,19 @@
                                         <td th:text="${dependency.library?.name}">Name</td>
 
                                         <td th:text="${dependency.library?.softwareData?.vendor}" bgcolor="#FEE5BB">vendor</td>
-                                        <td bgcolor="#FEE5BB"><div class="truncated" th:text="${dependency.library?.softwareData?.website}">website</div></td>
+                                        <td th:text="${dependency.library?.softwareData?.website}" bgcolor="#FEE5BB" class="long">website</td>
                                         <td th:text="${dependency.library?.softwareData?.softwareType?.displayName}" bgcolor="#FEE5BB">softwareType</td>
                                         <td th:text="${dependency.version}" bgcolor="#FEE5BB">softwareVersion</td>
-                                        <td bgcolor="#FEE5BB"><div class="truncated" th:text="${dependency.downloadUrl}">downloadUrl</div></td>
+                                        <td th:text="${dependency.downloadUrl}" bgcolor="#FEE5BB" class="long">downloadUrl</td>
                                         <td th:text="${dependency.library?.softwareData?.platform}" bgcolor="#FEE5BB">Platform</td>
 
                                         <td th:text="${dependency.library?.tradeCompliance?.countryCode}" bgcolor="#B9E3A6">countryCode</td>
                                         <td th:text="${dependency.library?.tradeCompliance?.euECCN}" bgcolor="#B9E3A6">euECCN</td>
                                         <td th:text="${dependency.library?.tradeCompliance?.usECCN}" bgcolor="#B9E3A6">usECCN</td>
                                         <td th:text="${dependency.library?.tradeCompliance?.bisAuthorization}" bgcolor="#B9E3A6">bisAuthorization</td>
-                                        <td bgcolor="#B9E3A6"><div class="truncated" th:text="${dependency.library?.tradeCompliance?.earRegulationRestrictions}">earRegulationRestrictions</div></td>
-                                        <td bgcolor="#B9E3A6"><div class="truncated" th:text="${dependency.library?.tradeCompliance?.encryptionProtocol}">encryptionProtocol</div></td>
-                                        <td bgcolor="#B9E3A6"><div class="truncated" th:text="${dependency.library?.tradeCompliance?.encryptionAlgorithms}">encryptionAlgorithms</div></td>
+                                        <td th:text="${dependency.library?.tradeCompliance?.earRegulationRestrictions}" bgcolor="#B9E3A6" class="long">earRegulationRestrictions</td>
+                                        <td th:text="${dependency.library?.tradeCompliance?.encryptionProtocol}" bgcolor="#B9E3A6" class="long">encryptionProtocol</td>
+                                        <td th:text="${dependency.library?.tradeCompliance?.encryptionAlgorithms}" bgcolor="#B9E3A6" class="long">encryptionAlgorithms</td>
                                     </tr>
                                 </tbody>
                             </table>

@@ -2645,10 +2645,11 @@
       "id": "9795a6ea-535f-484e-9159-9bf47b3d87bb",
       "comment": "",
       "command": "verifyText",
-      "target": "css=td:nth-child(3) > .truncated",
+      "target": "css=.long:nth-child(3)",
       "targets": [
-        ["css=td:nth-child(3) > .truncated", "css:finder"],
-        ["xpath=//td[3]/div", "xpath:position"]
+        ["css=.long:nth-child(3)", "css:finder"],
+        ["xpath=//td[3]", "xpath:position"],
+        ["xpath=//td[contains(.,'https://Librarywilw8m.-provider.com/')]", "xpath:innerText"]
       ],
       "value": "${websiteUrl}"
     }, {
@@ -3672,10 +3673,11 @@
       "id": "2ecabce0-afac-4cf4-9203-7aab5896760a",
       "comment": "",
       "command": "verifyText",
-      "target": "css=td:nth-child(3) > .truncated",
+      "target": "css=.long:nth-child(3)",
       "targets": [
-        ["css=td:nth-child(3) > .truncated", "css:finder"],
-        ["xpath=//td[3]/div", "xpath:position"]
+        ["css=.long:nth-child(3)", "css:finder"],
+        ["xpath=//td[3]", "xpath:position"],
+        ["xpath=//td[contains(.,'https://Library3slwy.-provider.com/')]", "xpath:innerText"]
       ],
       "value": "${websiteUrl}"
     }, {
@@ -4699,10 +4701,11 @@
       "id": "ea2a3722-a390-4335-92f3-7885a03599ab",
       "comment": "",
       "command": "verifyText",
-      "target": "css=td:nth-child(3) > .truncated",
+      "target": "css=.long:nth-child(3)",
       "targets": [
-        ["css=td:nth-child(3) > .truncated", "css:finder"],
-        ["xpath=//td[3]/div", "xpath:position"]
+        ["css=.long:nth-child(3)", "css:finder"],
+        ["xpath=//td[3]", "xpath:position"],
+        ["xpath=//td[contains(.,'https://Libraryomyfbb.-provider.com/')]", "xpath:innerText"]
       ],
       "value": "${websiteUrl}"
     }, {
@@ -5348,7 +5351,7 @@
     "tests": ["65175f2a-864a-4929-89c6-63bef55d6fec", "10766094-4933-4460-854f-26ca6f1ea92e", "fa37fc38-6225-4124-b212-5b2edf2490f3", "e060d65d-5c7f-4f0f-93b6-44b285cddaf9", "8756c0e5-aea1-453c-bb86-4891d34ad767"]
   }, {
     "id": "7cd47432-3546-4bca-a67e-22b231a82e3f",
-    "name": "gunners",
+    "name": "Gunners",
     "persistSession": false,
     "parallel": false,
     "timeout": 300,

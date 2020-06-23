@@ -17,28 +17,25 @@
  * You should have received a copy of the GNU General Public License
  * along with Open3PPManager. If not, see <http://www.gnu.org/licenses/>.
  */
-package me.janeve.oss.o3ppm.entities;
+package me.janeve.oss.o3ppm.svl;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+import me.janeve.oss.o3ppm.entities.Project;
+import me.janeve.oss.o3ppm.entities.ProjectRelease;
 
-import javax.validation.constraints.NotBlank;
+import java.io.ByteArrayInputStream;
 
 @Getter @Setter
-@ToString
-@Document(collection = "users")
-public class User {
-    @Id private String id;
-    @NotBlank private String username;
-    private String fname;
-    private String lname;
-    @NotBlank @ToString.Exclude private String password;
-    private String[] authorities;
+@AllArgsConstructor
+public final class Download {
 
-    public String getScreenName(){
-        return (fname + " " + lname).trim();
+    Project project;
+    ProjectRelease release;
+    ByteArrayInputStream downloadStream;
+
+    public String getFileName() {
+        return String.format("SVL_%s_%s..xlsx", project.getName(), release.getVersion());
     }
 }

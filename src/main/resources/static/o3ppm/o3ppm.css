@@ -20,14 +20,6 @@
 #team-details li{margin:0 1px 0 1px;}
 #team-details li:not(:last-child):after{content:' |';}
 
-.truncated {
-  min-width: 220px;
-  max-width: 300px;
-  flex-wrap: wrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
 
 @media (min-width: 1291px) {
     .library_details_view {
@@ -55,4 +47,14 @@
         max-height: 465px;
         overflow: auto;
     }
+}
+
+.table td.long {
+  min-width: 20ch;
+  max-width: 80ch;
+}
+
+.table td {
+  max-width: 40ch;
+  min-width: 150px;
 }
