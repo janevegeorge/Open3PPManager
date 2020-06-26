@@ -48,16 +48,18 @@ public class SVLSheetBuilder extends SheetBuilder {
         }
 
         int rowIndex = 2;
-        for (LibraryVersion library : releaseInformation.getDependencies()) {
-            XSSFRow libraryRow = sheet.createRow(PADDING +rowIndex);
+        if(releaseInformation.getDependencies() != null ) {
+            for (LibraryVersion library : releaseInformation.getDependencies()) {
+                XSSFRow libraryRow = sheet.createRow(PADDING + rowIndex);
 
-            XSSFCellStyle cellStyle = workbook.createCellStyle();
-            cellStyle.setVerticalAlignment(VerticalAlignment.TOP);
-            addCell(libraryRow, library.getLibrary().getName(), 0, cellStyle);
+                XSSFCellStyle cellStyle = workbook.createCellStyle();
+                cellStyle.setVerticalAlignment(VerticalAlignment.TOP);
+                addCell(libraryRow, library.getLibrary().getName(), 0, cellStyle);
 
-            fillSoftwareData(workbook, libraryRow, library);
-            fillTradeComplianceData(workbook, libraryRow, library);
-            rowIndex++;
+                fillSoftwareData(workbook, libraryRow, library);
+                fillTradeComplianceData(workbook, libraryRow, library);
+                rowIndex++;
+            }
         }
         autoAdjustColumns(sheet);
 
