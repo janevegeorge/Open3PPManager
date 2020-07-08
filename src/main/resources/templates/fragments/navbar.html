@@ -44,7 +44,23 @@
                 </li>
             </ul>
             <div sec:authorize="hasAuthority('ADMIN')">
-                <a class="btn btn-danger btn-sm mr-2" href="#" th:href="@{/admin/wipe-data}">Wipe Data</a>
+                <button type="button" class="btn btn-danger btn-sm mr-2" data-toggle="modal" data-target="#wipe-data">
+                    Wipe Data
+                </button>
+                <div class="modal fade" id="wipe-data" tabindex="-1" role="dialog" aria-labelledby="new3ppLibraryLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header bg-danger text-white">
+                                <h5 class="modal-title" id="new3ppLibraryLabel">Danger!</h5>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                                <p>You are going to delete all data. There is no coming back!</p>
+                                <a class="btn btn-danger btn-sm mr-2" href="#" th:href="@{/admin/wipe-data}">Wipe Data</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <a class="btn btn-primary btn-sm btn-secondary" href="#" th:href="@{/logout}">Log Out</a>
 <!--            <form class="form-inline my-2 my-lg-0">-->

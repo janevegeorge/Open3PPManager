@@ -698,17 +698,30 @@
       ],
       "value": ""
     }, {
-      "id": "4063ac65-1343-43ba-aeaa-e23ee5f6346a",
+      "id": "724f5398-c660-4dd9-9aef-000d1d3a500e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn:nth-child(1)",
+      "targets": [
+        ["css=.btn:nth-child(1)", "css:finder"],
+        ["xpath=(//button[@type='button'])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='navbarSupportedContent']/div/button", "xpath:idRelative"],
+        ["xpath=//div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Wipe Data')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "df375165-ce01-4665-9a71-83107c26ad7f",
       "comment": "",
       "command": "click",
       "target": "linkText=Wipe Data",
       "targets": [
         ["linkText=Wipe Data", "linkText"],
-        ["css=div > .nav-item > .nav-link", "css:finder"],
+        ["css=.btn-danger:nth-child(2)", "css:finder"],
         ["xpath=//a[contains(text(),'Wipe Data')]", "xpath:link"],
-        ["xpath=//div[@id='navbarSupportedContent']/ul/div/li/a", "xpath:idRelative"],
+        ["xpath=//div[@id='wipe-data']/div/div/div[2]/a", "xpath:idRelative"],
         ["xpath=//a[contains(@href, '/admin/wipe-data')]", "xpath:href"],
-        ["xpath=//div/li/a", "xpath:position"],
+        ["xpath=//div[2]/a", "xpath:position"],
         ["xpath=//a[contains(.,'Wipe Data')]", "xpath:innerText"]
       ],
       "value": ""
