@@ -27,7 +27,7 @@
 <body>
 <div class="container-fluid">
     <div th:replace="/fragments/navbar.html :: nav"></div>
-    <form action="/new" class="form-horizontal needs-validation" method="post" th:action="@{/3pp_libraries/new}" id="new3ppLibraryForm" th:fragment="new3ppLibraryForm (projectId, releaseVersion)" novalidate>
+    <form action="/new" class="form-horizontal needs-validation" method="post" th:action="@{/3pp_libraries/doAction}" id="new3ppLibraryForm" th:fragment="new3ppLibraryForm (projectId, releaseVersion)" novalidate>
         <div class="card">
             <div class="card-body">
                 <div th:if="${projectId!=null and releaseVersion!=null}">
@@ -100,7 +100,8 @@
                 </div>
             </div>
         </div>
-        <button type="submit" class="btn btn-primary btn-sm mt-2">Save</button>
+        <button type="submit" class="btn btn-primary btn-sm mt-2" value="save" name="action">Save</button>
+        <button id="deleteBtn" type="submit" class="btn btn-danger btn-sm mt-2 d-none" value="delete" name="action">Delete</button>
         <div id="submit-btn-message" class="invalid-feedback small d-none">Correct the invalid entries and retry.</div>
         <script>
         (function() {

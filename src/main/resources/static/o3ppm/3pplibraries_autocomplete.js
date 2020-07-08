@@ -116,6 +116,9 @@ function autocompleteLibraryVersion() {
             if(suggestion != null && suggestion.data != null) {
                 $( "input[id='id']" ).val(suggestion.data.id);
                 $( "input[id='downloadUrl']" ).val(suggestion.data.downloadUrl);
+                if($( "#projectId" ).val().trim()) {
+                    $( "#deleteBtn" ).removeClass('d-none');
+                }
             }
         }
     });
@@ -123,6 +126,9 @@ function autocompleteLibraryVersion() {
     $( "input[id='version']" ).keyup(function(e){
         if(isValidEvent(e)) {
             $( "input[id='id']" ).val('');
+            if($( "#projectId" ).val().trim()) {
+                $( "#deleteBtn" ).addClass('d-none');
+            }
         }
     });
 

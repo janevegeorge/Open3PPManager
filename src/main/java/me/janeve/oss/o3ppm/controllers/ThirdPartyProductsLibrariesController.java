@@ -49,15 +49,44 @@ public class ThirdPartyProductsLibrariesController extends BaseController {
         return "3pp_libraries/details";
     }
 
-    @PostMapping("/new")
-    public String create3PPLibrary(@RequestParam String projectId, @RequestParam String releaseVersion, @Validated LibraryVersion libraryVersion) {
+    @PostMapping("/doAction")
+    public String create3PPLibrary( @RequestParam String action,
+                                    @RequestParam String projectId,
+                                    @RequestParam String releaseVersion,
+                                    @Validated LibraryVersion libraryVersion) {
 
-        logger.info("LibraryVersion: " + libraryVersion);
+        logger.info(action + " LibraryVersion: " + libraryVersion);
 
         if(libraryVersion.getLibrary().getName().trim().isEmpty() || libraryVersion.getVersion().trim().isEmpty()) {
             throw new RuntimeException("Invalid library name or version.");
         }
 
+        if(action == null || action.equalsIgnoreCase("save")) {
+            return addOrEditLibrary(projectId, releaseVersion, libraryVersion);
+        } else {
+            return deleteLibrary(projectId, releaseVersion, libraryVersion);
+        }
+
+    }
+
+    private String deleteLibrary(String projectId, String releaseVersion, LibraryVersion libraryVersion) {
+        if(projectId != null && releaseVersion != null) {
+            Project project = findProject(projectId);
+            ProjectRelease projectRelease = getProjectRelease(project, releaseVersion);
+            TreeSet<LibraryVersion> projectReleaseDependencies = projectRelease.getDependencies();
+            if(projectReleaseDependencies == null) {
+                projectReleaseDependencies = new TreeSet<>();
+            }
+            projectReleaseDependencies.removeIf(libraryVersion::equals);
+            projectRelease.setDependencies(projectReleaseDependencies);
+            projectRepository.save(project);
+            return "redirect:/projects/" + projectId + "/releases/" + releaseVersion;
+        } else {
+            return "redirect:/3pp_libraries/";
+        }
+    }
+
+    private String addOrEditLibrary(@RequestParam String projectId, @RequestParam String releaseVersion, @Validated LibraryVersion libraryVersion) {
         Library library = libraryVersion.getLibrary();
         List<LibraryVersion> libraryVersions = library.getVersions();
         if(libraryVersions == null) {
@@ -84,7 +113,6 @@ public class ThirdPartyProductsLibrariesController extends BaseController {
         } else {
             return "redirect:/3pp_libraries/";
         }
-
     }
 
 }

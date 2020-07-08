@@ -20,7 +20,6 @@
 package me.janeve.oss.o3ppm.controllers.apis;
 
 import me.janeve.oss.o3ppm.controllers.BaseController;
-import me.janeve.oss.o3ppm.entities.Library;
 import me.janeve.oss.o3ppm.entities.Project;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
